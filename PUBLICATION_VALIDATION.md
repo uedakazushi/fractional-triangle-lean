@@ -34,3 +34,6 @@ The five-page English PDF was rendered to images and visually inspected.
 The HTML navigation and mathematical rendering were also inspected in a browser.
 The original CSV uses CRLF and some historical logs have trailing spaces; these
 are retained deliberately, with Git attributes preserving the baseline bytes.
+GitHub workflow YAML and action expressions passed actionlint 1.7.7; citation
+metadata and all three author entries were parsed successfully. Actual hosted CI
+execution remains pending publication.
