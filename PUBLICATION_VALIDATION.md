@@ -32,3 +32,5 @@ review; no independent mathematical sign-off is claimed.
 
 The five-page English PDF was rendered to images and visually inspected.
 The HTML navigation and mathematical rendering were also inspected in a browser.
+The original CSV uses CRLF and some historical logs have trailing spaces; these
+are retained deliberately, with Git attributes preserving the baseline bytes.

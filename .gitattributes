@@ -1,0 +1,7 @@
+# Preserve the imported source/research baseline byte-for-byte on every platform.
+formal/** -text
+research/** -text -whitespace
+reference/** -text
+# Historical log whitespace and third-party license text are preserved deliberately.
+evidence/original/** -whitespace
+LICENSES/** -whitespace
