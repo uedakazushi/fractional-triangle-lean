@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def source_root(value=None):
     source=Path(value).resolve() if value else ROOT
-    if not (source/'formal/lean-toolchain').is_file():
+    if not (source/'formal/lean-toolchain').is_file() and not value:
         source=(ROOT/'../canonical-roots-lean').resolve()
     if not (source/'formal/lean-toolchain').is_file():
         raise ValueError('Pass --source /path/to/canonical-roots-lean')
