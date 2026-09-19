@@ -1,8 +1,40 @@
 # Publication validation
 
-Local checks on 2026-09-20, macOS arm64. The publication preparation adds
+## Theorem 1.4 extension (2026-09-20)
+
+The repository now includes `CanonicalRoots.theorem_1_4`, covering every clause
+of the requested manuscript theorem. Six new mathematical modules prove the
+missing arbitrary-polynomial converse and package the existing classification
+results. The aggregate import, audit and signature display were extended.
+The public repository metadata uses `uedakazushi/fractional-triangle-lean`;
+the Blueprint title is *Isolated hypersurface fractional triangle singularities*.
+
+- `bash scripts/verify.sh` passed: library and executable build, final signatures,
+  existing Lean tests, CLI regressions, source scan, and Blueprint checks.
+- All 1,633 requested axiom reports passed the allowlist. In particular,
+  `theorem_1_4` uses only `propext`, `Classical.choice`, and `Quot.sound`.
+  The 32 added reports are saved in `evidence/theorem-1.4-axioms.log`.
+- The CLI tests still pass on 35 legal inputs / 528 equation records and seven
+  invalid inputs; the preserved boundary-data comparisons also pass.
+- All 400 current source-manifest entries match. The 19 original research and
+  reference files are unchanged. The original 394-file manifest remains archived.
+- The Blueprint now has 34 nodes and 56 exact Lean references, all resolved and
+  axiom-checked. English HTML/PDF generation and the site check passed:
+  41 HTML files, 3,239 local links, 112 Lean links.
+- The updated seven-page English PDF was rendered and inspected, including its
+  title and the full new manuscript-theorem section.
+
+These are incremental checks using the pinned installed dependencies. A new
+full-clean dependency rebuild was not performed for this extension. The
+historical acceptance run below remains a record of the original source snapshot.
+The theorem's clause correspondence and input definitions are documented in
+`docs/THEOREM_1_4.md` and exposed by `formal/FinalSignature.lean`.
+
+## Initial publication preparation
+
+Earlier local checks on 2026-09-20, macOS arm64. The initial publication preparation added
 exposition, licensing, provenance checks, Blueprint tooling and GitHub workflows;
-it does not change the existing Lean proof sources or research files.
+at that stage it did not change the existing Lean proof sources or research files.
 
 - 394 baseline files in formal/, research/ and reference/ matched their original bytes.
 - The pinned Lean project and executable built successfully in the new checkout.

@@ -3,7 +3,8 @@
 1. Build from the pinned toolchain and manifest. Run `bash scripts/verify.sh`.
    For an independent full rebuild, use an ordinary separate checkout and
    `bash scripts/acceptance.sh`; it runs `lake clean`, including dependencies.
-2. Open `formal/CanonicalRoots/Final.lean`. Run `cd formal` followed by
+2. Open `formal/CanonicalRoots/Final.lean` and `formal/CanonicalRoots/TheoremOneFour.lean`.
+   Run `cd formal` followed by
    `lake env lean FinalSignature.lean`. Inspect all arguments, not just conclusions.
 3. Follow `Target` to `Target.lean` and `Semantics.lean`. Check the genuine complex
    quotient, torsion-retaining degree group, root equation, all-point isolatedness,
@@ -21,11 +22,13 @@
 7. Read Blueprint hypotheses against the linked source. Neither `\leanok` nor the
    declaration-existence check certifies the accuracy of natural-language prose.
 
-The repository ships the original final logs under `evidence/original/` and a
-byte-preservation manifest at `evidence/source-manifest.json`. Run
-`python3 scripts/verify_sources.py` to check the preserved baseline. After an
-intentional future source change, review and replace that baseline explicitly;
-do not claim it still matches the old proof snapshot.
+The repository ships the original final logs and source manifest under
+`evidence/original/`. The current reviewed source snapshot is
+`evidence/source-manifest.json`. Run `python3 scripts/verify_sources.py` to
+check its hashes, completeness of the Lean source inventory, and preservation of
+the original research and reference files. Theorem 1.4 deliberately extends the
+original formal snapshot; see `docs/THEOREM_1_4.md`. Future source changes require
+an explicit review and manifest update after verification.
 
 For the Japanese companion, check its pinned commit against this repository's
 `git rev-parse HEAD`, then use its `scripts/check_blueprint.py --source PATH --lean`.

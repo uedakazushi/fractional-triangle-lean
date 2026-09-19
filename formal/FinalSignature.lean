@@ -1,4 +1,5 @@
 import CanonicalRoots.Final
+import CanonicalRoots.TheoremOneFour
 
 #print CanonicalRoots.Input
 #print CanonicalRoots.Target
@@ -12,3 +13,9 @@ import CanonicalRoots.Final
 #check CanonicalRoots.enumerate_complete
 #check CanonicalRoots.enumerate_pairwise_nonisomorphic
 #check CanonicalRoots.cli_payload_correct
+
+/- Manuscript v01, Theorem 1.4: definitions and all six quantified clauses. -/
+#print CanonicalRoots.InvertiblePolynomial
+#print CanonicalRoots.InvertiblePolynomial.IsPrincipal
+#print CanonicalRoots.HigherRootRigidity
+#check CanonicalRoots.theorem_1_4

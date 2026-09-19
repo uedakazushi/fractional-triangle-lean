@@ -24,6 +24,14 @@ The actual Lean types are authoritative. No classification bridge, normal-form
 existence, Cox lift or fixed-ring identification is an unproved public hypothesis.
 The predicate `EquationRealizes` does not define its domain through list membership.
 
+`theorem_1_4` additionally states all six clauses of the manuscript's Theorem 1.4.
+Its independent `InvertiblePolynomial` input specifies an actual sum of nonzero
+monomials, a nonsingular natural exponent matrix, positive weighted homogeneity,
+no constant or linear terms, and isolatedness. Atomic support, coefficient
+normalization, and root realization are proved. `IsPrincipal` means primitive
+weights and absolute determinant equal to the degree; it does not mean membership
+in the classifier. See [the full correspondence](docs/THEOREM_1_4.md).
+
 JSON text parsing/printing, runtime execution, OS output and external hashes are
 outside the pure payload theorem. The decoder restores the EquationData fields;
 redundant display fields are not a byte-authentication contract. Concrete whole-list

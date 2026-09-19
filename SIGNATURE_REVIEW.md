@@ -14,6 +14,10 @@ graded ring equivalence, not merely matching weights.
 `#print axioms` traverses the proof dependencies. Only `propext`, `Classical.choice`
 and `Quot.sound` are allowed. An allowlist pass cannot establish that a definition
 captures the intended mathematical notion, nor that hypotheses are noncircular.
+For `theorem_1_4`, also expand `InvertiblePolynomial`, its `IsPrincipal`
+predicate, and `HigherRootRigidity`. The forward direction changes the
+presentation; the converse returns the input polynomial itself with its exact
+weights and degree. No atomic-type hypothesis is added to the converse.
 The original detailed Japanese self-review is preserved in
 `docs/archive/SIGNATURE_REVIEW.md`. The Blueprint gives a reading route and links to
 exact declarations; its graph is manually curated and its prose is not kernel-checked.

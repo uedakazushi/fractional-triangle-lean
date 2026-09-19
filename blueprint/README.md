@@ -13,6 +13,6 @@ compiled Lean environment. This replaces the optional upstream `checkdecls` help
 it does not claim that `leanblueprint checkdecls` is configured at repository root.
 Use the repository build commands in the README rather than `leanblueprint new`.
 
-The 27-node map is a curated overview with proof sketches, not exhaustive theorem
+The 34-node map is a curated overview with proof sketches, not exhaustive theorem
 coverage or automated validation of the natural-language statements. Both editions
 share the exact same declaration and edge manifest.

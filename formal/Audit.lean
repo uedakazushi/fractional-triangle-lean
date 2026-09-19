@@ -2,6 +2,40 @@ import OutputCertificates
 import CanonicalRoots
 import Certificates
 
+/- Manuscript Theorem 1.4 and its new supporting declarations. -/
+#print axioms CanonicalRoots.InvertiblePolynomial
+#print axioms CanonicalRoots.InvertiblePolynomial.exponentMatrix
+#print axioms CanonicalRoots.InvertiblePolynomial.IsPrincipal
+#print axioms CanonicalRoots.InvertiblePolynomial.exponent_injective
+#print axioms CanonicalRoots.InvertiblePolynomial.coeff_exponent
+#print axioms CanonicalRoots.InvertiblePolynomial.degree_equations
+#print axioms CanonicalRoots.InvertiblePolynomial.exists_exponent_of_coeff_ne_zero
+#print axioms CanonicalRoots.exponent_torus_surjective
+#print axioms CanonicalRoots.diagonalPolynomialMap
+#print axioms CanonicalRoots.diagonalPolynomialMap_monomial
+#print axioms CanonicalRoots.diagonalPolynomialEquiv
+#print axioms CanonicalRoots.diagonalPolynomialMap_homogeneous
+#print axioms CanonicalRoots.presentedGradedDiagonal
+#print axioms CanonicalRoots.axisSupportExponent_main
+#print axioms CanonicalRoots.axisSupportExponent_other_le_one
+#print axioms CanonicalRoots.axisSupportExponent_injective
+#print axioms CanonicalRoots.InvertiblePolynomial.ternary_support
+#print axioms CanonicalRoots.axisKind_exponent
+#print axioms CanonicalRoots.InvertiblePolynomial.ternary_cox_matrix
+#print axioms CanonicalRoots.InvertiblePolynomial.ternary_principal_candidate
+#print axioms CanonicalRoots.InvertiblePolynomial.normalize_coefficients
+#print axioms CanonicalRoots.principal_ternary_invertible_realization
+#print axioms CanonicalRoots.candidateInvertiblePolynomial
+#print axioms CanonicalRoots.candidateInvertiblePolynomial_principal
+#print axioms CanonicalRoots.fermatInvertiblePolynomial
+#print axioms CanonicalRoots.fermatInvertiblePolynomial_determinant
+#print axioms CanonicalRoots.canonical_root_invertible_presentation
+#print axioms CanonicalRoots.Target.higher_root_index_maximal
+#print axioms CanonicalRoots.HigherRootRigidity
+#print axioms CanonicalRoots.higher_canonical_root_rigidity
+#print axioms CanonicalRoots.ternary_signature_unique
+#print axioms CanonicalRoots.theorem_1_4
+
 /- Algebraic completion, extended ideals and actual local rings. -/
 #print axioms CanonicalRoots.adicScalarQuotientEquiv
 #print axioms CanonicalRoots.adicScalarQuotientEquiv_mk

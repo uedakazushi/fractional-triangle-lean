@@ -84,3 +84,4 @@ import CanonicalRoots.CanonicalParameter
 import CanonicalRoots.Final
 
 import CanonicalRoots.OutputCertificateChecker
+import CanonicalRoots.TheoremOneFour

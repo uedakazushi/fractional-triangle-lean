@@ -318,5 +318,91 @@ The equation-list checker returns true exactly when the supplied list equals the
 Unfold the Boolean equality check and use decidable equality of the full equation-data lists. Concrete whole-list certificates are supplied in the separate OutputCertificates module.
 \end{proof}
 
+\section{Manuscript Theorem 1.4}
+
+\begin{definition}[Invertible polynomials and principal presentations]
+\label{def:invertible}
+\lean{CanonicalRoots.InvertiblePolynomial, CanonicalRoots.InvertiblePolynomial.IsPrincipal, CanonicalRoots.InvertiblePolynomial.degree_equations}
+\leanok
+An invertible polynomial is an actual polynomial $f=\sum_{i=1}^n c_i z^{E_i}$ with $c_i\ne0$, $E\in M_n(\mathbb N)$ nonsingular, positive weights, no constant or linear terms, and an isolated critical point at the origin. A principal presentation additionally has primitive weights and $|\det E|=h$. Homogeneity implies $Ew=h\mathbf1$: nonsingularity makes the rows distinct, so none of the stated monomial coefficients can cancel.
+\end{definition}
+\begin{proof}
+\leanok
+\uses{def:target}
+These are direct polynomial and matrix conditions. They contain no root-ring realization, atomic classification, or membership in a candidate list.
+\end{proof}
+
+\begin{theorem}[Normalizing arbitrary nonzero coefficients]
+\label{thm:diagonal}
+\lean{CanonicalRoots.exponent_torus_surjective, CanonicalRoots.presentedGradedDiagonal}
+\leanok
+For every nonsingular natural exponent matrix $E$, the monomial map $(\mathbb C^\times)^n\to(\mathbb C^\times)^n$ is surjective. Diagonal changes of variables induce actual graded equivalences of the principal quotient rings.
+\end{theorem}
+\begin{proof}
+\leanok
+\uses{def:invertible}
+Solve $Ev=\log c$ over $\mathbb C$ and exponentiate coordinatewise. The polynomial substitution and its inverse preserve every weighted homogeneous component; their induced quotient maps are inverse graded algebra equivalences.
+\end{proof}
+
+\begin{theorem}[Five supports for a ternary invertible polynomial]
+\label{thm:invertible-support}
+\lean{CanonicalRoots.InvertiblePolynomial.ternary_support, CanonicalRoots.InvertiblePolynomial.ternary_cox_matrix}
+\leanok
+An arbitrary ternary invertible polynomial of positive defect has one of the five atomic supports after permutations of its terms and variables. Its exponent matrix becomes the corresponding Cox matrix by those permutations.
+\end{theorem}
+\begin{proof}
+\leanok
+\uses{def:invertible}
+Isolatedness supplies three distinct axis monomials with main exponents at least two. Since there are exactly three terms, these exhaust the support. Either branched pattern would require an additional nonzero link monomial and is therefore impossible. Row and column permutations preserve the absolute determinant.
+\end{proof}
+
+\begin{theorem}[Principal invertible presentation of every root]
+\label{thm:principal-presentation}
+\lean{CanonicalRoots.canonical_root_invertible_presentation, CanonicalRoots.Target.higher_root_index_maximal}
+\leanok
+Every isolated hypersurface root admits an actual graded-isomorphic invertible presentation with primitive weights, $|\det E|=h$, and $h-\sum_i w_i=\delta$. In at least four variables every other positive root index divides $\delta$, hence is at most $\delta$.
+\end{theorem}
+\begin{proof}
+\leanok
+\uses{thm:ternary-model,thm:higher-criterion,def:invertible}
+Use the realized Cox candidate for three variables and the Fermat presentation for higher dimensions. Primitivity and the defect identity come from the root's Hilbert series. In higher dimensions the signature index equals $\delta$, so the general root arithmetic proves divisibility and maximality.
+\end{proof}
+
+\begin{theorem}[Converse for the given ternary polynomial]
+\label{thm:invertible-converse}
+\lean{CanonicalRoots.principal_ternary_invertible_realization}
+\leanok
+Every ternary invertible polynomial with primitive weights, $|\det E|=h$, and $h-\sum_iw_i=\delta>0$ is the defining polynomial of an actual canonical-root presentation with those exact weights and degree. Nonzero coefficients are arbitrary.
+\end{theorem}
+\begin{proof}
+\leanok
+\uses{thm:diagonal,thm:invertible-support,thm:ternary-model}
+The five-support theorem gives row and variable permutations. Determinant equality forces the Cox weights to equal the given primitive weights. Normalize coefficients by a diagonal change, realize the resulting Cox polynomial, and transport the graded equivalence back to the original polynomial.
+\end{proof}
+
+\begin{theorem}[Signature uniqueness and higher-dimensional rigidity]
+\label{thm:manuscript-rigidity}
+\lean{CanonicalRoots.higher_canonical_root_rigidity, CanonicalRoots.ternary_signature_unique}
+\leanok
+Graded-isomorphic ternary roots with the same positive index have the same signature multiset. In at least four variables an isolated root satisfies $R=T$ and has a primitive Fermat presentation with $h=\prod_i p_i$ and $w_i=h/p_i$; its positive root index is maximal.
+\end{theorem}
+\begin{proof}
+\leanok
+\uses{thm:higher-criterion,thm:principal-presentation,thm:ternary-model}
+Recover the ternary signature from its Hilbert function. Apply the higher-dimensional coprimality and product-defect criterion to obtain the actual full ambient subalgebra and Fermat graded presentation.
+\end{proof}
+
+\begin{theorem}[Manuscript Theorem 1.4]
+\label{thm:one-four}
+\lean{CanonicalRoots.theorem_1_4}
+\leanok
+The six conjuncts of \texttt{theorem\_1\_4} formalize Theorem 1.4 on page 4 of \texttt{canonical\_root\_isolated\_ja\_v01.pdf}: principal invertible presentations in every dimension, the converse for all ternary invertible polynomials, uniqueness of the ternary signature up to permutation, uniqueness of the root, the higher-dimensional arithmetic criterion, and its rigidity conclusions. The parameter \texttt{a} in Lean denotes $\delta$.
+\end{theorem}
+\begin{proof}
+\leanok
+\uses{thm:principal-presentation,thm:invertible-converse,thm:manuscript-rigidity,thm:root-arithmetic}
+Combine the preceding presentation, converse, and rigidity results with root uniqueness. The higher-dimensional existence criterion is pairwise coprimality and $\prod_i p_i-\sum_i\prod_{j\ne i}p_j=\delta$. The theorem does not impose the principal determinant condition on every possible equation for the same ring.
+\end{proof}
+
 \section*{Verification and sources}
 Run the repository verification script and inspect the final theorem signatures as described in docs/VERIFICATION.md. The preserved research manuscript and historical self-audit are in the English repository; they are proof candidates and provenance, not axioms. The build uses Patrick Massot's \href{https://github.com/PatrickMassot/leanblueprint}{Lean Blueprint} package with plasTeX and Graphviz.

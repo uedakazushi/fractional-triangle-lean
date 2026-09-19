@@ -1,4 +1,4 @@
-# Canonical-root hypersurfaces in Lean
+# Isolated hypersurface fractional triangle singularities
 
 **Canonical English source edition.** A Lean implementation of the classification
 of isolated hypersurface canonical-root algebras over ℂ, up to graded ℂ-algebra
@@ -10,6 +10,9 @@ The domain is a specific family of root algebras, not all isolated hypersurfaces
 The final four theorem declarations are in
 [`formal/CanonicalRoots/Final.lean`](formal/CanonicalRoots/Final.lean).
 The [semantic contract](SPEC_CONTRACT.md) explains their quantifiers and boundaries.
+Manuscript Theorem 1.4 is also formalized as `CanonicalRoots.theorem_1_4` in
+[`formal/CanonicalRoots/TheoremOneFour.lean`](formal/CanonicalRoots/TheoremOneFour.lean).
+See the [clause-by-clause correspondence](docs/THEOREM_1_4.md).
 The historical clean build and axiom audit are preserved as evidence; an independent
 human mathematical sign-off has not been recorded. New publication checks are
 reported separately in [PUBLICATION_VALIDATION.md](PUBLICATION_VALIDATION.md).
@@ -47,7 +50,7 @@ python3 scripts/verify_all_axioms.py validation/final/axioms.log
 ```
 
 The first command builds the library/executable, checks final signatures and tests,
-audits 1,601 declarations, runs the CLI regressions and verifies Blueprint references.
+audits 1,633 declarations, runs the CLI regressions and verifies Blueprint references.
 The full-clean gate cleans dependencies too. Do not run it against a shared
 symlinked `.lake/packages` cache. Use a standalone checkout with its own dependencies.
 [Manual verification](docs/VERIFICATION.md) explains the difference between axiom
@@ -81,7 +84,12 @@ an exact canonical commit. It does not duplicate the proof library. Its
 `publication.json`; [publication setup](docs/PUBLISHING.md) explains configuration.
 No remote repository or public deployment is created by a local build.
 
-`research/` and original formal sources are preserved byte for byte; old Japanese
-self-audits are under `docs/archive/`, with their historical status made explicit.
+`research/` and `reference/` are preserved byte for byte. Theorem 1.4 extends the
+formal sources; the original snapshot and the current reviewed manifest are
+recorded separately. Old Japanese self-audits are under `docs/archive/`, with
+their historical status made explicit.
 Code is [Apache-2.0](LICENSE); exposition is [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
 Use [CITATION.cff](CITATION.cff) and include the exact canonical commit when citing.
+
+<!-- EDITION_LINKS -->
+[English source](https://github.com/uedakazushi/fractional-triangle-lean) · [日本語解説](https://github.com/uedakazushi/fractional-triangle-lean-ja)
