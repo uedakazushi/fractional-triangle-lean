@@ -65,7 +65,7 @@ def inspect(source):
         if lock['commit']!=head:raise ValueError('Wrong canonical commit; check upstream.lock.json')
         manifest=source/'evidence/source-manifest.json'
         if hashlib.sha256(manifest.read_bytes()).hexdigest()!=lock['source_manifest_sha256']:
-            raise ValueError('Canonical manifest does not match the companion pin')
+            raise ValueError('Canonical manifest does not match the declared source pin')
         dirty=subprocess.check_output(['git','-C',str(source),'status','--porcelain','--untracked-files=no','--','formal','blueprint/nodes.json','evidence/source-manifest.json'],text=True)
         if dirty:raise ValueError('Canonical source has uncommitted changes')
         hashes=json.loads(manifest.read_text())

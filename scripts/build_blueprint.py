@@ -54,7 +54,7 @@ def main():
         body+='<li><a href="blueprint.pdf">PDF</a></li>'
     body+='</ul><p>'+('Lean のビルド・公理監査と、数学的な意味の人手レビューは別々に確認してください。' if ja else 'Lean compilation and axiom audits are distinct from human review of the mathematical meaning.')+'</p>'
     meta=json.loads((ROOT/'publication.json').read_text())
-    for label in ('repository_url','companion_url'):
+    for label in (('repository_url','companion_url') if ja else ('repository_url',)):
         if meta.get(label):body+='<p><a href="'+html.escape(meta[label],quote=True)+'">'+label.replace('_',' ')+'</a></p>'
     if ja:
         lock=json.loads((ROOT/'upstream.lock.json').read_text());body+='<p>Canonical commit: <code>'+lock['commit']+'</code></p>'

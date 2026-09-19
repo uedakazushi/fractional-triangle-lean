@@ -1,4 +1,4 @@
-# Manuscript Theorem 1.4
+# The Invertibility and Rigidity Theorem
 
 The formal declaration is `CanonicalRoots.theorem_1_4` in
 [`TheoremOneFour.lean`](../formal/CanonicalRoots/TheoremOneFour.lean).

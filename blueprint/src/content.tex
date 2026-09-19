@@ -1,5 +1,5 @@
 \section*{Scope and reading guide}
-This blueprint is a curated mathematical map to the existing Lean declarations, not a complete transcription of every supporting lemma. The graph records explanatory dependencies; it is not an automatically extracted proof-term dependency graph. The English repository is the canonical formal source. The Japanese companion explains a fixed commit of that source and contains no duplicate proof library.
+This blueprint is a curated mathematical map to the existing Lean declarations, not a complete transcription of every supporting lemma. The graph records explanatory dependencies; it is not an automatically extracted proof-term dependency graph. The repository is the canonical formal source.
 
 Read the independent domain first, then the two dimension branches and the four final theorems. Each Lean button resolves to an exact source declaration. These pages are a source browser, not doc-gen API documentation. A green node records a declaration present in the checked build and an editorial correspondence to the prose. It does not certify the accuracy of that prose. Independent human mathematical sign-off has not been recorded.
 
@@ -318,7 +318,7 @@ The equation-list checker returns true exactly when the supplied list equals the
 Unfold the Boolean equality check and use decidable equality of the full equation-data lists. Concrete whole-list certificates are supplied in the separate OutputCertificates module.
 \end{proof}
 
-\section{Manuscript Theorem 1.4}
+\section{The Invertibility and Rigidity Theorem}
 
 \begin{definition}[Invertible polynomials and principal presentations]
 \label{def:invertible}
@@ -392,11 +392,11 @@ Graded-isomorphic ternary roots with the same positive index have the same signa
 Recover the ternary signature from its Hilbert function. Apply the higher-dimensional coprimality and product-defect criterion to obtain the actual full ambient subalgebra and Fermat graded presentation.
 \end{proof}
 
-\begin{theorem}[Manuscript Theorem 1.4]
+\begin{theorem}[The Invertibility and Rigidity Theorem]
 \label{thm:one-four}
 \lean{CanonicalRoots.theorem_1_4}
 \leanok
-The six conjuncts of \texttt{theorem\_1\_4} formalize Theorem 1.4 on page 4 of \texttt{canonical\_root\_isolated\_ja\_v01.pdf}: principal invertible presentations in every dimension, the converse for all ternary invertible polynomials, uniqueness of the ternary signature up to permutation, uniqueness of the root, the higher-dimensional arithmetic criterion, and its rigidity conclusions. The parameter \texttt{a} in Lean denotes $\delta$.
+The six conjuncts of \texttt{theorem\_1\_4} formalize the central invertibility and rigidity result: principal invertible presentations in every dimension, the converse for all ternary invertible polynomials, uniqueness of the ternary signature up to permutation, uniqueness of the root, the higher-dimensional arithmetic criterion, and its rigidity conclusions. The parameter \texttt{a} in Lean denotes $\delta$.
 \end{theorem}
 \begin{proof}
 \leanok

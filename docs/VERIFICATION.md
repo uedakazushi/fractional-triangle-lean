@@ -29,7 +29,3 @@ check its hashes, completeness of the Lean source inventory, and preservation of
 the original research and reference files. Theorem 1.4 deliberately extends the
 original formal snapshot; see `docs/THEOREM_1_4.md`. Future source changes require
 an explicit review and manifest update after verification.
-
-For the Japanese companion, check its pinned commit against this repository's
-`git rev-parse HEAD`, then use its `scripts/check_blueprint.py --source PATH --lean`.
-The companion contains no separate copy of the formalization.
