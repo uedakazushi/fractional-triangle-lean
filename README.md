@@ -75,7 +75,7 @@ type or for human review. See [Blueprint details](blueprint/README.md).
 
 ## Japanese companion and publication
 
-The separate `canonical-roots-lean-ja` repository contains Japanese exposition of
+The separate `fractional-triangle-lean-ja` repository contains Japanese exposition of
 an exact canonical commit. It does not duplicate the proof library. Its
 `upstream.lock.json` records that commit. Repository URLs are kept in
 `publication.json`; [publication setup](docs/PUBLISHING.md) explains configuration.
