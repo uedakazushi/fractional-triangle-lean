@@ -1,0 +1,7899 @@
+{
+  "scope": "All declarations listed in Audit.lean, including the four final theorems",
+  "source_log": "validation/final/axioms.log",
+  "declarations": {
+    "CanonicalRoots.adicScalarQuotientEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicScalarQuotientEquiv_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicScalarQuotientEquiv_transition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicScalarExtensionEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicScalarExtensionEquiv_of": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicAlgebraQuotientMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicAlgebraMapLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicAlgebraMapLinear_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicAlgebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicAlgebraMap_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicAlgebraMap_id": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicAlgebraMap_comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicBaseQuotientMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicBaseMapLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicBaseMapLinear_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicBaseMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicAlgebraMap_comp_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientRootAlgHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientRootAlgHom_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientRootAlgHom_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.AmbientRootCompletion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completedRootCharacterHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completedRootCharacterHom_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completedRootCharacterHom_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completedRootCharacterEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completedRootCharacterAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completedRootCharacterHom_conjugate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completedRootFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedFixedMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedFixedMap_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedFixedMap_bijective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedAlgebraEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localAdicQuotientEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localAdicQuotientEquiv_transition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localCompletionEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCompletionEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootLocalCompletedRingEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicRepresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.invariantProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.invariantProjection_comp_subtype": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.subtype_comp_invariantProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adic_invariants_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adic_invariants_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adic_averageMap_eq_self": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adic_invariants_range": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicInvariantsEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientRootLinearAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientRootRepresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootInvariantLinearEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootInvariantLinearEquiv_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletionEquivFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletionEquivFixed_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedInclusion_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompleted_fixed_iff_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterValue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterValue_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterValue_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterValue_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterValue_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterValue_nsmul_tau": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterHom_of_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterHom_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterHom_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterHom_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterEquiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientCharacterFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootSubalgebra_le_characterFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientProjection_characterHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientProjection_eq_decompose": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_eq_bot_of_rationalDegree_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_le_root_of_mem_zmultiples": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fixed_nonzero_projection_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootSubalgebra_eq_characterFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootRingEquivCharacterFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterDegree_tau": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacter_coordinate_equations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacter_ext": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeDegreeCharacter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeDegreeCharacter_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeDegreeCharacter_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeCharacterOfCoordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeCharacterOfCoordinates_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeCharacterOfCoordinates_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeCharacterOfCoordinates_tau": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterOfCoordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterOfCoordinates_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacter_coordinates_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointStabilizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_rootPointStabilizer_iff_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_rootPointStabilizer_iff_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateUnits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateUnits_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateUnits_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateUnits_other": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateUnits_prod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateUnits_powers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateCharacter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateCharacter_degree_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateCharacter_mem_stabilizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateStabilizer_shape": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateStabilizerEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinateStabilizer_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPoint_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCoordinatePoint_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacterMulSemiringAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacter_smulCommClass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_isInvariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambient_integral_over_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambient_finite_over_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambient_primes_over_root_transitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.stabilizer_preserves_primeCompl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointLocalCharacterEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointLocalCharacterEquiv_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointLocalCharacterAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointLocalMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointLocalMap_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointLocalMap_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCoordinatePower_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootOriginPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPoint_ne_origin_of_coordinate_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicSplitPolynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicSplitPolynomial_monic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicSplitPolynomial_natDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicAdjoinEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPowerBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPowerBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicMonomialBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicMonomialBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPolynomialMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPolynomialMap_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientMap_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicImageExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicImageExponent_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientMap_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicImageExponent_range_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coeff_cyclicQuotientMap_eq_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_cyclicQuotientMap_range_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPlaneHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicMonomialValue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPlaneHom_monomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPlaneHom_coeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPlaneFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicMonomialValue_all_one_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_cyclicPlaneFixed_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientMap_range_eq_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientEquivFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationEquiv_primeCompl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationLocalEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPlaneOrigin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientEquivFixed_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientEquivFixed_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicInvariantOriginEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicPlaneFixed_origin_not_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_polynomialOriginIdeal_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.noConstantOrLinear_iff_mem_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.originLinearPart_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.originCotangentLinear_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.originCotangentLinear_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialOriginCotangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialOriginCotangent_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.quotientCotangentMap_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.quotientCotangentMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.quotientCotangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presented_ker_le_origin_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginCotangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginCotangent_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.cotangent_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedAugmentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedAugmentation_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginIdeal_eq_ker": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedAugmentation_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginIdeal_isMaximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cotangent_finrank_le_of_augmented_surjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cotangent_finrank_le_of_surjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presented_minimum_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.minimum_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.root_minimum_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.exists_minimal_surjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presented_variables_eq_of_algEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localCotangentMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localCotangentMap_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localCotangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localResidueEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentation_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationKer_isMaximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationLocalResidueEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationLocalCotangent_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedLocalCotangent_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presented_krullDim_succ_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedLocal_krullDim_succ_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presented_origin_not_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientEquation_noConstantOrLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotientEquation_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicQuotient_origin_not_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.origin_not_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_group_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatIdeal_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.component_mem_fermatIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientProjection_of_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPieces_internal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientGradedAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootProjection_of_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPieces_internal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootGradedAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientAdjoinEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.splitPowerBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientMonomialBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientMonomialBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientMonomialBasis_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_eq_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPieceBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPieceBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPieceEquivAmbient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPieceBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monomialDegree_normal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monomialDegree_eq_normal_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pieceIndex_normal_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pieceIndex_nat_normal_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pieceIndexEquivCompositions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPieceSymBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_finrank_nat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_eq_bot_of_negative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.normalDegree_normalize": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootResidue_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootDegree_normal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootHilbert_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCarry_residue_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootCarry_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rationalDegree_normal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCarry_rational": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_zero_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.exponentBoxEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPowerBoxIndexEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPowerBoxBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPowerBoxBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boxComplement": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boxDegree_complement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerBoxDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monomialDegree_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBox_complement_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxComplement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxDegree_complement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootModule_eq_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.box_root_shift_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerBoxIndexEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerBoxBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerBoxBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerBoxBasis_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_scale_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_nat_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootBoxBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_kinds": [
+      "propext"
+    ],
+    "CanonicalRoots.mem_ternaryBox": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerateTernaryCandidates_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Counterexamples.branched_has_nonzero_critical_point": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Counterexamples.branched_not_isolated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Counterexamples.branched_determinant_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Counterexamples.nonprincipal_fermat_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Counterexamples.nonprincipal_fermat_weights": [
+      "propext"
+    ],
+    "CanonicalRoots.Counterexamples.nonmaximal_root_numbers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degree_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.lattice_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.certificate_row_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.integral_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.substitution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.multiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.group_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.environment_ring_identity": [
+      "propext"
+    ],
+    "CanonicalRoots.Cox.fermat_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.fermat_coordinate_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.product_sum_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.exponent_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.intProduct_nil": [
+      "propext"
+    ],
+    "CanonicalRoots.intProduct_cons": [
+      "propext"
+    ],
+    "CanonicalRoots.intProduct_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinate_le_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cofactorSum_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cofactor_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completion_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.next_defect_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.next_coordinate_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.last_coordinate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherSearch_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerateHigherCandidates_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.compatible_lower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherSearch_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerateHigherCandidates_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherSearch_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.compatible_coprime_pref": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.compatible_pairwise": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.compatible_of_conditions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.compatible_empty_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerateHigherCandidates_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeRationalDegree_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeRationalDegree_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rationalDegree_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rationalDegree_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rationalDegree_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_degree_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_multiples_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_eq_top_of_degrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degree_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.example_generator_degrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.example_root_is_actual_ambient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.example_signature_admissible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.example_is_canonical_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.example_isolated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootModule_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootModule_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_pderiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_isolated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Certificates.ternary_1_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Certificates.ternary_2_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Certificates.ternary_3_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Certificates.ternary_4_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Certificates.ternary_5_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Certificates.ternary_6_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Certificates.higher_4_1_entire_list": [
+      "propext"
+    ],
+    "CanonicalRoots.Certificates.higher_4_5_entire_list": [
+      "propext"
+    ],
+    "CanonicalRoots.Certificates.higher_4_25_entire_list": [
+      "propext"
+    ],
+    "CanonicalRoots.Certificates.higher_5_1_entire_list": [
+      "propext"
+    ],
+    "CanonicalRoots.example_root_equiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.relationMap_eq_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeRelations_eq_range": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degree_eq_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.normalDegree_expression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.normalDegree_eq_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degree_normal_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.bounded_residue_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degree_normal_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.nsmul_normalDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.omega_normalDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_normal_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degree_nsmul_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeNumerator_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeNumerator_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.numeratorDegree_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.numeratorDegree_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.numeratorDegree_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.denominator_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_index_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_of_index": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signature_dvd_lcm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signature_lcm_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_coprime_lcm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_exists_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monomial_weight_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.homogeneous_root_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_eq_presentedPiece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productWeights_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productWeights_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signature_dvd_other_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signature_coprime_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coprime_torsion_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productWeights_div": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_generator_degrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_root_eq_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.product_defect_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_root_exists_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.product_defect_admissible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_product_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_no_constant_or_linear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_root_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootGradedAmbientEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.example_root_graded_equiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherRootGradedEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherRootPresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.regroup_linearCombination_bijective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.regroupBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.regroupBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerSubstitution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerSubstitution_monomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPower_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerGenerator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerHom_comp_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerHom_monomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerHom_mul_box": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPolynomialBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPolynomialBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxZero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerHom_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerGenerator_algebraicIndependent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerSubalgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerSubalgebra_eq_adjoin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerSubalgebraEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFiniteFreeBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFiniteFreeBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFiniteFreeBasis_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_finite_over_powerSubalgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_free_over_powerSubalgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootScale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootScale_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalPowerSubalgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalPowerSubalgebraEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootFiniteFreeBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootFiniteFreeBasis_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootFiniteFreeBasis_degree_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_finiteType": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_noetherian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootBoxPieceIndex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_eq_span_box": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPieceBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_finrank_box": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.WeightedCompositions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedCompositionsEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedCompositionCount": [
+      "propext"
+    ],
+    "CanonicalRoots.weightedCompositions_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPieceIndexEquivSigma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_finrank_box_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootHilbertSeries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxNumerator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.invOneSubPow_coeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedCompositionCount_coeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootHilbertSeries_eq_box": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootHilbertSeries_mul_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootHilbertSeries_mul_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxValue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxValue_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootHilbertRationalValue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootHilbertRational": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxValue_reciprocal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootHilbertRationalValue_reciprocal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootHilbertSeries_eq_rational": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootHilbertSeries_eq_rational": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootHilbertRational_reciprocal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPower_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPowerGenerator_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCarry_lower_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCarry_eventually_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.normalHilbertCoefficient_pos": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_eventually_finrank_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_eventually_ne_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weight_dvd_of_weights_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedPiece_eq_bot_of_not_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedPiece_eq_bot_of_not_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.GradedAlgEquiv.piece_eq_bot_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.weights_common_divisor_eq_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.weights_gcd_eq_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedComponent_mul_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedPiece_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedQuotientMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedQuotientMap_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedPiece_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedMultiply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedMultiply_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedQuotientMap_ker": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedQuotientMap_injective_below": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedPiece_finrank_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.WeightedExponentIndex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedPolynomialPieceBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedPolynomialPiece_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedAntidiagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_weightedAntidiagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedExponentEquivAntidiagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedPolynomialHilbertSeries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedGeometricSeries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedGeometricSeries_coeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedPolynomialHilbertSeries_eq_geometric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedPolynomialHilbertSeries_mul_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedHilbertSeries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedHilbertSeries_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedHilbertSeries_mul_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.GradedAlgEquiv.pieceEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.hilbertSeries_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.hilbertSeries_mul_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPolynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPolynomial_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPolynomial_coeff_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPolynomial_coeff_top_eq_coeff_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPolynomial_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPolynomial_natDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.one_sub_X_pow_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.one_sub_X_pow_natDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedDenominator_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedDenominator_natDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.hilbert_polynomial_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.relationDegree_eq_add_sum_weights_of_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.geometricPolynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.one_sub_X_pow_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.geometricPolynomial_eval_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxPolynomial_eval_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedDenominator_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.box_card_mul_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.relationDegree_eq_add_sum_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.weights_gcd_eq_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.relationDegree_eq_add_sum_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boxCoordinatesEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boxDegree_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.box_integer_root_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.box_mem_root_iff_integer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.sumFiberEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boundedResidueEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.BoundedSumFiber": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boundedSumFiberEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boundedSumFiber_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootResidueVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootResidueVector_cast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCarry_residue_mod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootResidueVector_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootBoxParameters": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxParameterMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxParameterMap_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxParameterMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxParameterMap_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxParametersEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBoxParameters_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootBox_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootBox_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootScale_eq_lcm_mul_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_rationalDegree_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.relationDegree_div_prod_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.relationDegree_div_prod_weights_explicit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.relationDegree_div_prod_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.numerical_identities": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.integral_prime_comap_strictMono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.integral_ringKrullDim_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.integral_ringKrullDim_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_krullDim": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.root_krullDim": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootDegreeQuotientMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootDegreeQuotientMap_tau": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootDegreeQuotientMap_normal_mod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootDegreeQuotient_finite_of_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootDegreeQuotient_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootCharacters_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacters_separate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCharacters_trivial_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.liesOver_maximal_iff_map_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.radical_map_eq_iInf_primesOver": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_primesOver_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_primesOver_maximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_fiber_radical_power": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicRefinementQuotient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicRefinementQuotient_transition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicRefinement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicRefinement_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicRefinement_self": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicRefinement_comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicCofinalEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicRadicalEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finite_coprime_iInf_eq_prod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finite_coprime_iInf_pow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicChineseQuotientEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicChineseQuotientEquiv_transition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicChineseRemainderEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealCongr": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finiteFiberCompletionEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finiteFiberLocalCompletionEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFiberLocalCompletionEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealQuotientMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMap_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMap_id": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMap_comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cofinalChinese_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finiteFiberProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finiteFiberCompletionEquiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fiberPrimeEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fiberCompletionTransport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finiteFiberProjection_equivariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finiteFiberCompletionEquiv_equivariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finiteFiberProjection_equivariant_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientRootAlgEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientRootAlgEquiv_toAlgHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFiberPrime_transitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedFixed_projection_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.automorphism_orbit_sum_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.exists_fixed_of_supported_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentation_map_kernel_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFiberPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFiberPoint_stabilizer_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointStabilizer_map_kernel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompletedCharacterHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointCompletedProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointCompletedProjection_equivariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompletedFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedFixedToPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_point_supported_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedFixedToPoint_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedFixedToPoint_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootCompletedFixedPointEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointCompletedInvariantEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localCompletionEquiv_natural": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompletedLocalCharacterHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompleted_local_conjugate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompletedLocalFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompletedFixedLocalEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootLocalPointCompletedInvariantEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMap_congr": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMonoidHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealAutomorphism": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompletedLocalCharacterAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompletedLocalCharacterAction_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_pointCompletedLocalFixed_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localCompletion_embeddingDim_equiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCompletedLocalFixed_isLocalRing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointCompleted_embeddingDim": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointLocal_krullDim_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.formallyUnramified_comp_injective_of_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ideal_power_transition_ker_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.formallyUnramified_power_comp_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adic_factor_evalOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.formallyUnramified_adicCompletion_comp_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.formallyEtale_adicCompletion_comp_bijective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCompleted_isLocalRing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCompleted_maximalIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completed_power_branch_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.completed_power_branch_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.FermatTailCompletion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_tail_branch_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedBranch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedBranch_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedBranch_residue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedCoordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedCoordinates_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatFormalChart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatFormalChart_X_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatFormalChart_X_succ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedResidue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedResidue_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedResidue_ker": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedResidue_branch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatFormalChart_residue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatFormalChart_map_pointIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMap_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMap_map_ideal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicCompleteLift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicCompleteLift_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicCompleteLift_map_ideal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicCompletion_approx": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicCompletion_algHom_ext": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.FermatPointCompletion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailInclusion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPoint_comp_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailInclusion_map_pointIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedInclusion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedInclusion_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedInclusion_map_pointIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChart_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChart_map_pointIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailInclusion_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedInclusion_branch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedInclusion_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChart_tail_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChart_comp_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedInclusion_comp_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChartEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChartEquiv_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChartEquiv_symm_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatLocalCompletedChartEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicIdealMap_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCharacterHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCharacterHom_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCharacterHom_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCharacterHom_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCharacterEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCharacterAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailInclusion_equivariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailPoint_stabilized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCharacter_map_pointIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedCharacterAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPointCompletedCharacterAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPointCompletedCharacterAction_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedInclusion_equivariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCompletedChartEquiv_equivariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPointFixedChartEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFermatCompletedInvariantChartEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailCompletedFixed_isLocalRing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFermatChart_embeddingDim": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointTranslation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointTranslation_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointTranslation_symm_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointTranslation_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialOriginIdeal_eq_pointKer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointTranslation_map_pointIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointCompletionEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointCompletionEquiv_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.adicCompletion_algHom_ext_of_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialDiagonalHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialDiagonalHom_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialDiagonalHom_powerSeries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPoint_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialDiagonal_map_pointIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointTranslation_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerSeriesOriginIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialOriginIdeal_map_powerSeries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointCompletionEquiv_algebraMap_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialCompletedDiagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointCompletionEquiv_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerSeriesDiagonalFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_powerSeriesDiagonalFixed_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monomial_mem_powerSeriesDiagonalFixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerSeriesDiagonalOrigin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerSeriesDiagonalOrigin_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailPowerSeriesEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailWeights_fix_point": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailPowerSeriesEquiv_equivariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailFixedPowerSeriesEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFermatPowerSeriesInvariantEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPowerSeriesFixed_isLocalRing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFermatPowerSeries_embeddingDim": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.DiagonalInvariantExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.DiagonalIndecomposableExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerSeriesDiagonalOriginIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.diagonalOriginCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.diagonalOriginCoefficient_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.diagonalOriginCoefficient_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.diagonalCotangentCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.diagonalCotangentMonomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.diagonalCotangentCoefficient_monomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.diagonalCotangentMonomials_linearIndependent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalWeights_prod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalInvariantExponent_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalIndecomposable_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalInvariantExponent_swap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalIndecomposable_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalIndecomposable_mixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalIndecomposable_extra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationKer_eq_maximalIdeal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationResidueEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCotangent_finrank_of_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCotangent_finite_of_local_fg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.localCompletion_maximalIdeal_fg_equiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFormal_maximalIdeal_fg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFormal_cotangent_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootFormal_cotangent_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPointLocal_cotangent_ge_of_monomials": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicGeneratorExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicMixed_ne_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicGeneratorExponent_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicGeneratorExponent_indecomposable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cyclicFormalCotangent_independent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTwoCoordinateStabilizerEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatTailWeights_eq_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatInvariantExponent_iff_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatIndecomposableExponent_iff_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootTwoCoordinate_cotangent_lowerBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootTwoCoordinate_not_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootTwoCoordinate_nonorigin_nonregular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPoint_coordinates_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatPoint_of_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_nonregular_point_exists_of_tail_gcd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointCotangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialPointCotangent_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointDerivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointDerivative_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCotangentDerivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pointCotangent_ne_zero_of_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cotangent_finrank_lt_of_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootOriginPoint_eq_zero_of_positive_piece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.polynomialMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.polynomialMap_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.polynomialMap_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.polynomialMap_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.nonorigin_cotangent_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.nonorigin_local_cotangent_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.tail_pairwise_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.tail_pairwise_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeDegreeEvaluation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeLift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degree_generators_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeHom_ext": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeDegreeEvaluation_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeDegreeEvaluation_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeLift_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeLift_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeReindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.admissibleSignature_reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeReindex_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeReindex_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeReindex_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rename_fermat_reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientReindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeReindex_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.homogeneous_reindex_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPiece_reindex_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientReindex_quotient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootModule_reindex_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootModule_reindex_symm_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootReindexEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootReindexEquiv_preserves": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootReindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootReindex_preserves": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.pairwise_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.pairwise_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureLcm_eq_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_c": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_eq_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_one_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coprimeDegreeEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coprimePrimitiveDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_primitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degree_eq_multiple_primitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.xDegree_eq_multiple_primitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureIndex_eq_productDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_canonicalRoot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureIndex_coprime_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootScale_coprime_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRootScale_coprime_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_eq_multiple_primitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productDegree_monomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monomial_root_degree_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pure_power_root_degree_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationKer_map_equiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCotangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.origin_preserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.rootOriginCotangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.rootOriginCotangent_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationProjection_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationProjection_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCotangentProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCotangentProjection_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.augmentationCotangentBasisImage_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialBasis_eq_one_of_exponent_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialBasis_origin_of_exponent_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomial_nonzero_cotangent_exponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finite_basis_selected_from_spanning": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialCotangent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialCotangent_eq_projection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.exists_monomial_cotangent_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.graded_projection_mul_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.graded_adjoin_eq_top_of_cotangent_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPiece_zero_eq_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootGradedProjection_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialDegree_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialBasis_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialDegree_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.exists_monomial_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPoint_eq_iff_character": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPoint_eq_powers_proportional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.complex_coprime_power_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fourCoordinatePowerFiber_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coprimeRootPurePower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coprimeRootPurePower_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coprimeRootPurePower_point": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_scale_eq_one_of_pure_power_generation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomialBasis_point": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoActiveCoordinates_fermat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_monomial_generators_pair_support": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.singleton_supports_of_pair_cover": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMonomial_singleton_mem_pure_adjoin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.pure_power_generation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.higher_scale_eq_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.higher_product_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.higher_root_eq_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_root_hypersurface_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.higher_product_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_signature_target_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.intProduct_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productWeights_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productWeights_succ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cofactorSum_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.list_ofFn_pairwise_coprime_iff": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerateHigherCandidates_ofFn_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.GradedAlgEquiv.symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.GradedAlgEquiv.trans": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootGradedReindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signature_injective_of_coprime": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.strictMono_signature_sort": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_sorted_signature_enumerated_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerateHigherCandidates_target_sound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.higher_sorted_signature_enumerated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.higher_enumerated_graded_model": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginCotangentEquiv_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginCoordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginCotangentEquiv_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginCoordinate_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedOriginCotangentEquiv_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.idealCotangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.idealCotangentEquiv_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedAugmentation_eq_zero_of_positive_piece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedGradedEquiv_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedGradedEquiv_origin_ideal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.linearEquiv_coordinate_matching": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.gradedEquiv_weights_permutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signature_permutation_of_productWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_models_gradedEquiv_signature_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerateHigherCandidates_models_nonisomorphic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherSearch_distinct_prefix_disjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherSearch_nodup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerateHigherCandidates_nodup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureOfList": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ofFn_signatureOfList": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherCandidateSignature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ofFn_higherCandidateSignature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_candidates_pairwise_nonisomorphic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_candidates_sound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.higher_candidates_complete_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.multipleSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.multipleSum_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finsupp_eq_of_multipleSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureMultiplicity_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureDivisorProfile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureDivisorProfile_eq_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signature_eq_of_divisorProfile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weighted_geometric_sum_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weighted_root_of_unity_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.nontrivial_coprime_root_power": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.residueMultiplicationEquiv": [
+      "propext"
+    ],
+    "CanonicalRoots.residue_root_power": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.residue_weighted_root_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.normalHilbertCoefficient_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_root_hilbert_eventual_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_actual_root_hilbert_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.negativeIndexResidue": [],
+    "CanonicalRoots.negativeIndexResidue_cast": [
+      "propext"
+    ],
+    "CanonicalRoots.canonical_residue_inverse_mod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_of_unity_negative_index_power": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonical_residue_fourier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonical_residue_fourier_denominator_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_coordinate_fourier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.periodic_fourier_block": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.periodic_fourier_vanish": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.periodic_fourier_repeat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.residueFraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.residueFraction_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonical_residue_common_period": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonical_residue_divisible_period": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_periodic_fourier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.linear_periodic_tail_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootResidueSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootResidueSum_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_hilbert_periodic_part_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureDivisorProfile_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureDivisorProfile_ofFn_complex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.canonicalRoot_periodic_signature_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootResidueSum_complex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_periodic_signature_recovery": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_root_hilbert_signature_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_root_gradedEquiv_signature_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signature_permutation_of_multiset_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_gradedEquiv_of_signature_multiset_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_root_gradedEquiv_iff_signature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.hilbertSeries_eq_of_weights_permutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_gradedEquiv_iff_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.exists_pure_coefficient_of_axis_eval_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_axis_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.axisSupportExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_positive_defect_axis_support": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.threeAxisPattern": [
+      "propext"
+    ],
+    "CanonicalRoots.threeCoordinatePermutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.three_axis_map_seven_cases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_ternary_seven_axis_patterns": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryLineSlice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryLineSlice_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryLineSlice_coeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weighted_ternary_has_nonzero_plane_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.homogeneous_of_X_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.eval_pderiv_X_mul_eq_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_ternary_not_X_one_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedHomogeneous_rename_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.noConstantOrLinear_rename_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_rename_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_ternary_not_X_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.exists_plane_coefficient_of_not_X_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_ternary_plane_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_ternary_pair_gcd_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.three_branched_add_loop_reduces": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branched_axis_support_add_pure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pure_coefficient_exponent_ge_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_ternary_five_or_branched_link": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_third_coordinate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_sum_of_distinct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.primitive_ternary_common_divisor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_pair_gcd_coprime_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_ternary_vertex_coprime_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_pair_weight_gcd_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_coprime_parameter_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_coprime_parameter_vertex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_five_or_branched_link": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.powerSeries_polynomial_of_eventually_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.periodicPowerSeries_mul_one_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.linearPowerSeries_mul_one_sub_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.eventual_linear_periodic_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.eventual_linear_periodic_numerator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootComplexHilbertSeries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootComplexHilbertSeries_eq_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.complexHilbertSeries_mul_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_root_pole_numerator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.pole_polynomial_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomial_first_jet_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomial_second_jet_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.derivative_one_sub_X_pow_scaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomial_three_factor_first_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomial_three_factor_second_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.hypersurface_denominator_first_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.hypersurface_denominator_second_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.period_denominator_first_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.hypersurface_simple_weight_pole": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.hypersurface_pair_weight_pole": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.no_weight_pole": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.single_weight_pole": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.pair_weight_pole": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPoleCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootPoleCoefficient_mul_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.negative_defect_power": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_profile_common_period": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_profile_no_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_profile_pair_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolated_single_weight_pole_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_profile_single_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.multipleSumLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.multipleSumLinear_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.multipleSumLinear_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedOrderAtom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.weightedOrderAtom_small": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.multipleSumLinear_weightedOrderAtom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateVertexCoefficient": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity_small": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity_reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity_profile_none": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity_profile_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity_profile_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_divisibility_cases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.coordinateMultiplicity_eq_signature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.orderMassLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.orderMassLinear_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.orderMassLinear_weightedOrderAtom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureMultiplicity_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureMultiplicity_order_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureMultiplicity_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.signatureMultiplicity_total_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.coordinateMultiplicity_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.coordinateMultiplicity_order_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.coordinateMultiplicity_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.coordinateMultiplicity_total": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.coordinateMultiplicity_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.half_sum_off_diagonal_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateMultiplicity_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.primitive_arrow_opposite_coprime": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedOne_coordinateMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branched_pair_mass_lower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedOne_single_pair_forces_unit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedOne_has_pure_vertex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedTwo_coordinateMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedTwo_mass_forces_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedTwo_defect_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedTwo_defect_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedTwo_has_pure_vertex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.axisWeight": [],
+    "CanonicalRoots.axisWeight_of_support": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pure_weight_exponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.numeric_branched_add_pure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branched_center_pure_forces_outside_pure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.branchedTwo_outside_pure_vertex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.primitive_ternary_gcd_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_permuted_coordinate_constraints": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_five_axis_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.primitive_weights_integer_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.degree_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.weights_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.weight_proportional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.axisKind": [
+      "propext"
+    ],
+    "CanonicalRoots.axisKind_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.primitive_weight_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.primitive_weights_comp_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_scaled_cox_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_branched_pure_vertex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinate_vertex_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coprime_coordinate_mass_forces_nondiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cycle_defect_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cycle_weight_scale_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.homogeneous_of_scaled_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_cycle_scale_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.numeric_seven_saturated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_five_saturated_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.scaled_triple_multiplicity_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.scaled_signature_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.two_vertex_mass_recovers_atom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCycle_coordinateMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_coordinateMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.defect_of_scaled_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_scale_one_of_signature_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.reciprocal_pair_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.reciprocal_profile_of_two_vertex_data": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_twoCycle_scale_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_chain_scale_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_saturated_scaled_cox_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.oneArrow_coordinateMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.one_vertex_mass_pair_active": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.one_vertex_mass_single_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.scaled_weight_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_scaled_defect_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.nat_scale_missing_reciprocal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.oneArrow_scale_cases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.oneArrow_scaled_pair_orders": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.oneArrow_scaled_coordinateMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.one_vertex_scale_two_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.one_pair_scale_two_even": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_oneArrow_scale_cases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.oneArrow_to_twoCycle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.oneArrow_to_chain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.fermat_to_oneArrow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.fermat_to_twoCycle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_oneArrow_primitive_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.fermat_weight_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.fermat_degree_reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.fermat_weights_reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pure_coordinateMultiplicity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_scaled_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.three_pair_gcd_orientation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.scaled_pair_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pure_two_pair_scale_cases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.pure_single_pair_scale_cases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_fermat_coordinate_data": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_cox_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_fermat_even_mutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_fermat_primitive_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_primitive_cox_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_arithmetic_candidate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_enumerated_weight_candidate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.signature_ge_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateSignature": [
+      "propext"
+    ],
+    "CanonicalRoots.candidateSignature_cast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateSignature_ge_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateSignature_admissible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.primitive_three_bezout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.primitive_three_degree_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonomialDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidate_monomial_degree_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidate_root_exists_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidate_monomial_degrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.monomials_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateNatWeights": [
+      "propext"
+    ],
+    "CanonicalRoots.candidateMonomialExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateNatWeights_cast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonomialExponent_cast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonomialExponent_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonomial_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRootGenerator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRootGenerator_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidatePolynomialMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidatePolynomialMap_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.exponents_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Cox.common_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelationExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateCommonExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelationExponent_cast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateCommonExponent_cast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidate_exponent_substitution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.aeval_monomial_one_matrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidate_relation_substitution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidatePolynomialMap_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidatePolynomialMap_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateNatDegree": [],
+    "CanonicalRoots.candidateNatDegree_cast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateNatWeights_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateNatDegree_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelation_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateNatDegree_eq_add_sum_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelation_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.homogeneous_positive_defect_no_linear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelation_no_constant_or_linear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coprime_of_pair_products_primitive": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.productWeights_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_candidate_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelation_fermat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateNatWeights_fermat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_candidate_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatCandidatePresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedRelation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finSuccEquiv_separatedRelation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedAdjoinEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedAdjoinEquiv_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedPowerBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedPowerBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedMonomialBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedMonomialBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boundedMonomialIndexEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.boundedExponentRename": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedBoundedBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedBoundedBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientBoundedBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientBoundedBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPermutedBoundedBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPermutedBoundedBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedRenameEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedRenameEquiv_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedPermutedBoundedBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedPermutedBoundedBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monomial_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelation_explicit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonomial_explicit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.oneArrow_relation_separated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.twoCycle_relation_separated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateExponentMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateExponentMap_last": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateExponentMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_monomial_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.separatedPermutedMonomials_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonicMonomials_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_injective_of_monic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_zmod_map_eq_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateDifferenceDegrees": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.coordinateDifferenceDegrees_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeCoordinateDifference": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeCoordinateDifference_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.degreeCoordinateDifference_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.root_monomial_coordinate_congruence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.congruence_bounded_decomposition": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientPermutedBoundedBasis_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootModule_le_of_permuted_monomials": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootMap_surjective_of_permuted_monomials": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateSignature_monic_last": [
+      "propext"
+    ],
+    "CanonicalRoots.candidateSignature_monic_middle_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidate_monic_root_preimage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_surjective_of_monic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonicAlgEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateExponentMap_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidatePolynomialMap_monomial_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidatePolynomialMap_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidatePolynomialMap_projection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_preserves_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateMonicGradedEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidate_gradient_terms_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateRelation_isolated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicCandidatePresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monic_candidate_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidate_root_annihilated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_residue_relations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainDegreeResidue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainDegreeResidue_monomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainDegreeResidue_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_root_monomial_divisibility": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_bounded_exponents": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_exponent_cases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_signature_nat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_extra_generator_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_extra_generator_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_polynomial_preimage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_surjective_chain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedAdjoinEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedAdjoinEquiv_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicAdjoinPowerBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicAdjoinPowerBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicQuotientMonomialBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicQuotientMonomialBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicQuotientBoundedBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicQuotientBoundedBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicQuotientMonomials_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicQuotientPermutedBoundedBasis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicQuotientPermutedBoundedBasis_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monicQuotientPermutedMonomials_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReverseRelation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_relation_reversed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finSuccEquiv_chainReverseRelation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReverseRelation_monic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReverseRelation_natDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateChainMonomials_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.linearIndependent_of_distinct_leading_monomials": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReductionTail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReducedMonomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainLeadingExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReductionTail_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReductionTail_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReducedMonomial_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReducedMonomial_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainLeadingExponent_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReducedMonomials_linearIndependent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientQuotient_ne_zero_of_degreeOf_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambientQuotient_linearIndependent_of_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReductionTail_degreeOf_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReducedMonomial_degreeOf_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReducedMonomial_quotient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainReducedQuotient_linearIndependent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_injective_chain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateChainAlgEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateChainGradedEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chainCandidatePresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.chain_candidate_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.hypersurface_surjection_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_residue_relations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopDegreeResidue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopDegreeResidue_monomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopDegreeResidue_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_root_monomial_divisibility": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.LoopCongruence": [],
+    "CanonicalRoots.loop_congruence_rotate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_small_box_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_plane_large": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_exponent_reduction_cases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.monomial_mem_of_factor_induction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ambient_monomial_fermat_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_monomial_mem_of_other_terms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermat_monomial_generation_of_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_signature_nat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_signature_thresholds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_signature_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_exponent_fermat_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopExponentResidue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopExponentResidue_zero_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopExponentResidue_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopExponentResidue_fermat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_generator_weight_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_polynomial_preimage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_surjective_loop": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopReverseRelation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopSplitPolynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_relation_reversed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.finSuccEquiv_loopReverseRelation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mv_X_not_dvd_other_pow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopSplitPolynomial_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopSplitPolynomial_leadingCoeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopSplitPolynomial_coeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopSplitPolynomial_irreducible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopPresentedRing_isDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateQuotientMap_injective_loop": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateLoopAlgEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateLoopGradedEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loopCandidatePresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.loop_candidate_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_candidate_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateTarget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateTarget_signature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateTarget_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateTarget_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateTarget_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateTargetGradedEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_candidate_model": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_enumerated_model": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateKey_sorted_weights": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateKey_weights_permutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateKey_eq_of_weights_permutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateKey_eq_iff_gradedEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateDedupStep": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateDedupStep_mem": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateDedupStep_keys": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateDedupStep_nodup": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateDedupFold_mem": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateDedupFold_keys": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.candidateDedupFold_nodup": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.dedupCandidates_mem": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.dedupCandidates_keys": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.dedupCandidates_key_coverage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.dedupCandidates_keys_nodup": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryRepresentative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryRepresentative_arithmetic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_representatives_sound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_representatives_pairwise_nonisomorphic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_representatives_complete_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.exponentWeight_rename": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.homogeneous_rename_weights_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedPiece_rename_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedGradedRename": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.noConstantOrLinear_rename": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isolatedAtOrigin_rename": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.RootHypersurfacePresentation.renameGenerators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.permutationOfIndexList": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ofFn_permutationOfIndexList": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.displayVariableOrder": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.displayVariablePermutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ofFn_displayVariablePermutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.displayVariablePermutation_sorted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_exponents": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationExponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.EquationData.natWeights": [
+      "propext"
+    ],
+    "CanonicalRoots.EquationData.polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.EquationData.Ring": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.EquationData.piece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationExponent_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_natWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquationGradedEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_polynomial_isolated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_polynomial_noConstantOrLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_polynomial_homogeneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_weights_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_exponents_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquationModelEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryOutputIndex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_output_get": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_output_sound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternary_output_pairwise_nonisomorphic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.ternary_output_complete_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherListWeight": [
+      "propext"
+    ],
+    "CanonicalRoots.higherCoordinateWeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherListOrder": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.map_finRange_val": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherListWeight_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherCoordinateWeight_eq_productWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherListOrder_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_weights_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_exponents_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_exponents": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_natWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquationModelEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_polynomial_isolated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_exponents_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.fermatModelArityCast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquationOfFnModelEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_relationDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_realization_of_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherOutputIndex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_output_get": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherOutputModelEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_output_sound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higher_output_pairwise_nonisomorphic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.higher_output_complete_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_dimensions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_pairwise_nonisomorphic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.output_complete_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_isolated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_noConstantOrLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_minimum_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_parameter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootWitnessResidue": [],
+    "CanonicalRoots.rootWitnessResidues": [],
+    "CanonicalRoots.rootWitnessCarries": [],
+    "CanonicalRoots.rootWitnessCoefficient": [
+      "propext"
+    ],
+    "CanonicalRoots.rootWitnessJson_arithmetic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootWitnessResidue_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootWitnessResidue_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootWitnessCarries_ofFn": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootWitnessDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootWitnessDegree_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.rootWitnessDegree_isCanonicalRoot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_orderedSignature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_realization_with_signature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_root_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalShortComplex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalShortComplex_shortExact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.PrincipalExt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeExtZeroEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeExtZeroEquiv_mk\u2080": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.freeExtZeroEquiv_precomp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalBoundary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalBoundary_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalBoundary_ker": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExtEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExtEquiv_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExt_smul_algebraMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalBoundaryOfAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalBoundaryOfAlgebra_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExtEquivOfAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExtEquivOfAlgebra_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExtQuotientModule": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExtQuotientEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExtQuotient_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.principalExtQuotient_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.shiftedPolynomialHomPiece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_shiftedPolynomialHomPiece_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.shiftedPolynomialHomPiece_map_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.integerWeight_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.isWeightedHomogeneous_int_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equation_multiplication_degree_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.dual_equation_differential_preserves": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedIntegerPiece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.presentedIntegerPiece_nat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.hypersurfaceCanonicalPiece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.hypersurfaceCanonicalPiece_eq_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.mem_hypersurfaceCanonicalPiece_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.HasCanonicalParameter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.hasCanonicalParameter_of_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.canonical_parameter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Target.canonical_piece_nat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeDecimalNatChars": [],
+    "CanonicalRoots.decodeDecimalIntChars": [],
+    "CanonicalRoots.decodeJsonNat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeJsonInt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeDecimalNatChars_toDigits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.toDigits_head_ne_minus": [
+      "propext"
+    ],
+    "CanonicalRoots.decodeJsonNat_jsonNat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeJsonInt_jsonInt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.jsonField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.jsonField_mkObj_of_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeJsonString": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeJsonList": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeJsonList_encode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeJsonList_jsonInts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationJson_n": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationWitnessJson": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialTermJson": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationJson_a": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationJson_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationJson_relationDegree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationJson_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationJson_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationWitnessJson_signature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationWitnessJson_matrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationWitnessJson_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationWitnessJson_permutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.equationWitnessJson_tag": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialTermJson_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.polynomialTermJson_exponents": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodePolynomialTerm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeEquationJson": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodePolynomialTerm_encode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeEquationJson_encode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.Input": [],
+    "CanonicalRoots.enumerate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.encodeClassificationPayload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.classificationPayload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeClassificationPayload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.encodeClassificationPayload_status": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.encodeClassificationPayload_input": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.encodeClassificationPayload_count": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.encodeClassificationPayload_equations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.inputJson_n": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.inputJson_a": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.decodeClassificationPayload_encode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.ternaryEquation_weights_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.higherEquation_weights_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_weights_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_weights_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_weights_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_weights_primitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_weights_sorted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_exponents_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.output_exponents_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.EquationRealizes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.classification_row_realizes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerate_sound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerate_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.enumerate_pairwise_nonisomorphic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.cli_payload_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.checkEquationList": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.checkEquationList_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.checkClassificationPayload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.checkClassificationPayload_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.checkClassificationPayload_normal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a1_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a1_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a2_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a2_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a3_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a3_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a4_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a4_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a5_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a5_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a6_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n3_a6_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n4_a1_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n4_a1_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n4_a5_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n4_a5_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n4_a25_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n4_a25_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n5_a1_entire_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CanonicalRoots.OutputCertificates.n5_a1_payload": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

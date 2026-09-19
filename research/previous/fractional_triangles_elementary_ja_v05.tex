@@ -1,0 +1,977 @@
+% !TeX program = lualatex
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=26mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{hidelinks,pdftitle={分数三角環の超曲面判定と有効有限性},pdfauthor={Fractional triangles: elementary Japanese revision}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small 分数三角環：超曲面判定と有効有限性}\fancyhead[R]{\small 初等的改稿 v05}\fancyfoot[C]{\thepage}
+\setlength{\emergencystretch}{3em}
+\setlist{nosep,leftmargin=2em}
+\numberwithin{equation}{section}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{example}[theorem]{例}
+\renewcommand{\proofname}{証明}
+\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}\newcommand{\Q}{\mathbb Q}\newcommand{\C}{\mathbb C}
+\newcommand{\xx}{\vec x}\newcommand{\yy}{\vec y}\newcommand{\zz}{\vec z}\newcommand{\cc}{\vec c}\newcommand{\ww}{\vec\omega}\newcommand{\ttau}{\vec\tau}
+\newcommand{\mf}{\mathfrak m}\newcommand{\NF}{\operatorname{NF}}\newcommand{\Frac}{\operatorname{Frac}}\newcommand{\trdeg}{\operatorname{trdeg}}\newcommand{\edim}{\operatorname{edim}}\newcommand{\lcm}{\operatorname{lcm}}\newcommand{\Span}{\operatorname{span}}\newcommand{\Classify}{\operatorname{Classify}}\newcommand{\CheckR}{\operatorname{Check}}\newcommand{\Admissible}{\operatorname{Admissible}}\newcommand{\ord}{\operatorname{ord}}
+\title{分数三角環の超曲面判定と有効有限性\\[3pt]\large 有限算術への還元と Lean 形式化のための初等的証明}
+\author{\normalsize \texttt{fractional\_triangles\_v04} に基づく日本語改稿\\\small 原稿著者：Kenji Hashimoto, Hwayoung Lee, Kazushi Ueda}
+\date{2026年9月・初等的改稿 v05}
+\begin{document}
+\maketitle
+\begin{abstract}
+正整数 $a$ を固定する。$p,q,r\ge2$ および $1/p+1/q+1/r<1$ に対し、階数一の有限生成アーベル群
+$L=\langle\xx,\yy,\zz,\cc\mid p\xx=q\yy=r\zz=\cc\rangle$ と
+$L$ 次数付き環 $T=K[X,Y,Z]/(X^p+Y^q+Z^r)$ を考える。
+$\ww=\cc-\xx-\yy-\zz$ の $a$ 乗根 $a\ttau=\ww$ が存在するとき、
+$R=\bigoplus_{m\ge0}T_{m\ttau}$ を定める。本稿では、$R$ が最小三生成元の次数付き超曲面環になるための条件を、有限個の整数演算と印付き道グラフの連結成分計算で判定する。
+主要な有効評価は
+\[
+ R\text{ が超曲面}\quad\Longrightarrow\quad
+ \max\{p,q,r\}\le21a
+\]
+である。固定した三つ組に対しては $a+2\lcm(p,q,r)$ 次以下で最小生成元数が確定する。
+したがって、$a$ ごとの全解を出力する停止保証付きアルゴリズムが得られる。さらに三つの単項式生成元と、一つの整数係数関係式を回復できる。
+証明は、モニック多項式による除法、有限自由加群、整数の合同式、次数付き中山の補題、初等的な可換環論、および三頂点の有向グラフの列挙からなる。スタック、軌道体曲線の変形剛性、Cox 正規形の分類、ならびに準斉次特異点の外部分類定理は用いない。
+最後に、算術的述語と元の環の性質を結ぶための Lean 証明依存関係を明示する。本稿は数学的原稿と実行可能な参照実装であり、Lean で検証済みの形式化を主張するものではない。
+\end{abstract}
+\tableofcontents
+
+\section{問題の定式化と主結果}
+\subsection{何を分類するか}
+基礎体 $K$ は標数零の代数閉体とし、特に $K=\C$ を取ってよい。自然数は $0$ を含むと約束する。
+以下で入力は
+\begin{equation}\label{eq:input}
+ a\in\N_{>0},\qquad 2\le p\le q\le r,\qquad
+ \nu:=1-\frac1p-\frac1q-\frac1r>0
+\end{equation}
+である。$p,q,r$ の順序は置換による重複を避けるために固定する。
+\begin{definition}\label{def:ring}
+\[
+ L=\frac{\Z\xx\oplus\Z\yy\oplus\Z\zz\oplus\Z\cc}
+ {\langle p\xx-\cc,q\yy-\cc,r\zz-\cc\rangle},
+ \qquad \ww=\cc-\xx-\yy-\zz
+\]
+とする。$T=K[X,Y,Z]/(X^p+Y^q+Z^r)$ を
+$\deg_L X=\xx,\deg_LY=\yy,\deg_LZ=\zz$ により次数付けする。
+$a\ttau=\ww$ を満たす $\ttau\in L$ が存在するとき
+\[
+ R=R_a(p,q,r)=\bigoplus_{m\ge0}T_{m\ttau},\qquad \deg_R T_{m\ttau}=m
+\]
+を分数三角環と呼ぶ。$R$ が\emph{超曲面}であるとは、正整数 $w_1,w_2,w_3,h$ と非零斉次多項式 $F$ があり、
+\begin{equation}\label{eq:hs}
+ R\simeq K[z_1,z_2,z_3]/(F),\qquad \deg z_i=w_i,\quad\deg F=h,
+\end{equation}
+が次数付き $K$ 代数同型であって、三つの生成元が最小であることをいう。
+\end{definition}
+これは v04 の「primitive minimal three-generator hypersurface」の分類対象に対応する\cite{v04}。
+原始性 $\gcd(w_1,w_2,w_3)=1$ は後に自動的に従う。
+$L$ は階数一だが、一般には捩れを持つ。したがって $\ww/a$ は
+$L\otimes\Q$ の元を無条件に使う記号ではなく、\emph{$L$ 内に存在する根}を表す。
+
+\begin{theorem}[有効有限性と完全な有限判定]\label{thm:main}
+任意の $a>0$ について、整数演算だけからなる停止する手続き $\Classify(a)$ があり、その出力はちょうど
+\[
+ \{(p,q,r):\eqref{eq:input}\text{ を満たし、 }a\ttau=\ww
+ \text{ が存在し、 }R_a(p,q,r)\text{ が超曲面}\}
+\]
+である。具体的に、次の評価と判定を用いる。
+\begin{enumerate}
+\item 根は存在すれば一意であり、$N=\lcm(p,q,r)$、$k=N-N/p-N/q-N/r$ とすると、存在条件は
+$\gcd(a,N)=1$ および $a\mid k$ である。
+\item 超曲面の場合、$h=w_1+w_2+w_3+a\le42a$、$2w_i\le h$、および
+$\max\{p,q,r\}\le21a$ が成り立つ。
+\item 任意の根が存在する三つ組について、$D=a+2N$ とすると、$R$ は $D$ 次以下で生成される。
+各 $1\le m\le D$ に明示的な印付き道グラフ $G_m$ を対応させ、その印を含まない連結成分数を $\kappa_m$ とおけば、
+\begin{equation}\label{eq:criterion-intro}
+ R\text{ が超曲面}\quad\Longleftrightarrow\quad
+ \sum_{m=1}^{D}\kappa_m=3.
+\end{equation}
+\item 採択された三つ組について、三つの単項式 $M_i\in K[X,Y,Z]$ と原始整数係数斉次多項式 $F\in\Z[z_1,z_2,z_3]$ を計算でき、$z_i\mapsto M_i$ が \eqref{eq:hs} を与える。
+\end{enumerate}
+\end{theorem}
+主定理の証明は第\ref{sec:algorithm}節で完成する。ここで「有限」とは、経験的な探索上限ではない。外側の探索箱 $r\le21a$ と、内側の次数上限 $D=a+2N$ の両方を証明する。
+
+\subsection{v04 との関係と、この改稿の射程}
+v04 は任意の超曲面を五つの原始 atomic 型に移し、Cox 単項式表示と約数パラメータ表示を得る、より強い正規形定理を含む\cite[Theorems 1.3--1.4]{v04}。
+本稿はその正規形定理を仮定せず、\emph{固定した $a$ に対する全ての三つ組の有限性と完全な判定アルゴリズム}を独立に証明する。
+この目的には、七つの支持グラフのうち分岐する二型を排除する必要すらない。
+七型すべてに共通する粗い評価 $a/h\ge1/42$ を使えば足りる。
+
+したがって、本稿は v04 の幾何学的証明の用語だけを整数の言葉に置き換えたものではない。
+主定理への経路を変更している。
+本稿だけから「関係式が必ず三項になる」「指数行列の行列式が $h$ に等しい表示がある」
+「同じ重みを持つ環は同型である」とは結論しない。
+出力はまず\emph{順序を固定した signature $(p,q,r)$ の集合}であり、環の同型類による追加の商を取らない。
+
+\subsection{形式化に向けた原則}
+最終的な判定述語は $\N,\Z$、有限集合、合同式、道の連結成分だけで記述する。
+一方、判定述語と元の環の超曲面性の同値は別途証明しなければならない。
+その橋渡しを新しい公理として置くことはしない。
+証明で必要な一般論は可換環論までに抑え、特に一次元正規局所環については付録\ref{app:local}に行列式トリックによる証明を記す。
+
+\section{次数群の正規形と根の整数計算}\label{sec:root}
+\begin{lemma}[繰り上がり正規形]\label{lem:nf}
+$L$ の各元は一意的に
+\[
+ b\cc+i\xx+j\yy+k\zz,\qquad b\in\Z,\quad
+ 0\le i<p,\ 0\le j<q,\ 0\le k<r
+\]
+と書ける。この正規形を $(b;i,j,k)$ と記す。
+\end{lemma}
+\begin{proof}
+存在はユークリッド除法から従う。一意性は関係部分群を直接見ることで分かる。
+二つの表示の差が零なら、その $\xx,\yy,\zz$ 係数はそれぞれ $p,q,r$ の倍数である。
+剰余の範囲からその差はすべて零であり、最後に $\cc$ 係数も零になる。
+逆に、集合 $\Z\times\{0,\dots,p-1\}\times\{0,\dots,q-1\}\times\{0,\dots,r-1\}$ に、
+剰余の和の繰り上がりを第一成分に加える演算を入れてもよい。
+結合則は整数の除法の結合的な繰り上がり恒等式であり、この群は上の表示群と同型になる。
+\end{proof}
+有理数値次数 $\lambda:L\to\Q$ を
+\[
+ \lambda(b;i,j,k)=b+\frac{i}{p}+\frac{j}{q}+\frac{k}{r}
+\]
+とする。その像は $N^{-1}\Z$ であり、任意の $v\in L$ について
+\begin{equation}\label{eq:Nv}
+ Nv=N\lambda(v)\cc
+\end{equation}
+が成り立つ。特に $L$ の階数は一、次数零部分は有限捩れ群である。
+また
+\[
+ \NF(\ww)=(-2;p-1,q-1,r-1),\qquad \lambda(\ww)=\nu.
+\]
+
+\begin{proposition}[根の存在、一意性、構成]\label{prop:root}
+$N=\lcm(p,q,r)$、$k=N\nu$ とおく。$a\ttau=\ww$ の解が存在するための必要十分条件は
+\begin{equation}\label{eq:root-test}
+ \gcd(a,N)=1,\qquad a\mid k
+\end{equation}
+である。その場合、$p_1=p,p_2=q,p_3=r$ とおき、
+\begin{equation}\label{eq:root-formula}
+ s_i\equiv-a^{-1}\pmod{p_i},\quad 0\le s_i<p_i,\qquad
+ b_i=\frac{as_i+1}{p_i},\qquad b=\frac{1-b_1-b_2-b_3}{a}
+\end{equation}
+とすると、$b\in\Z$ であり、唯一の根は $\ttau=(b;s_1,s_2,s_3)$ である。
+\end{proposition}
+\begin{proof}
+根の方程式を各 $\Z/p_i\Z$ に移すと $as_i\equiv-1$ となるので $\gcd(a,p_i)=1$ が必要である。
+次数を $N$ 倍すれば $k=aN\lambda(\ttau)$ であり、$a\mid k$ も必要である。
+逆に \eqref{eq:root-test} を仮定する。
+$N b_i\equiv N/p_i\pmod a$ なので
+$N(1-\sum_i b_i)\equiv k\equiv0\pmod a$。
+$\gcd(a,N)=1$ により $b$ は整数である。
+$a s_i=b_i p_i-1$ から、$a\ttau$ の剰余は $(p-1,q-1,r-1)$、繰り上がり後の第一成分は
+$ab+\sum_i(b_i-1)=-2$ となり、$a\ttau=\ww$ を得る。
+二つの根があれば、剰余成分は合同式により等しく、第一成分も $a>0$ により等しい。
+\end{proof}
+以下、根が存在するとし、
+\begin{equation}\label{eq:mu-u}
+ \mu=\frac{\nu}{a}>0,\qquad u=\frac{k}{a}=N\mu\in\N_{>0}
+\end{equation}
+とおく。式 \eqref{eq:Nv} により $N\ttau=u\cc$ である。
+
+\begin{definition}\label{def:ell}
+$m\in\Z$ に対し
+\begin{equation}\label{eq:ell}
+ r_i(m)=ms_i\bmod p_i,\qquad
+ \ell(m)=mb+\sum_{i=1}^3\left\lfloor\frac{ms_i}{p_i}\right\rfloor
+\end{equation}
+と定める。したがって $\NF(m\ttau)=(\ell(m);r_1(m),r_2(m),r_3(m))$ である。
+\end{definition}
+特に
+\begin{equation}\label{eq:period}
+ r_i(m+N)=r_i(m),\quad \ell(m+N)=\ell(m)+u,\quad
+ \ell(m)=\mu m-\sum_i\frac{r_i(m)}{p_i}.
+\end{equation}
+これらはすべて整数の除法から従う。$s_i$ は $p_i$ と互いに素であるので、
+\begin{equation}\label{eq:faithful-residue}
+ r_i(m)=0\quad\Longleftrightarrow\quad p_i\mid m
+\end{equation}
+が成り立つ。
+
+\section{モニック除法による基底と乗法}\label{sec:basis}
+\begin{proposition}[明示的な斉次基底]\label{prop:basis}
+$U=X^p,V=Y^q$ とおくと、$T$ は $K[U,V]$ 上自由であり、その基底は
+\[
+ X^iY^jZ^k\qquad(0\le i<p,\ 0\le j<q,\ 0\le k<r)
+\]
+である。$v=(l;i,j,k)$ に対し、$l<0$ なら $T_v=0$、$l\ge0$ なら
+\[
+ X^iY^jZ^k U^tV^{l-t}\qquad (0\le t\le l)
+\]
+が $T_v$ の基底である。
+\end{proposition}
+\begin{proof}
+$T$ は
+\[
+ K[U,V,X,Y,Z]/(X^p-U,\ Y^q-V,\ Z^r+U+V)
+\]
+と同型である。$X,Y,Z$ について順次モニック除法を行えば、剰余の一意性から自由基底が得られる。
+特に $K[U,V]\to T$ は単射である。
+$U,V$ はともに $L$ 次数 $\cc$ を持つ。補題\ref{lem:nf}により、指定した $L$ 次数を持つ基底項は上記のものに限る。
+\end{proof}
+$\ell(m)\ge0$ のとき、$R_m$ の基底を
+\begin{equation}\label{eq:bmt}
+ B_{m,t}=X^{r_1(m)}Y^{r_2(m)}Z^{r_3(m)}U^tV^{\ell(m)-t},
+ \qquad 0\le t\le\ell(m)
+\end{equation}
+と記す。したがって
+\begin{equation}\label{eq:hilbert-floor}
+ H_m:=\dim_KR_m=\max\{0,\ell(m)+1\}.
+\end{equation}
+特に $R_0=K$ であり、$H_a=0$、十分大きい全ての $m$ について $H_m>0$ である。
+
+\begin{proposition}[乗法は頂点または隣接頂点の和]\label{prop:mult}
+$d,e\ge0$、$m=d+e$ とする。各 $i$ について
+\[
+ \epsilon_i=\frac{r_i(d)+r_i(e)-r_i(m)}{p_i}\in\{0,1\}
+\]
+とおくと
+\begin{equation}\label{eq:carry-ell}
+ \ell(m)=\ell(d)+\ell(e)+\epsilon_1+\epsilon_2+\epsilon_3.
+\end{equation}
+$\ell(d),\ell(e)\ge0$ のとき、$j=s+t+\epsilon_1$ とおけば
+\begin{equation}\label{eq:mult}
+ B_{d,s}B_{e,t}=
+ \begin{cases}
+ B_{m,j},&\epsilon_3=0,\\
+ -B_{m,j}-B_{m,j+1},&\epsilon_3=1.
+ \end{cases}
+\end{equation}
+\end{proposition}
+\begin{proof}
+指数の繰り上がりを $X^p=U,Y^q=V,Z^r=-U-V$ で処理するだけである。
+残る $U,V$ の全次数から \eqref{eq:carry-ell} を得る。$Z$ の繰り上がりは高々一回であり、その有無が二つの場合を与える。
+\end{proof}
+この式が、行列の階数計算を道グラフの連結成分数に置き換える理由である。
+Hilbert 関数だけから生成元数を推測するのではなく、\emph{実際の乗法}を完全に記録している。
+
+\section{有限自由加群、生成次数上限、Hilbert 恒等式}\label{sec:finite}
+\begin{theorem}[有限自由表示と一様な内部上限]\label{thm:free}
+$P=U^u,Q=V^u$、$A=K[P,Q]\subset R$ とおく。$P,Q$ の $R$ 次数は $N$ であり、$A$ は二変数多項式環である。
+$R$ は $A$ 上自由で、その基底は
+\begin{equation}\label{eq:free-set}
+ \mathcal B_0=\{X^iY^jZ^k U^sV^t:
+ 0\le i<p,\ 0\le j<q,\ 0\le k<r,\ 0\le s,t<u,
+ \ \deg_L M\in\Z\ttau\}
+\end{equation}
+である。各 $M\in\mathcal B_0$ の $R$ 次数は $0$ 以上 $D:=a+2N$ 以下である。
+したがって $R$ は $D$ 次以下の斉次元で生成される。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:basis}にさらに $U,V$ の指数の $u$ による除法を適用する。
+すると $T$ は $A$ 上、\eqref{eq:free-set} の合同条件を除いた集合を基底とする自由加群になる。
+$P,Q$ は $\deg_L P=\deg_L Q=u\cc=N\ttau$ を持つので、係数を掛けても $L/\Z\ttau$ 次数は変化しない。
+よってその零次数部分は、条件を満たす基底だけを選んだ自由加群である。
+単項式の $L$ 次数の有理数値次数は非負だから、この零次数部分はちょうど $R$ である。
+
+最大指数の単項式
+\[
+ W=X^{p-1}Y^{q-1}Z^{r-1}U^{u-1}V^{u-1}
+\]
+の $L$ 次数は
+\[
+ (p-1)\xx+(q-1)\yy+(r-1)\zz+(2u-2)\cc
+ =\ww+2u\cc=(a+2N)\ttau.
+\]
+指数をそれぞれ最大指数から引く操作は $M\mapsto W/M$ という単項式の補元操作を与える。
+これは環内で除法を行う意味ではなく、有限な指数箱の対合である。
+$M\in\mathcal B_0$ ならその補元も $\mathcal B_0$ に入り、次数の和は $D$ になる。
+両方の次数が非負なので $\deg_R M\le D$ を得る。
+$P,Q$ と有限基底 $\mathcal B_0$ は $R$ を代数として生成し、$N\le D$ である。
+\end{proof}
+
+\begin{corollary}[Hilbert 級数の相反性]\label{cor:reciprocity}
+$C(t)=\sum_{M\in\mathcal B_0}t^{\deg_R M}$ とおくと
+\begin{equation}\label{eq:hilbert-rational}
+ H_R(t)=\sum_{m\ge0}H_mt^m=\frac{C(t)}{(1-t^N)^2},\qquad
+ C(t^{-1})=t^{-(a+2N)}C(t),
+\end{equation}
+したがって
+\begin{equation}\label{eq:reciprocity}
+ H_R(t^{-1})=t^{-a}H_R(t)
+\end{equation}
+である。ここで等式は有理関数として解釈する。
+\end{corollary}
+\begin{proof}
+自由基底から第一式、補元対合から第二式を得る。
+$(1-t^{-N})^2=t^{-2N}(1-t^N)^2$ を用いれば最後の式になる。
+\end{proof}
+
+\begin{proposition}[超曲面の数値恒等式]\label{prop:numerical}
+\eqref{eq:hs} が成り立つとき
+\begin{equation}\label{eq:weights}
+ h-w_1-w_2-w_3=a,\qquad
+ \frac{h}{w_1w_2w_3}=\mu=\frac{\nu}{a}.
+\end{equation}
+また $\gcd(w_1,w_2,w_3)=1$ である。
+\end{proposition}
+\begin{proof}
+非零関係式の乗法は多項式環で単射なので
+$H_R(t)=(1-t^h)/\prod_i(1-t^{w_i})$。
+$t\mapsto t^{-1}$ による相反性を系\ref{cor:reciprocity}と比較すれば第一式が従う。
+
+第二式は $t=1$ の二位の極の係数を比較して得られるが、解析的極限は不要である。
+\eqref{eq:period} により各剰余 $0\le j<N$ に沿う列 $H_{j+kN}$ は、有限個の初項を除けば
+$ku+\ell(j)+1$ に等しい。その生成関数を有限等比級数の恒等式で求めると、
+$(1-t)^2H_R(t)$ は $t=1$ で正則で、その値は $u/N=\mu$ になる。
+一方、超曲面表示から同じ値は $h/(w_1w_2w_3)$ である。
+最後に $H_m>0$ が十分大きいすべての $m$ で成り立つから、生成元次数の公約数は一でなければならない。
+\end{proof}
+
+\section{正規性と「三生成元なら超曲面」の橋渡し}\label{sec:normal}
+この節と第\ref{sec:support}節が、整数述語だけを形式化したのでは足りない部分である。
+使うのは体上の多項式環の一意分解、整性、素イデアルの高さ、および斉次生成元に関する基本的な可換環論である。
+
+\begin{lemma}[三項環の正規性]\label{lem:normalT}
+$T$ は正規整域である。
+\end{lemma}
+\begin{proof}
+$A_0=K[X,Y]$、$f=X^p+Y^q$ とおく。
+$f$ に平方因子があれば、その既約因子は $pX^{p-1}$ と $qY^{q-1}$ の両方を割る。
+標数零と $X,Y$ の互いに素性に反するから、$f$ は平方因子を持たない。
+$f$ の任意の既約因子 $\pi$ について $Z^r+f$ は $\pi$ に関する Eisenstein 多項式である。
+したがって $\Frac(A_0)[Z]$ で既約であり、$T$ は整域である。
+
+$E=\Frac(T)$ とし、$T$ 上整な $\eta\in E$ を取る。
+$T$ は $A_0$ 上整だから $\eta$ は $A_0$ 上も整である。
+一意的な表示
+\[
+ \eta=\sum_{i=0}^{r-1}c_iZ^i,\qquad c_i\in\Frac(A_0)
+\]
+を取る。$K$ 内の原始 $r$ 乗根 $\zeta$ を用いると、$Z\mapsto\zeta^jZ$ は $E/\Frac(A_0)$ の自己同型を与える。
+その Fourier 平均
+\[
+ \frac1r\sum_{j=0}^{r-1}\zeta^{-ij}\sigma_j(\eta)=c_iZ^i
+\]
+は $A_0$ 上整である。よって $c_i^r(-f)^i\in\Frac(A_0)$ も整であり、$A_0$ の一意分解性から $A_0$ に属する。
+$c_i=n_i/d_i$ を既約分数で書くと、$d_i^r\mid f^i$。
+$f$ は平方因子を持たず $0\le i<r$ なので $d_i$ は単元である。
+したがって全ての $c_i$ は $A_0$ に属し、$\eta\in T$ となる。
+\end{proof}
+
+\begin{lemma}\label{lem:normalR}
+$R$ は有限生成正規整域であり、$\trdeg_K\Frac(R)=2$ である。
+\end{lemma}
+\begin{proof}
+有限生成性は定理\ref{thm:free}、整域性は $R\subset T$ から従う。
+$A=K[P,Q]\subset R$ は多項式環で、$R$ はその有限加群だから、分数体の超越次数は二である。
+
+$\eta\in\Frac(R)$ が $R$ 上整なら、$\Frac(R)\subset\Frac(T)$ の中で $T$ 上も整である。
+補題\ref{lem:normalT}より $\eta\in T$。
+$\Gamma=L/\Z\ttau$ による $T$ の直和分解を使うと $R=T_{\Gamma,0}$ である。
+$0\ne s\in R$ で $s\eta\in R$ となるものを選ぶ。
+$\eta$ の非零 $\Gamma$ 次数成分を $\eta_\gamma$ とすると $s\eta_\gamma=0$。
+整域性により $\eta_\gamma=0$ だから $\eta\in R$ となる。
+\end{proof}
+
+\begin{proposition}[埋込み次元判定]\label{prop:edim}
+$\mf=\bigoplus_{m>0}R_m$ とし、$e=\dim_K\mf/\mf^2$ とおく。
+$e$ は有限で $e\ge3$ であり、
+\[
+ R\text{ が超曲面}\quad\Longleftrightarrow\quad e=3
+\]
+が成り立つ。
+\end{proposition}
+\begin{proof}
+$R$ は有限生成である。$\mf/\mf^2$ の斉次基底を持ち上げた元は、次数に関する帰納法で $R$ を生成する。
+実際、ある次数の元から基底持ち上げの線形結合を引くと、より小さい正次数の元の積の和になる。
+逆にどの生成系の像も $\mf/\mf^2$ を張るから、$e$ は最小斉次生成元数である。
+
+超越次数が二なので $e\ge2$。
+$e=2$ なら $K[z_1,z_2]\twoheadrightarrow R$ は超越次数により単射でもあり、多項式環になる。
+しかし二変数多項式環の Hilbert 級数は
+$H(t^{-1})=t^{w_1+w_2}H(t)$ を満たし、$a>0$ に対する \eqref{eq:reciprocity} と両立しない。
+よって $e\ge3$。
+
+$e=3$ なら斉次全射 $S=K[z_1,z_2,z_3]\twoheadrightarrow R$ を得る。
+核 $I$ は素イデアルで、体上の多項式環の次元公式
+\[
+ \operatorname{ht} I+\trdeg_K\Frac(S/I)=3
+\]
+により高さ一である。一意分解整域の高さ一素イデアルは一つの既約元 $F$ で生成される。
+$I$ は斉次イデアルなので $F$ を斉次に選べる。
+詳しくは、$I$ 内の非零斉次元を $FG$ と書き、積の最高・最低次数を比較すれば $F$ の全ての項の次数が等しいことが分かる。
+生成元の最小性から $F$ に通常の次数一の項はない。
+逆に最小三生成元の超曲面表示なら $e=3$ である。
+\end{proof}
+\begin{corollary}[次数を忘れた超曲面性]\label{cor:ungraded}
+この族では、次数を忘れた $K$ 代数として三変数一関係の表示を持つことと、定義\ref{def:ring}の超曲面性は同値である。
+\end{corollary}
+\begin{proof}
+次数を忘れた全射 $K[z_1,z_2,z_3]\twoheadrightarrow R$ があるとする。
+これを $R\to R/\mf=K$ と合成し、$z_i$ の像を $c_i\in K$ とする。
+すると $\mf/\mf^2$ は $z_i-c_i$ の像で生成されるから、埋込み次元は三以下である。
+命題\ref{prop:edim}により実際には三であり、最小斉次超曲面表示が存在する。逆向きは明らかである。
+\end{proof}
+
+\begin{remark}
+ここで用いた多項式環の高さ・超越次数公式は、後の Lean 形式化で証明済みライブラリから接続するか、一般補題として証明する対象である。
+この命題そのものを \texttt{axiom} として追加してよい、という意味ではない。
+\end{remark}
+
+\section{三頂点の支持グラフと関係次数の上界}\label{sec:support}
+\subsection{各座標軸から一つの項を選ぶ}
+\begin{lemma}[軸上の必要条件]\label{lem:axis}
+正の次数 $w_i$ を持つ三変数多項式環の非零斉次既約元 $F$ について、
+$S/(F)$ が正規で、最小三生成元の表示であり、$h-\sum_iw_i>0$ と仮定する。
+各 $i$ について、$F$ の支持には
+\[
+ z_i^n\quad\text{または}\quad z_i^n z_j\quad(j\ne i)
+\]
+の形の項があり、$n\ge2$ である。
+\end{lemma}
+\begin{proof}
+$i=1$ とし $J=(z_2,z_3)$ とおく。
+指定された形の項が一つもなければ、$F\in J^2$ となる。
+$J/(F)$ は素イデアルであり、その局所化は
+\[
+ K(z_1)[z_2,z_3]_{(z_2,z_3)}/(F)
+\]
+という一次元正規 Noether 局所整域である。
+その極大イデアルを $\mathfrak n$ とすると、$F\in(z_2,z_3)^2$ により
+$\dim_{K(z_1)}\mathfrak n/\mathfrak n^2=2$。
+一方、一次元正規 Noether 局所整域の極大イデアルは単項である
+（付録\ref{app:local}）から、同じ次元は一でなければならず矛盾する。
+純粋一次項は最小性に反する。混合二次項 $z_i z_j$ は $h=w_i+w_j$ を与え、
+$h-\sum_kw_k=-w_k<0$ に反する。したがって $n\ge2$ である。
+\end{proof}
+各変数についてこのような項を一つ選び、純粋冪なら自己ループ、$z_i^n z_j$ なら $i\to j$ を描く。
+各頂点から一本だけ出る三頂点の有向グラフであり、置換を除いて七型しかない。
+三つの選ばれた項の指数を $\alpha,\beta,\gamma\ge2$ とする。
+ここでは\emph{選ばれた三項が孤立特異点を定義する}とは仮定しない。
+
+\begin{lemma}[七型の完全性]\label{lem:seven}
+三頂点から三頂点への写像の有向グラフは、頂点の置換を除くと次の七型で尽くされる。
+表の項は選ばれた支持を表すに過ぎず、$F$ は別の項を持っていてよい。
+\begin{center}\small
+\begin{tabular}{cl}
+\toprule
+型 & 選ばれた項\\\midrule
+FFF & $x^\alpha+y^\beta+z^\gamma$\\
+C2F & $x^\alpha y+y^\beta+z^\gamma$\\
+B3 & $x^\alpha y+y^\beta+z^\gamma y$\\
+L2F & $x^\alpha y+xy^\beta+z^\gamma$\\
+C3 & $x^\alpha y+y^\beta z+z^\gamma$\\
+B6 & $x^\alpha y+y^\beta z+z^\gamma y$\\
+L3 & $x^\alpha y+y^\beta z+z^\gamma x$\\\bottomrule
+\end{tabular}
+\end{center}
+\end{lemma}
+\begin{proof}
+長さ三の巡回路があれば L3。
+長さ二の巡回路があれば、残る頂点は自己ループを持つか、その巡回路に入るので L2F または B6。
+巡回路がすべて自己ループなら、自己ループの数が三なら FFF、二なら C2F、一なら二つの残る頂点が並列に入る B3 または鎖状に入る C3 である。
+これで全ての場合を尽くす。
+\end{proof}
+
+\subsection{正の余裕には \texorpdfstring{$1/42$}{1/42} の隙間がある}
+選ばれた項の重み方程式を $h$ で割り、
+\[
+ \eta=1-\frac{w_1+w_2+w_3}{h}
+\]
+を計算する。
+\begin{lemma}[支持型ごとの正の下界]\label{lem:gap}
+$\alpha,\beta,\gamma\ge2$ で $\eta>0$ なら、下表の評価が成り立つ。特に常に $\eta\ge1/42$ である。
+\begin{center}\small
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{clc}
+\toprule
+型 & $\eta$ & 正の場合の下界\\\midrule
+FFF & $1-1/\alpha-1/\beta-1/\gamma$ & $1/42$\\
+C2F & $\dfrac{(\alpha-1)(\beta-1)}{\alpha\beta}-\dfrac1\gamma$ & $1/30$\\
+L2F & $\dfrac{(\alpha-1)(\beta-1)}{\alpha\beta-1}-\dfrac1\gamma$ & $1/22$\\
+C3 & $1-\dfrac1\alpha-\dfrac1\gamma-\dfrac{(\alpha-1)(\gamma-1)}{\alpha\beta\gamma}$ & $1/18$\\
+L3 & $\dfrac{(\alpha-1)(\beta-1)(\gamma-1)-1}{\alpha\beta\gamma+1}$ & $1/13$\\
+B3 & $\dfrac{\beta-1}{\beta}\left(1-\dfrac1\alpha-\dfrac1\gamma\right)$ & $1/12$\\
+B6 & $\dfrac{(\beta-1)(\alpha\gamma-\alpha-\gamma)}{\alpha(\beta\gamma-1)}$ & $1/10$\\\bottomrule
+\end{tabular}
+\end{center}
+\end{lemma}
+\begin{proof}
+表示式は三つの一次方程式を解いて得られる。
+例えば B6 では
+\[
+ \frac{w_x}{h}=\frac{\gamma(\beta-1)}{\alpha(\beta\gamma-1)},\quad
+ \frac{w_y}{h}=\frac{\gamma-1}{\beta\gamma-1},\quad
+ \frac{w_z}{h}=\frac{\beta-1}{\beta\gamma-1}.
+\]
+各表示式は、$\alpha,\beta,\gamma\ge2$ の範囲で各変数について非減少である。
+この主張は分母を払って証明できる。検証に用いる差分は付録\ref{app:diff}に記す。
+正の値を持つ三つ組は、以下の極小三つ組のいずれかを成分ごとに上回る。
+表で指定した対称性による置換を許す。
+\begin{center}\small
+\begin{tabular}{cll}
+\toprule
+型 & 極小三つ組 & 許す対称性\\\midrule
+FFF & $(2,3,7),(2,4,5),(3,3,4)$ & 全置換\\
+C2F & $(2,2,5),(2,3,4),(2,4,3),$ & $\alpha\leftrightarrow\beta$\\
+& $(3,3,3),(3,5,2),(4,4,2)$ & \\
+L2F & $(2,2,4),(2,3,3),(3,4,2)$ & $\alpha\leftrightarrow\beta$\\
+C3 & $(2,2,4),(2,3,3),(3,2,3)$ & $\alpha\leftrightarrow\gamma$\\
+L3 & $(2,2,3)$ & 全置換\\
+B3, B6 & $(2,2,3),(3,2,2)$ & 不要\\\bottomrule
+\end{tabular}
+\end{center}
+網羅性を具体的に確認する。
+FFF では指数を昇順にする。最小指数が二なら次が三、四、五以上の場合に分け、それぞれ $(2,3,7)$、$(2,4,5)$、$(2,4,5)$ を得る。
+最小指数が三以上なら、$(3,3,3)$ は零なので $(3,3,4)$ に帰着する。
+
+C2F では $\alpha\le\beta$ とする。$\gamma\ge5$、$\gamma=4$、$\gamma=3$、$\gamma=2$ に分ける。
+順に $(2,2,5)$、$(2,3,4)$、$(2,4,3)$ または $(3,3,3)$、そして $(3,5,2)$ または $(4,4,2)$ で尽くされる。
+最後の場合の正値条件は $(\alpha-2)(\beta-2)>2$ である。
+
+L2F でも $\alpha\le\beta$ とする。$\gamma\ge4$ なら $(2,2,4)$、$\gamma=3$ なら $(2,3,3)$。
+$\gamma=2$ では正値条件が $(\alpha-2)(\beta-2)>1$ となり、$(3,4,2)$ に帰着する。
+
+C3 では $\alpha\le\gamma$ とする。$\alpha=\gamma=2$ は負である。
+$\alpha=2$ の場合、正値条件は $(\beta-1)(\gamma-2)>1$ だから、$(2,3,3)$ または $(2,2,4)$。
+$\alpha\ge3$ の場合は $(3,2,3)$ が下にある。
+
+L3 の分子が正となるのは、$(\alpha-1)(\beta-1)(\gamma-1)>1$ の場合だけなので $(2,2,3)$。
+B3 と B6 では正値条件は $(\alpha,\gamma)\ne(2,2)$ であり、$\beta\ge2$ を用いて最後の二つ組で尽くされる。
+各極小三つ組で分数を計算し、その最小値を取れば表の下界を得る。
+\end{proof}
+
+\begin{theorem}[関係次数の一様上界]\label{thm:hbound}
+$R$ が超曲面なら
+\[
+ h\le42a,\qquad 2w_i\le h\quad(i=1,2,3).
+\]
+\end{theorem}
+\begin{proof}
+補題\ref{lem:normalR}、命題\ref{prop:numerical}、補題\ref{lem:axis}を適用する。
+七型のいずれかについて $a/h=\eta>0$ となるから、補題\ref{lem:gap}により $a/h\ge1/42$。
+各変数には指数二以上の選ばれた項があるので $2w_i\le h$ も従う。
+\end{proof}
+ここでは分岐型 B3, B6 を禁止していない点が重要である。
+v04 の automatic Cox 定理を使わず、必要条件だけで十分な上界を得た。
+
+\section{元の三つ組に対する上界}\label{sec:signature}
+\begin{lemma}[座標を零にする商と次数の可除性]\label{lem:coordinate}
+$i\in\{1,2,3\}$ を固定する。$R$ の斉次生成系の中には、$T/(X_i)$ で非零となる正次数生成元があり、その次数は $p_i$ の倍数である。
+ここで $(X_1,X_2,X_3)=(X,Y,Z)$ とする。
+\end{lemma}
+\begin{proof}
+$p_i\nmid m$ なら \eqref{eq:faithful-residue} により $r_i(m)>0$。
+命題\ref{prop:basis}の各基底元は $X_i$ の倍数なので、$R_m$ の像は $T/(X_i)$ で零になる。
+
+一方、$j\ne i$ を取り $X_j^{p_j u}$ を考える。この元は $R_N$ に属し、$T/(X_i)$ で非零である。
+非零性は、残る二変数の関係式 $X_j^{p_j}+X_k^{p_k}$ に関して $X_k$ のモニック除法を行えば分かる。
+商も正の有理数次数で次数付けされているため、この非零の正次数元は定数ではない。
+したがって $R\to T/(X_i)$ の像は $K$ だけではない。
+全ての正次数生成元の像が零なら像が $K$ に限られてしまうから、非零像を持つものが存在する。
+最初の段落からその次数は $p_i$ の倍数である。
+\end{proof}
+
+\begin{corollary}[signature の探索箱]\label{cor:signature}
+$R$ が超曲面なら
+\begin{equation}\label{eq:21a}
+ p,q,r\le \max\{w_1,w_2,w_3\}\le h/2\le21a.
+\end{equation}
+\end{corollary}
+\begin{proof}
+最小三生成元系に補題\ref{lem:coordinate}を適用する。
+それぞれの $p_i$ はいずれかの正の生成元次数を割るから、その次数以下である。
+残りは定理\ref{thm:hbound}である。
+\end{proof}
+この証明は、stacky point の位数を復元する議論ではない。
+使っているのは三つの具体的な商 $T/(X)$、$T/(Y)$、$T/(Z)$ と基底の指数だけである。
+
+\section{印付き道グラフによる最小生成元数}\label{sec:path}
+\begin{definition}[次数 $m$ のグラフ]\label{def:path}
+$m>0$ とする。$\ell(m)<0$ なら空グラフを取って $\kappa_m=0$ とする。
+$\ell(m)=l\ge0$ なら頂点集合を $\{0,1,\dots,l\}$ とし、最初は辺も印も置かない。
+全ての分割 $m=d+e$、$d,e>0$ で $\ell(d),\ell(e)\ge0$ となるものについて、命題\ref{prop:mult}の繰り上がり $\epsilon_i$ を計算し、$k=\ell(d)+\ell(e)$ とおく。
+\begin{enumerate}
+\item $\epsilon_3=0$ なら、頂点 $\epsilon_1,\epsilon_1+1,\dots,\epsilon_1+k$ に印を付ける。
+\item $\epsilon_3=1$ なら、各 $\epsilon_1\le j\le\epsilon_1+k$ について辺 $\{j,j+1\}$ を加える。
+\end{enumerate}
+得られた道の部分グラフを $G_m$ とし、印を一つも含まない連結成分の個数を $\kappa_m$ とする。
+重複した辺や印は一つとして扱う。
+\end{definition}
+
+\begin{lemma}[道の線形代数]\label{lem:path-linear}
+$V$ を $e_0,\dots,e_l$ を基底とする $K$ ベクトル空間とする。
+$W\subset V$ を、印付き頂点に対する $e_j$ と、辺 $\{j,j+1\}$ に対する $e_j+e_{j+1}$ の張る部分空間とする。
+このとき $\dim_K V/W$ は、印を含まない連結成分数に等しい。
+\end{lemma}
+\begin{proof}
+連結成分は区間 $[b,c]$ である。
+辺の関係式により商では $e_j=(-1)^{j-b}e_b$ となる。
+印があれば $e_b$ も零になる。印がなければ、$e_j\mapsto(-1)^{j-b}$ という線形写像がその成分の関係式を消し、$e_b$ を一に送るので次元はちょうど一である。
+成分間に関係式はない。したがって直和を取ればよい。
+この証明は標数二でも成立するが、本稿の環論的橋渡しは標数零で用いる。
+\end{proof}
+
+\begin{proposition}[グラフと余接空間の一致]\label{prop:kappa}
+各 $m>0$ について
+\[
+ \kappa_m=\dim_K\bigl(R_m/(\mf^2)_m\bigr).
+\]
+さらに
+\begin{equation}\label{eq:edim-sum}
+ \edim R=\dim_K\mf/\mf^2=\sum_{m=1}^{a+2N}\kappa_m.
+\end{equation}
+\end{proposition}
+\begin{proof}
+$(\mf^2)_m$ は全ての積 $R_dR_e$、$d+e=m$、$d,e>0$ の張る部分空間である。
+基底元の積は \eqref{eq:mult} で与えられる。
+$0\le s\le\ell(d)$、$0\le t\le\ell(e)$ の和 $s+t$ は $0$ から $\ell(d)+\ell(e)$ までの全整数を動く。
+したがって、積の張る部分空間は定義\ref{def:path}の印と辺に対応する部分空間そのものである。
+補題\ref{lem:path-linear}が最初の等式を与える。
+定理\ref{thm:free}により $a+2N$ 次を超える最小生成元は存在しないので、有限和で全次元を計算できる。
+\end{proof}
+\begin{remark}
+任意の有限行列の階数計算でも同じ判定はできるが、ここではその必要がない。
+積の係数が $1$ または隣接二頂点に対する $(-1,-1)$ に限られるため、線形代数を有限な区間の連結成分計算へ落とせる。
+ただし後述する\emph{関係式の回復}には一度だけ有理数上の核計算を使う。
+\end{remark}
+
+\section{完全な分類アルゴリズムと正当性}\label{sec:algorithm}
+\subsection{算術述語}
+\begin{definition}\label{def:check}
+$\Admissible(a,p,q,r)$ を、$a>0$、$2\le p\le q\le r$、$k>0$、$\gcd(a,N)=1$、$a\mid k$ の連言とする。
+この条件を満たさないとき $\CheckR(a,p,q,r)=\mathrm{false}$ とする。
+満たすときは根を \eqref{eq:root-formula} で計算し、
+\[
+ \CheckR(a,p,q,r)=
+ \left[\sum_{m=1}^{a+2N}\kappa_m=3\right]
+\]
+と定義する。ここで $[\cdot]$ は真偽値への変換である。
+\end{definition}
+
+\begin{theorem}[固定入力の判定]\label{thm:check}
+$\Admissible(a,p,q,r)$ の下で、
+\[
+ \CheckR(a,p,q,r)=\mathrm{true}\quad\Longleftrightarrow\quad R_a(p,q,r)\text{ が超曲面}
+\]
+が成り立つ。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:kappa}と命題\ref{prop:edim}を組み合わせればよい。
+\end{proof}
+
+\begin{definition}\label{def:classify}
+$a>0$ に対し
+\begin{equation}\label{eq:classify}
+ \Classify(a)=\{(p,q,r)\in\N^3:
+ 2\le p\le q\le r\le21a,\ \CheckR(a,p,q,r)=\mathrm{true}\}
+\end{equation}
+とする。$a=0$ では空集合と定義してよい。
+\end{definition}
+
+\begin{proof}[定理\ref{thm:main}の第1--3項の証明]
+根の存在と一意性は命題\ref{prop:root}である。
+上界は定理\ref{thm:hbound}および系\ref{cor:signature}である。
+生成次数上限は定理\ref{thm:free}、グラフ判定は定理\ref{thm:check}である。
+\eqref{eq:classify} の探索集合は有限で、各判定も有限の次数・分割・頂点集合しか使わないので停止する。
+出力された入力が超曲面を与えることは定理\ref{thm:check}による。
+逆に超曲面を与える入力は系\ref{cor:signature}により探索箱内にあり、同じ定理により必ず出力される。
+従って過不足はない。
+\end{proof}
+この定義をそのまま \texttt{Finset.filter} に翻訳すれば、Lean 上の有限集合値関数の仕様になる。
+任意指数についての定理は、個々の指数での計算結果を無限に集めるのではなく、上の停止性と同値性を一度証明することで得られる。
+
+\subsection{逐次的な実装}
+参照実装は、全ての分割 $m=d+e$ を毎回調べる代わりに、既に選んだ最小生成元だけを使う。
+次数 $m$ の直前までに選んだ生成元を $B_{d,j}$ とすると、$e=m-d>0$ に対する積
+$B_{d,j}R_e$ を並べれば $(\mf^2)_m$ を張る。
+実際、より低い次数の全ての元は帰納法により既存生成元の多項式であり、正次数の積から一つの生成元を取り出せる。
+この一つの生成元に対する頂点または辺の範囲は
+\[
+ j+\epsilon_1\ \le t\le\ j+\epsilon_1+\ell(e)
+\]
+である。印を持たない各成分の最小頂点を新しい生成元として採用する。
+これにより、生成元を線形結合に取らず、常に \eqref{eq:bmt} の単項式に取れる。
+
+生成元が四つ以上見つかった時点で棄却してよい。
+一方、三つ見つかった時点での採択は正しくない。採択には生成次数上限 $D$ までの確認が必要である。
+印と辺は整数区間の和として保持できるので、実装は巨大な道グラフを頂点ごとに展開しなくてもよい。
+
+\subsection{安全な省略条件}
+以下は証明済みの\emph{必要条件による棄却}であり、採択条件の代替ではない。
+三つの生成元の次数 $w_i$ が既に得られたなら、$h=a+\sum w_i$ として \eqref{eq:weights} が不成立なら棄却する。
+また、$21a$ 次までに三つの生成元が現れなければ、超曲面の場合の $w_i\le21a$ に反するので棄却できる。
+
+外側の探索も合同式で減らせる。
+$\gcd(a,pq)=1$ の下では根の条件は
+\begin{equation}\label{eq:r-progression}
+ r(pq-p-q)\equiv pq\pmod a
+\end{equation}
+と同値である。
+正確には、この合同式の解があるなら $\gcd(a,pq-p-q)=1$ でなければならず、そのとき $r$ は一つの剰余類に限られ、自動的に $\gcd(a,r)=1$ となる。
+理由は $pqr/N$ が $a$ と互いに素であり、
+$a\mid k$ が $a\mid(pqr-pq-pr-qr)$ と同値になることである。
+探索範囲の下端には $r\ge q$ と $r>pq/(pq-p-q)$ を用いる。
+本稿の主定理はこれらの高速化を全く使わなくても成立する。
+
+\section{単項式生成元と関係式の回復}\label{sec:relation}
+\begin{proposition}[決定論的な表示の構成]\label{prop:relation}
+採択された三つ組について、第\ref{sec:algorithm}節の逐次手続きは三つの単項式生成元 $M_1,M_2,M_3$ を出力する。
+$w_i=\deg_R M_i$、$h=a+w_1+w_2+w_3$ とすると、次の有限計算により関係式 $F$ を回復できる。
+\begin{enumerate}
+\item $w_1i+w_2j+w_3k=h$ を満たす $(i,j,k)\in\N^3$ を全て列挙する。
+\item 各 $M_1^iM_2^jM_3^k$ を $Z^r=-U-V$ で還元し、$R_h$ の基底で整数係数列ベクトルとして表示する。
+\item それらを列に持つ行列の $\Q$ 上の核を求める。核は一次元である。その非零ベクトルの分母を払い、係数の最大公約数を一にし、最初の非零係数を正にする。
+\end{enumerate}
+そのベクトルを係数とする $F\in\Z[z_1,z_2,z_3]$ が所望の表示を与える。
+\end{proposition}
+\begin{proof}
+グラフの各無印成分で選んだ最小頂点の像は $R_m/(\mf^2)_m$ の基底である。
+命題\ref{prop:edim}の次数帰納法から、得られた三つの単項式は $R$ を生成する。
+核は一つの斉次既約元で生成され、その次数は命題\ref{prop:numerical}により $h$。
+したがって、全射の $h$ 次部分の核は一次元である。
+還元の係数は整数であり、標数零の体での行列の階数は $\Q$ 上の階数と同じだから、$\Q$ 上でも核は一次元になる。
+分母を払う操作は非零スカラー倍なので、同じ主イデアルを与える。
+\end{proof}
+これで定理\ref{thm:main}の第4項も証明された。
+ここでの $F$ は必ずしも三項とは限らない。三項 atomic 正規形に変換する追加の主張は本稿の証明には含めない。
+
+\section{具体例と実行可能な検証}\label{sec:examples}
+\subsection{最小の例}
+\begin{example}[$a=1$, $(p,q,r)=(2,3,7)$]
+$N=42,k=u=1$、$\ttau=(-2;1,2,6)$ であり、$D=85$ である。
+グラフ手続きは $6,14,21$ 次でそれぞれ一つずつ最小生成元を見つける。
+それらは $Z,Y,X$ であり、
+\[
+ R\simeq K[z_1,z_2,z_3]/(z_1^7+z_2^3+z_3^2),\qquad
+ (w_1,w_2,w_3;h)=(6,14,21;42).
+\]
+この例では $h=42a$ となる。signature 上界 $21a$ 自体の最良性は主張しない。
+\end{example}
+\begin{example}[$a=2$, $(p,q,r)=(3,3,5)$]
+$N=15,k=2,u=1$、$\ttau=(-1;1,1,2)$、$D=32$ である。
+手続きは $M_1=Z,M_2=XY,M_3=Y^3$ を選び、
+\[
+ (w_1,w_2,w_3;h)=(3,10,15;30),\qquad
+ F=z_3^2+z_2^3+z_1^5z_3
+\]
+を得る。実際、$F(Z,XY,Y^3)=Y^3(X^3+Y^3+Z^5)$ である。
+単に重みを推測するのではなく、基底の乗法から生成性と関係式が確定する。
+\end{example}
+
+\subsection{小指数の全列挙}
+同梱の \texttt{triangle\_checker.py} は五型 atomic 分類を呼び出さず、\eqref{eq:classify} の探索箱と道グラフ判定を実装する。
+$a=1$ で得られた三つ組と重みは次の通りである。
+\begin{center}\small
+\begin{tabular}{cc@{\qquad}cc}
+\toprule
+$(p,q,r)$ & $(w_1,w_2,w_3;h)$ & $(p,q,r)$ & $(w_1,w_2,w_3;h)$\\\midrule
+$(2,3,7)$ & $(6,14,21;42)$ & $(2,5,6)$ & $(4,5,6;16)$\\
+$(2,3,8)$ & $(6,8,15;30)$ & $(3,3,4)$ & $(3,8,12;24)$\\
+$(2,3,9)$ & $(6,8,9;24)$ & $(3,3,5)$ & $(3,5,9;18)$\\
+$(2,4,5)$ & $(4,10,15;30)$ & $(3,3,6)$ & $(3,5,6;15)$\\
+$(2,4,6)$ & $(4,6,11;22)$ & $(3,4,4)$ & $(3,4,8;16)$\\
+$(2,4,7)$ & $(4,6,7;18)$ & $(3,4,5)$ & $(3,4,5;13)$\\
+$(2,5,5)$ & $(4,5,10;20)$ & $(4,4,4)$ & $(3,4,4;12)$\\\bottomrule
+\end{tabular}
+\end{center}
+また、初めの六指数の出力数は
+\[
+\begin{array}{c|rrrrrr}
+ a&1&2&3&4&5&6\\\hline
+ |\Classify(a)|&14&6&8&8&21&0
+\end{array}
+\]
+である。これは本稿の実装による独立した計算結果であり、v04 の表の数字を判定条件に使ったものではない。
+v04 の同型類の個数とこの範囲で数値が一致するが、signature の列挙と同型類の列挙を定義上同一視してはいない。
+
+\subsection{計算結果と証明の区別}
+Python の実行は Lean kernel による検証ではない。
+同梱データは、数式、コード、例が整合するかを調べるための証明書候補・回帰テストである。
+数学的な全指数での網羅性は定理\ref{thm:main}から従い、有限の計算範囲から外挿したものではない。
+実装は通常の \texttt{assert} の最適化時消失に依存せず、不整合があれば明示的な例外を送出する。
+
+\section{Lean と mathlib に向けた証明設計}\label{sec:lean}
+\subsection{算術的主張と環論的主張を二層に分ける}
+最終目標は、単に有限集合 $\Classify(a)$ を計算できることではない。
+目標とする定理の形は
+\[
+ \forall a,p,q,r,\quad
+ \Admissible(a,p,q,r)\Longrightarrow
+ \bigl((p,q,r)\in\Classify(a)\ \Longleftrightarrow\ R_a(p,q,r)\text{ が超曲面}\bigr)
+\]
+である。左辺は計算的な有限算術、右辺は次数付き代数同型の存在を含む。
+両者を結ぶ証明を未証明の型クラスのフィールドや新しい定数に押し込まない。
+
+実装の最初の層では、$L$ をいきなり商群として扱うより、補題\ref{lem:nf}の繰り上がり正規形を直接実装する。
+$\ell(m)$ は負になり得るので、\texttt{Nat} の切り捨て減算でなく \texttt{Int} を用いる。
+$H_m$ や頂点数は、非負性を確認してから自然数へ移す。
+根の不存在、$\ell(m)<0$、空グラフ、次数零をそれぞれ明示的な分岐にする。
+
+\subsection{証明モジュールの依存関係}
+以下の名前は\emph{今後実装するモジュール案}であり、既存の Lean ファイルや定理名ではない。
+\begin{center}\small
+\begin{tabular}{p{0.21\linewidth}p{0.70\linewidth}}
+\toprule
+モジュール案 & 証明内容\\\midrule
+Arithmetic & $\gcd,\lcm$、根の存在条件、繰り上がり正規形、$\ell$ の周期性。\\
+NormalFormAlgebra & モニック商の基底、$L$ 次数分解、乗法式 \eqref{eq:mult}。\\
+FiniteFree & 有限基底 $\mathcal B_0$、補元対合、生成次数上限、Hilbert 恒等式。\\
+Normality & Eisenstein、平方因子の排除、Fourier 射影による $T$ の正規性、$R$ の正規性。\\
+EmbeddingDimension & 次数帰納法、三生成元と主関係式の同値、高さ一素イデアルの処理。\\
+SupportBound & 一次元局所環の補題、三頂点七型、正の隙間 $1/42$、$h\le42a$。\\
+SignatureBound & 商 $T/(X_i)$ と剰余条件、$p_i\le21a$。\\
+PathCriterion & 印付き道の線形代数、$\kappa_m$ と余接空間の同一視。\\
+Classification & 有限集合値関数、停止性、soundness と completeness。\\
+Certificates & 小指数の kernel 内計算、生成元・関係式証明書の検査。\\\bottomrule
+\end{tabular}
+\end{center}
+この分割で、幾何学的なスタックの理論を形式化する必要はない。
+ただし \texttt{Normality} や \texttt{EmbeddingDimension} の一般代数補題が無作業で得られるわけではない。
+それらは本稿が隠さず残す\emph{実装上の証明責務}であり、本稿の数学的主定理の追加仮定ではない。
+
+\subsection{確認した mathlib の基盤と、接続時の注意}
+オンライン文書で確認できる基盤として、多変数多項式\cite{mathlib-mv}、モニック商の自由基底\cite{mathlib-adjoin}、多項式環の Krull 次元\cite{mathlib-dim}がある。
+特に \texttt{AdjoinRoot.powerBasisAux'} と \texttt{AdjoinRoot.powerBasis'} はモニック多項式の商の冪基底に対応し、命題\ref{prop:basis}への入口になる。
+一般の離散付値環の道具\cite{mathlib-dvr}を使う道もあるが、本稿の軸の議論には付録\ref{app:local}の極大イデアル単項性だけで足りる。
+
+これらのページの存在は、本稿の全ての橋渡し定理が既に mathlib に揃っているという意味ではない。
+特に、次数付き余接空間の有限和、具体的な乗法と道グラフの対応、Hilbert 相反性からの指数同定、および本稿の仮定に正確に合う高さ・超越次数公式の接続は、実際の定理検索とビルドで確認する必要がある。
+本稿では未確認の完全な Lean API 呼出しを、コンパイル済みコードであるかのように掲げない。
+
+\subsection{追加公理を使わないという意味}
+Lean と mathlib の通常の基盤である命題外延性、商、古典選択などと、研究固有の未証明命題の追加は区別する\cite{lean-axioms}。
+ここでの方針は、研究固有の \texttt{axiom}、\texttt{sorry}、未証明の橋渡し仮定を使わないことである。
+最終的な定理について \texttt{\#print axioms} を実行し、期待した標準基盤以外の依存、特に \texttt{sorryAx} がないことを確認する。
+外部プログラムの出力を信頼しただけの数値結果も、そのまま定理として取り込まない。
+
+有限計算の検証には、kernel が検査する証明項を返す方法を用いる。
+大きな列挙を速く実行する層と、その出力証明書を小さな検査器で検査する層を分けてもよい。
+ただし検査器の健全性も証明する。
+Lean の版、mathlib のコミット、ビルドコマンド、最終定理の公理依存一覧を固定した時点で初めて「追加公理なしに形式化済み」と記す。
+
+\subsection{本稿で完了したものと、形式化作業}
+本稿は、主定理の数学的証明と停止上限、算術的な判定の完全な仕様、実行可能な Python 参照実装を与える。
+Lean のコードは本稿の作成時点ではコンパイルしておらず、形式化済みとは主張しない。
+有限算術部分だけを先に実装する場合にも、それを元の超曲面分類の形式化完了と取り違えないことが重要である。
+
+\appendix
+\section{一次元正規局所環の極大イデアル}\label{app:local}
+\begin{lemma}\label{lem:principal-max}
+$(B,\mathfrak n)$ を一次元 Noether 正規局所整域とし、$\mathfrak n\ne0$ とする。
+このとき $\mathfrak n$ は一つの非零元で生成される。
+\end{lemma}
+\begin{proof}
+$0\ne x\in\mathfrak n$ を取る。一次元の局所整域なので $\sqrt{xB}=\mathfrak n$。
+$\mathfrak n$ は有限生成だから、ある $n\ge1$ について $\mathfrak n^n\subset xB$ となる。
+そのような最小の $n$ を取る。
+$n=1$ なら $\mathfrak n=xB$ である。
+$n>1$ なら $y\in\mathfrak n^{n-1}\setminus xB$ を選び、$\theta=y/x\in\Frac(B)$ とおく。
+$\theta\notin B$ だが $\theta\mathfrak n\subset B$ である。
+
+もし $\theta\mathfrak n\subset\mathfrak n$ なら、$\mathfrak n$ の有限生成系 $u_1,\dots,u_s$ に対し
+$\theta u_i=\sum_j b_{ij}u_j$ と書ける。
+行列 $\theta I-(b_{ij})$ の随伴行列を掛けると、その行列式は全ての $u_i$ を零にする。
+$\mathfrak n\ne0$ と整域性から、そのモニック行列式多項式は $\theta$ を根に持つ。
+従って $\theta$ は $B$ 上整であり、正規性により $\theta\in B$ となって矛盾する。
+
+よってある $z\in\mathfrak n$ について $\theta z\in B\setminus\mathfrak n$、すなわち $\theta z$ は単元である。
+任意の $w\in\mathfrak n$ に対して
+$w/z=(\theta w)/(\theta z)\in B$ なので $\mathfrak n=zB$ を得る。
+\end{proof}
+この補題から $\dim_{B/\mathfrak n}\mathfrak n/\mathfrak n^2=1$ が従う。
+実際、次元は高々一であり、零なら Nakayama の補題により $\mathfrak n=0$ となる。
+これは一次元正規 Noether 局所環が離散付値環であることの、必要な部分だけの証明である。一般的な同値条件については\cite{stacks-dvr}を参照。
+
+\section{正の隙間の単調性を証明する差分}\label{app:diff}
+$\Delta_\alpha\eta=\eta(\alpha+1,\beta,\gamma)-\eta(\alpha,\beta,\gamma)$ と記し、他の変数も同様とする。
+全ての分母は $\alpha,\beta,\gamma\ge2$ で正である。
+\begin{align*}
+\mathrm{FFF}:\quad &\Delta_\alpha\eta=\frac1{\alpha(\alpha+1)}.\\
+\mathrm{C2F}:\quad &\Delta_\alpha\eta=\frac{\beta-1}{\beta\alpha(\alpha+1)},
+ &&\Delta_\gamma\eta=\frac1{\gamma(\gamma+1)}.\\
+\mathrm{L2F}:\quad &\Delta_\alpha\eta=
+ \frac{(\beta-1)^2}{(\alpha\beta-1)((\alpha+1)\beta-1)},
+ &&\Delta_\gamma\eta=\frac1{\gamma(\gamma+1)}.\\
+\mathrm{C3}:\quad &\Delta_\alpha\eta=
+ \frac{\gamma(\beta-1)+1}{\beta\gamma\alpha(\alpha+1)},
+ &&\Delta_\beta\eta=
+ \frac{(\alpha-1)(\gamma-1)}{\alpha\gamma\beta(\beta+1)}.
+\end{align*}
+C2F と L2F の $\beta$ 差分は $\alpha,\beta$ の交換で、C3 の $\gamma$ 差分は $\alpha,\gamma$ の交換で得られる。
+L3 について $B=(\beta-1)(\gamma-1), C=\beta\gamma$ とおけば
+\[
+ \Delta_\alpha\eta=\frac{B+C(B+1)}{(\alpha C+1)((\alpha+1)C+1)};
+\]
+他の差分は対称性による。
+B3 については
+\[
+ \Delta_\alpha\eta=\frac{\beta-1}{\beta\alpha(\alpha+1)},\qquad
+ \Delta_\beta\eta=\frac{1-1/\alpha-1/\gamma}{\beta(\beta+1)}
+\]
+であり、$\gamma$ 差分は対称性による。
+B6 については
+\begin{align*}
+ \Delta_\alpha\eta&=\frac{\gamma(\beta-1)}{(\beta\gamma-1)\alpha(\alpha+1)},\\
+ \Delta_\beta\eta&=\frac{(\gamma-1)(\alpha\gamma-\alpha-\gamma)}
+ {\alpha(\beta\gamma-1)((\beta+1)\gamma-1)},\\
+ \Delta_\gamma\eta&=\frac{(\beta-1)(\alpha\beta-\alpha+1)}
+ {\alpha(\beta\gamma-1)(\beta(\gamma+1)-1)}.
+\end{align*}
+これらの恒等式は分母を払って環の恒等式として証明できる。
+$\alpha\gamma-\alpha-\gamma=(\alpha-1)(\gamma-1)-1\ge0$ も使えば全て非負である。
+Lean では正の分母の証明、\texttt{field\_simp} 相当の整理、整数または有理数の多項式恒等式の証明に分離するのがよい。
+
+\section{再現手順とデータの解釈}\label{app:run}
+標準ライブラリだけで判定と列挙を行える。関係式を求める場合だけ SymPy を用いる。
+例として以下を実行する。
+\begin{verbatim}
+python triangle_checker.py 1 --output new_index_01.json
+python triangle_checker.py 2 3 3 5 --relations
+python triangle_checker.py 1 --reference-check --relations
+python run_tests.py
+\end{verbatim}
+\texttt{--reference-check} は、逐次生成元を用いた計算と、全分割を使う定義\ref{def:path}の計算を各次数で比較する。
+各 JSON の生成元は $[m,t]$、すなわち $B_{m,t}$ としても保存する。
+\texttt{cox\_monomials} は $X,Y,Z$ の指数三つ組を記すフィールド名であり、v04 の強い Cox-invertibility 全体が確認されたという意味ではない。
+\texttt{relation} は整数係数と指数三つ組の列で関係式を記す。
+採択された行については、内部上限 $D$ までの計算と、関係次数の核が一次元であることが確認される。
+
+\section*{原稿作成と AI 利用について}
+本稿は v04 の分類問題を形式化に向く別の証明経路へ組み替えるために作成した日本語原稿である。
+AI を用いて初等的証明の構成、実装、原稿整備を行った。
+原稿著者名は参照元を示すために記しており、本改稿の全内容について原著者による最終承認や投稿を表明するものではない。
+公開前には数学的証明、計算実装、文献、著者表示を研究者が確認する必要がある。
+
+\begin{thebibliography}{99}
+\bibitem{v04}
+K. Hashimoto, H. Lee, K. Ueda,
+\emph{Fractional Triangle Hypersurfaces: Automatic Cox Models and Divisor Classification},
+\texttt{fractional\_triangles\_v04.pdf}, Version 04, 15 August 2026, 24 pp., 未公刊原稿。
+
+\bibitem{lean-axioms}
+Lean project, \emph{Theorem Proving in Lean 4}, Chapter 12, Axioms and Computation.
+\url{https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/}.
+
+\bibitem{mathlib-mv}
+The mathlib community, \emph{Mathlib.Algebra.MvPolynomial.Basic}, オンライン API 文書。
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/MvPolynomial/Basic.html}.
+
+\bibitem{mathlib-adjoin}
+The mathlib community, \emph{Mathlib.RingTheory.AdjoinRoot}, オンライン API 文書。
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/RingTheory/AdjoinRoot.html}.
+
+\bibitem{mathlib-dim}
+The mathlib community, \emph{Mathlib.RingTheory.KrullDimension.Polynomial}, オンライン API 文書。
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/RingTheory/KrullDimension/Polynomial.html}.
+
+\bibitem{mathlib-dvr}
+The mathlib community, \emph{Mathlib.RingTheory.DiscreteValuationRing.Basic}, オンライン API 文書。
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/RingTheory/DiscreteValuationRing/Basic.html}.
+
+\bibitem{stacks-dvr}
+The Stacks Project Authors, \emph{The Stacks Project}, Lemma 10.119.7, Tag 00PD.
+\url{https://stacks.math.columbia.edu/tag/00PD}.
+\end{thebibliography}
+\end{document}

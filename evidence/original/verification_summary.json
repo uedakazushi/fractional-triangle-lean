@@ -1,0 +1,145 @@
+{
+  "status": "FULL_CLASSIFICATION_VERIFIED",
+  "human_mathematical_signoff": false,
+  "toolchain": "leanprover/lean4:v4.34.0",
+  "dependency_manifest_sha256": "25801fc77a7e5967816b5ece6060790fbbdb8b6fbad4eda4f4a76dc99f82a9bb",
+  "acceptance_script_sha256": "62b7571d941c680d0c53470e104171615f1db2710e104fb23fba501108808aa4",
+  "final_source_sha256": "a5a7474059b04ab0334779b71593f7814b383ffab5d6a2761d3aabe728e69472",
+  "main_source_sha256": "1dcbbeddd300b0995a0a27354bff6f2f2690234fb2809b0a4bed65a395fcf1cd",
+  "binary_sha256": "06c68a7d441df2abcaf7c0bdab38ba9b24a8ee59066f036095c59260986d1677",
+  "binary_platform": "macOS arm64",
+  "axiom_declarations": 1601,
+  "whole_equation_data_certificates": 10,
+  "runtime_inputs": 35,
+  "runtime_records": 528,
+  "checks": {
+    "final_acceptance": {
+      "command": [
+        "bash",
+        "../scripts/acceptance.sh"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 4242.98961687088
+    },
+    "final_all_axioms_after_clean": {
+      "command": [
+        "python3",
+        "../scripts/verify_all_axioms.py",
+        "../validation/final/axioms.log"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 0.04033493995666504
+    },
+    "final_replay_after_clean": {
+      "command": [
+        "python3",
+        "../scripts/replay_final.py"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 49.32427191734314
+    },
+    "final_cli_after_clean": {
+      "command": [
+        "python3",
+        "../scripts/test_final_cli.py"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 3.773066997528076
+    },
+    "final_integrity_after_clean": {
+      "command": [
+        "python3",
+        "../scripts/verify_continuation_integrity.py",
+        "--prefix",
+        "final_after_clean"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3112339973449707
+    },
+    "final_boundaries": {
+      "command": [
+        "python3",
+        "../scripts/test_final_boundaries.py"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 0.05833315849304199
+    },
+    "final_reference": {
+      "command": [
+        "python3",
+        "../reference/test_reference.py",
+        "--output",
+        "../validation/final/reference_regressions.json"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9635100364685059
+    },
+    "final_signature_review": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "FinalSignature.lean"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 6.443211078643799
+    },
+    "final_nonmaximal_test": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "HigherConverseTests.lean"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 5.412650108337402
+    },
+    "final_dependency_inspection": {
+      "command": [
+        "python3",
+        "../scripts/inspect_final_dependencies.py"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 0.961378812789917
+    },
+    "final_gate_tests_03": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Tests.lean"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 7.67839503288269
+    },
+    "output_certificates_build_04": {
+      "command": [
+        "lake",
+        "build",
+        "OutputCertificates",
+        "CanonicalRoots"
+      ],
+      "cwd": "<original-workspace>/formal",
+      "exit_code": 0,
+      "elapsed_seconds": 10.695473909378052
+    }
+  },
+  "boundaries": [
+    "compiler/runtime/OS",
+    "external SHA256 and byte provenance",
+    "JSON text parser and printer",
+    "no human mathematical sign-off",
+    "leanchecker uses imported environment, not full fresh dependency replay"
+  ]
+}

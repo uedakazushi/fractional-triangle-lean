@@ -1,0 +1,35 @@
+import Mathlib
+
+#check MvPolynomial
+#check Ideal.Quotient.mkₐ
+#check MvPolynomial.weightedHomogeneousSubmodule
+#check MvPolynomial.weightedHomogeneousSubmodule_mul
+#check MvPolynomial.IsWeightedHomogeneous.mul
+#check MvPolynomial.isWeightedHomogeneous_C
+#check Submodule.iSup_induction
+#check Submodule.mem_map
+#check Submodule.mul_mem_mul
+#check AddSubgroup.closure
+#check QuotientAddGroup.mk'
+#check QuotientAddGroup.eq_zero_iff
+#check MvPolynomial.pderiv
+#check MvPolynomial.pderiv_pow
+#check MvPolynomial.eval
+#check Localization
+#check IsLocalization.injective
+#check AlgEquiv
+#check List.mem_flatMap
+#check List.mem_range
+
+#check Finset.smul_sum
+#check Finset.sum_smul
+#check Finset.sum_zsmul
+#check Finset.sum_nsmul
+#check Finsupp.weight_eq_sum
+#check Int.emod_add_ediv_mul
+#check Finset.lcm_dvd
+#check Finset.dvd_lcm
+#check Nat.isCoprime_iff_coprime
+#check IsCoprime.prod_right
+#check Finset.prod_erase_mul
+#check MvPolynomial.coeff_X_pow

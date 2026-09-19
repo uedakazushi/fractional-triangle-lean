@@ -1,0 +1,129 @@
+Validation record — 2026-09-19, integrated Japanese draft v01
+Environment: Python 3.13.5; LuaHBTeX 1.18.0 (TeX Live 2025/dev/Debian).
+No Lean or Lake build has been run. No Lean proof files are included.
+
+1. python verify_classification.py: PASS
+2. python -O verify_classification.py: PASS
+Per-index enumeration and common exponent-box keys/signatures were compared.
+{
+  "atomic_exponent_bound": 18,
+  "positive_index_systems_checked": 24396,
+  "triangle_systems_in_box": 13007,
+  "census": [
+    14,
+    6,
+    8,
+    8,
+    21,
+    0,
+    29,
+    11,
+    12,
+    6,
+    37,
+    0,
+    36,
+    10,
+    9,
+    11,
+    40,
+    2,
+    46,
+    11,
+    12,
+    9,
+    55,
+    3,
+    28,
+    16,
+    18,
+    10,
+    52,
+    0
+  ],
+  "census_2_through_30": 506,
+  "higher_examples": {
+    "n=4,delta=1": [
+      [
+        2,
+        3,
+        7,
+        43
+      ]
+    ],
+    "n=4,delta=5": [
+      [
+        2,
+        3,
+        7,
+        47
+      ]
+    ],
+    "n=4,delta=25": [
+      [
+        2,
+        3,
+        7,
+        67
+      ]
+    ],
+    "n=5,delta=1": [
+      [
+        2,
+        3,
+        7,
+        43,
+        1807
+      ],
+      [
+        2,
+        3,
+        7,
+        47,
+        395
+      ],
+      [
+        2,
+        3,
+        11,
+        23,
+        31
+      ]
+    ]
+  }
+}
+
+3. python verify_polynomial_identities.py: PASS
+4. python -O verify_polynomial_identities.py: PASS
+PASS: 135 polynomial identities in Z[a,b,c], checked coefficientwise.
+No bounded parameter sampling and no external CAS are used in this checker.
+This result is not a Lean kernel verification.
+
+5. LuaLaTeX final compilation: PASS, 28 pages.
+Final build log: no unresolved references/citations, no overfull/underfull boxes, no warnings.
+All PDF pages were rendered to PNG; selected full pages and contact sheets were visually inspected.
+PDF text extraction found no unresolved ?? markers or blocks outside page safety margins.
+
+These reference checks are not a proof of the unbounded classification theorem and are not Lean kernel verification.
+
+
+=== v02 update, 2026-09-19 ===
+Earlier output above is inherited from the v01 bundle.
+Current Python: 3.13.5
+verify_watanabe_comparison.py: normal and -O both passed.
+Transcribed source keys: 51; present classification keys: 57; difference: exactly six.
+Six explicit equations: weight, determinant, signature, numerical identity and standard-form permutation checks passed.
+Source: arXiv:1401.0789v1 Section 3, individual entries; CSV is human-transcribed.
+Journal version not checked. Source PDF not redistributed; no local source-PDF hash claimed.
+LuaLaTeX: 3 passes; 29 pages; final log has no Warning/Overfull/Underfull/undefined entries.
+Visual inspection: revised PDF pages 5, 6 and 23.
+Symbolic checker normal:
+PASS: 135 polynomial identities in Z[a,b,c], checked coefficientwise.
+No bounded parameter sampling and no external CAS are used in this checker.
+This result is not a Lean kernel verification.
+
+Symbolic checker -O:
+PASS: 135 polynomial identities in Z[a,b,c], checked coefficientwise.
+No bounded parameter sampling and no external CAS are used in this checker.
+This result is not a Lean kernel verification.
+

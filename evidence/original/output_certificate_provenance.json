@@ -1,0 +1,107 @@
+{
+  "scope": "Exact decoded EquationData lists, not a kernel proof of OS bytes or SHA256",
+  "source": "formal/OutputCertificates.lean",
+  "source_sha256": "c1419500dcb2c5d01911791d7322c05b3d42ddc2d77b9dfe84badd99e772488b",
+  "outputs": [
+    {
+      "input": [
+        3,
+        1
+      ],
+      "path": "validation/final/cli/n3_a1.json",
+      "sha256": "c0da7bfe58921c73b0432cb6724eafc9da1eef5c90ea6a8b514192b0648d37b4",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n3_a1_entire_list",
+      "count": 14
+    },
+    {
+      "input": [
+        3,
+        2
+      ],
+      "path": "validation/final/cli/n3_a2.json",
+      "sha256": "347b38c88c7c9b2f18edb466ca53dc0abc663a684e455b694dbcb2ae2d7e4b31",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n3_a2_entire_list",
+      "count": 6
+    },
+    {
+      "input": [
+        3,
+        3
+      ],
+      "path": "validation/final/cli/n3_a3.json",
+      "sha256": "887682d36dc08db30d4bb59ca4ed70d5f2314a3f081846b91678abae9b0b96fb",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n3_a3_entire_list",
+      "count": 8
+    },
+    {
+      "input": [
+        3,
+        4
+      ],
+      "path": "validation/final/cli/n3_a4.json",
+      "sha256": "8d48857b04bf1a7db797e22aa2f708547ac1296521fa8ae5df094ae387143d8c",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n3_a4_entire_list",
+      "count": 8
+    },
+    {
+      "input": [
+        3,
+        5
+      ],
+      "path": "validation/final/cli/n3_a5.json",
+      "sha256": "002b6a845a3d2f3264f50d1df0a0ec004b5af67a1f46ac02914ef52ca08e914d",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n3_a5_entire_list",
+      "count": 21
+    },
+    {
+      "input": [
+        3,
+        6
+      ],
+      "path": "validation/final/cli/n3_a6.json",
+      "sha256": "719bf2daca880c64dfed82ec9e90d61906fc4395126b450f64ee0e8a59eac92c",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n3_a6_entire_list",
+      "count": 0
+    },
+    {
+      "input": [
+        4,
+        1
+      ],
+      "path": "validation/final/cli/n4_a1.json",
+      "sha256": "26a51999d044899d5db840e5c74b69da8a1a1460f36c38d415d9889acda8ed35",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n4_a1_entire_list",
+      "count": 1
+    },
+    {
+      "input": [
+        4,
+        5
+      ],
+      "path": "validation/final/cli/n4_a5.json",
+      "sha256": "55591472176b16284e82c5f2a1ceeb78ff3bfa9aee52a36f0bd0a6d8b8c8b4cd",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n4_a5_entire_list",
+      "count": 1
+    },
+    {
+      "input": [
+        4,
+        25
+      ],
+      "path": "validation/final/cli/n4_a25.json",
+      "sha256": "2982eac1cc2836afe2d6d5364320e4692cee9846741183aac94849bf629c353e",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n4_a25_entire_list",
+      "count": 1
+    },
+    {
+      "input": [
+        5,
+        1
+      ],
+      "path": "validation/final/cli/n5_a1.json",
+      "sha256": "7a16b1c6179be320fdce776e1bf9868d872f02b152130ddb2c9491d005ed0eae",
+      "equation_data_theorem": "CanonicalRoots.OutputCertificates.n5_a1_entire_list",
+      "count": 3
+    }
+  ]
+}

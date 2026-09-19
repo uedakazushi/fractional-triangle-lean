@@ -1,0 +1,4 @@
+n=3, a=1: 14 reference entries matched
+n=3, a=6: 0 reference entries matched
+n=4, a=1: 1 reference entries matched
+Output regression passed. Not a proof of universal semantic completeness.

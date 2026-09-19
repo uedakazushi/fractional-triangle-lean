@@ -1,0 +1,6 @@
+import CanonicalRoots.ClassificationPayloadCodec
+
+#print axioms CanonicalRoots.decodeJsonNat_jsonNat
+#print axioms CanonicalRoots.decodeJsonInt_jsonInt
+#print axioms CanonicalRoots.decodeEquationJson_encode
+#print axioms CanonicalRoots.decodeClassificationPayload_encode

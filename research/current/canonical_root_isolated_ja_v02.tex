@@ -1,0 +1,1580 @@
+% !TeX program = lualatex
+\RequirePackage{fix-cm}
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=25mm,headheight=16pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,longtable,array,enumitem}
+\usepackage{hyperref}
+\hypersetup{hidelinks,pdftitle={標準元の根から生じる孤立超曲面特異点},pdfauthor={Kenji Hashimoto, Hwayoung Lee, Kazushi Ueda}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small 標準元の根と孤立超曲面特異点}
+\fancyhead[R]{\small 統合日本語稿 v02}
+\fancyfoot[C]{\thepage}
+\setlength{\emergencystretch}{3em}
+\setlist{leftmargin=2em,itemsep=2pt,topsep=4pt}
+\numberwithin{equation}{section}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{example}[theorem]{例}
+\renewcommand{\proofname}{証明}
+\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}\newcommand{\Q}{\mathbb Q}\newcommand{\C}{\mathbb C}
+\newcommand{\cc}{\vec c}\newcommand{\xx}{\vec x}\newcommand{\om}{\vec\omega}\newcommand{\ta}{\vec\tau}
+\newcommand{\bp}{\mathbf p}\newcommand{\bw}{\mathbf w}\newcommand{\one}{\mathbf 1}
+\newcommand{\lcm}{\operatorname{lcm}}\newcommand{\Frac}{\operatorname{Frac}}\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\adj}{\operatorname{adj}}\newcommand{\NF}{\operatorname{NF}}\newcommand{\trdeg}{\operatorname{trdeg}}
+\newcommand{\Res}{\mathcal R}\newcommand{\Sig}{\mathcal A}\newcommand{\mf}{\mathfrak m}
+\newcommand{\ii}{\mathrm{i}}\newcommand{\supp}{\operatorname{supp}}\newcommand{\edim}{\operatorname{edim}}
+\newcommand{\eps}{\varepsilon}\newcommand{\wt}{\operatorname{wt}}\newcommand{\ord}{\operatorname{ord}}
+\title{標準元の根から生じる孤立超曲面特異点\\[3pt]
+\large 可逆多項式による表示と初等的分類}
+\author{Kenji Hashimoto \qquad Hwayoung Lee \qquad Kazushi Ueda\thanks{既存の二原稿に基づく統合草稿。著者による最終確認・投稿承認を意味しない。}}
+\date{2026年9月19日・統合日本語稿 v02}
+\begin{document}
+\maketitle
+\begin{abstract}
+整数 $n\ge3$ と $p_i\ge2$、$1-\sum_i p_i^{-1}>0$ に対し、
+階数一アーベル群 $L=\langle\xx_1,\dots,\xx_n,\cc\mid p_i\xx_i=\cc\rangle$ で次数付けた
+$T=\C[X_1,\dots,X_n]/(\sum_i X_i^{p_i})$ を考える。
+標準元 $\om=\cc-\sum_i\xx_i$ の整数根 $\delta\ta=\om$ に沿う部分環
+$R=\bigoplus_{m\ge0}T_{m\ta}$ のうち、孤立超曲面特異点を定めるものを分類する。
+全ての次元において、そのような $R$ は可逆多項式で定義される。
+三変数の場合には、原始重み $(w_1,w_2,w_3;h)$ と指数行列 $E$ が
+$|\det E|=h$、$h-\sum_iw_i=\delta$ を満たす表示を選べ、逆にこの条件を満たす可逆多項式は全て実現される。
+四変数以上の場合には、孤立性と超曲面性から $R=T$ が従い、分類は
+$\prod_i p_i-\sum_i\prod_{j\ne i}p_j=\delta$ を満たす互いに素な整数列に帰着する。
+固定した $(n,\delta)$ に対する停止保証付き列挙を与える。
+
+証明の三変数部分では、次数群の繰り上がり、有限自由加群の補元対合、
+有理 Hilbert 級数の一次の極、および三頂点の支持の列挙を用いる。
+特に、スタックの復元や変形剛性を用いずに元の signature を Hilbert 級数から回復し、
+同じ重みを持つ可逆多項式から元の環への単項式準同型を直接構成する。
+与えられた式の指数行列と、同型な表示の存在とは区別する。
+最後に、Lean/mathlib で追加の研究固有公理を置かずに形式化するための証明依存関係を示す。
+本稿は数学的原稿であり、Lean による検証済み成果物ではない。
+\end{abstract}
+\clearpage
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+
+\section{分類問題と主定理}\label{sec:intro}
+\subsection{次数付き環だけによる設定}
+基礎体は $\C$ とする。証明中の単位根、有限群平均、代数的な係数選択は、標数零の代数閉体でも同じように使える。
+$n$ は変数の数であり、$T$ と $R$ の Krull 次元は $n-1$ である。
+自然数は零を含む。
+\begin{definition}\label{def:rootring}
+$\bp=(p_1,\dots,p_n)$、$p_i\ge2$ とし、
+\begin{equation}\label{eq:nu}
+ \nu=1-\sum_{i=1}^n\frac1{p_i}>0,\qquad
+ N=\lcm(p_1,\dots,p_n),\qquad k=N\nu
+\end{equation}
+とおく。次の群と環を定める。
+\begin{align}
+ L(\bp)&=\frac{\bigoplus_i\Z\xx_i\oplus\Z\cc}
+ {\langle p_i\xx_i-\cc\mid1\le i\le n\rangle},
+ &\om&=\cc-\sum_i\xx_i,\label{eq:L}\\
+ T(\bp)&=\C[X_1,\dots,X_n]/(F_{\bp}),
+ &F_{\bp}&=\sum_i X_i^{p_i},\qquad\deg_L X_i=\xx_i.\label{eq:T}
+\end{align}
+$\delta\ge1$ と $\ta\in L(\bp)$ が $\delta\ta=\om$ を満たすとき、
+\begin{equation}\label{eq:R}
+ R=R(\bp,\ta)=\bigoplus_{m\ge0}T_{m\ta},\qquad \deg_R(T_{m\ta})=m
+\end{equation}
+を根環と呼ぶ。
+\end{definition}
+$L$ は階数一だが一般には捩れを持つ。$\om/\delta$ は有理化した群で割っただけの元ではなく、$L$ 内に存在する根を意味する。
+また分類に用いる同型は\emph{次数付き $\C$ 代数同型}である。
+単なる指数行列の行・列置換による商を、環の同型類と同一視しない。
+
+\begin{definition}\label{def:ihs}
+$R$ が孤立超曲面を定めるとは、正整数 $w_1,\dots,w_n,h$ と重み付き斉次多項式 $f$ による最小表示
+\begin{equation}\label{eq:hs}
+ R\simeq\C[z_1,\dots,z_n]/(f),\qquad\deg z_i=w_i,\quad\deg f=h
+\end{equation}
+があり、$f$ に通常の次数一以下の項がなく、$\partial f/\partial z_i$ の共通零点が原点だけであることをいう。
+重み付き Euler 恒等式により、この最後の条件は超曲面の原点以外での正則性と同値である。
+\end{definition}
+
+\begin{definition}\label{def:invertible}
+$n$ 変数の\emph{可逆多項式（invertible polynomial）}とは、
+\[
+ f=\sum_{i=1}^n c_i\prod_{j=1}^n z_j^{E_{ij}},\qquad
+ c_i\ne0,\quad E\in M_n(\N),\quad\det E\ne0,
+\]
+が正の重みを持ち、原点に孤立臨界点を持つものをいう。
+「項数が変数の数と等しい」「$\det E\ne0$」だけでは孤立性を代用しない。
+本稿では線形項を持たない最小表示だけを扱う。
+\end{definition}
+係数は対角変数変換で全て一にできる。これは整数行列の Smith 標準形と、$\C$ の非零元が任意次数の根を持つことから従う。
+重みを $\gcd(w_1,\dots,w_n)=1$ で正規化して\emph{原始重み}と呼ぶ。
+
+\begin{theorem}[可逆表示と高次元の剛性]\label{thm:main}
+定義\ref{def:rootring}の根環 $R$ が孤立超曲面を定めるとする。
+このとき表示\eqref{eq:hs}を、$f$ が可逆多項式で、原始重みについて
+\begin{equation}\label{eq:principal}
+ E\bw=h\one,\qquad |\det E|=h,\qquad h-\sum_iw_i=\delta
+\end{equation}
+となるように選べる。
+
+$n=3$ では逆に、\eqref{eq:principal}を満たす三変数可逆多項式は全て根環として実現される。
+その signature $(p_1,p_2,p_3)$ は順序を除いて一意であり、根も一意である。
+
+$n\ge4$ では、孤立超曲面となるための必要十分条件は
+\begin{equation}\label{eq:highclassification}
+ \gcd(p_i,p_j)=1\quad(i\ne j),\qquad
+ \prod_i p_i-\sum_i\prod_{j\ne i}p_j=\delta
+\end{equation}
+である。この場合 $R=T$、$h=\prod_i p_i$、$w_i=h/p_i$ であり、$\delta$ は $\om$ を $L$ 内で割り切る最大の正整数である。
+\end{theorem}
+この定理は特定の方程式の全ての表示について $|\det E|=h$ を要求していない。
+次の定理は、この区別を保ったまま\emph{与えられた可逆多項式}を判定する。
+
+\begin{definition}\label{def:sigW}
+三変数の原始重み $W=(w_1,w_2,w_3;h)$ に対し
+\[
+ m_{ij}(W)=\#\{(u,v)\in\N^2:w_i u+w_jv=h\}
+\]
+とおく。多重集合
+\begin{equation}\label{eq:arithmeticSig}
+ \Sig(W)=
+ \left(\{w_i:w_i\nmid h\}\;\sqcup\!
+ \bigsqcup_{i<j}\{\gcd(w_i,w_j)\}^{\,m_{ij}(W)-1}\right)_{>1}
+\end{equation}
+を定める。上付きは重複度を表し、最後に一を除く。
+本稿で適用する孤立超曲面の重みでは $m_{ij}\ge1$ であり、負の重複度は現れない。
+\end{definition}
+この整数的 signature は、正則重み系の既知の定義と一致する\cite[Definition 2.5]{Takahashi}。
+ここでは必要な性質を有理関数の計算から証明する。
+
+\begin{theorem}[与えられた三変数可逆多項式の判定]\label{thm:intrinsic}
+$f$ を三変数可逆多項式とし、$W=(w_1,w_2,w_3;h)$ をその原始重み、$\delta=h-w_1-w_2-w_3$ とする。
+次の条件は同値である。
+\begin{enumerate}
+\item $\C[x,y,z]/(f)$ は正の整数根に沿う三変数根環と次数付き同型である。
+\item $\delta>0$ で、$\Sig(W)$ がちょうど三つの元 $r_1,r_2,r_3$ を持ち、
+\begin{equation}\label{eq:numericcriterion}
+ \frac{\delta h}{w_1w_2w_3}=1-\frac1{r_1}-\frac1{r_2}-\frac1{r_3}
+\end{equation}
+が成り立つ。
+\item $\delta>0$ で、$f$ と次数付き変数変換および非零定数倍で移り合う可逆多項式 $g$ が存在し、$|\det E_g|=h$ を満たす。
+\end{enumerate}
+このとき元の signature は $\{p_1,p_2,p_3\}=\Sig(W)$ である。
+\end{theorem}
+
+\begin{example}[与えられた式の行列式は必要条件でない]\label{ex:counterexample}
+$f=x^2+y^3+z^8$ の原始重みは $(12,8,3;24)$ で、$\delta=1$、$|\det E_f|=48$ である。
+それでも $\Sig(W)=(3,3,4)$ であり、\eqref{eq:numericcriterion}は成立する。
+平方完成と係数の再正規化により $f$ は
+$g=x^2+xz^4+y^3$ に移り、$|\det E_g|=24$ となる。
+従ってこの環は signature $(3,3,4)$ の根環である。
+$|\det E_f|=h$ を\emph{そのままの式 $f$}への必要条件とする定式化は誤りである。
+\end{example}
+
+\begin{theorem}[有限性と完全な列挙]\label{thm:finite}
+固定した $n\ge3$ と $\delta\ge1$ に対して、孤立超曲面となる根環の次数付き同型類は有限個であり、停止する整数アルゴリズムで全て列挙できる。
+三変数では原始重みの整列した組 $(w_1,w_2,w_3;h)$ が完全不変量である。
+四変数以上では\eqref{eq:highclassification}の整列した解を列挙すればよい。
+\end{theorem}
+
+\subsection{先行研究との関係と証明の構成}
+三変数の主格子からの具体的構成と単項式表示は、正則重み系およびその双対性の研究に現れる\cite{Takahashi,ET}。
+それらの構成を新規なものとは主張しない。
+本稿が前面に置くのは、\emph{最初の関係式に可逆性を仮定しない根環から、可逆な表示が必然的に存在する}という方向である。
+Takahashi の論文は双対型から種数零への拡張を予告している\cite[Introduction]{Takahashi}が、本稿の証明はその予告された仕事に依存しない。
+公刊文献との比較だけから、未刊の結果との非重複まで断定するものではない。
+
+$\delta=1$ の高次元の場合は\cite{HLU}で扱われた。
+本稿は三変数原稿\cite{v04}、高次元原稿\cite{higher}および初等的改稿\cite{v05}を、孤立超曲面という共通の対象に絞って再構成する。
+非孤立な完全交差、gcd forest、平均漸近は扱わない。
+
+証明の中心は第\ref{sec:poles}節である。
+同じ重みの方程式を変形して同じスタックを得る、とは論じない。
+代わりに Hilbert 級数の一次の極から三つの整数 $p_i$ を回復する。
+支持の列挙で得た可逆式から\emph{元の $T$ への}準同型を作り、その単射性と全次数の Hilbert 関数の一致から同型を得る。
+ここでは「同じ Hilbert 級数なら一般に同型」という誤った推論は使わない。
+
+
+\subsection{渡辺の分類表との比較}\label{subsec:watanabe_intro}
+渡辺敬一は、二次元次数付き正規超曲面について、正の $a$ 不変量を固定したときの重み系の有限性を証明し、
+小さい $a$ 不変量における具体的な型を列挙している\cite[Theorem 2.1, Section 3]{WatanabeV1}。
+本稿の三変数の場合には $a(R)=h-w_1-w_2-w_3=\delta$ である。
+この比較では、渡辺の対象全体ではなく、本稿の\emph{三点型の根環に対応する部分}だけを扱う。
+また比較対象は、2014年1月4日付の \texttt{arXiv:1401.0789v1} に固定する。
+掲載誌版\cite{WatanabeJournal}との逐項照合、または後日の訂正についての主張ではない。
+
+同版 Section 3 の個別の列挙項目を、原始重みを整列した組 $(w_1,w_2,w_3;h)$ で比較すると、次の個数を得る。
+ここで同版 (3-C-19) の表記 $(4,10.17;34)$ は $(4,10,17;34)$ と読んでおり、これを欠落として数えてはいない。
+\begin{center}
+\begin{tabular}{lrrrrrr}
+\toprule
+$\delta=a(R)$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$\\
+\midrule
+渡辺の arXiv 第1版の個別列挙 & $14$ & $6$ & $7$ & $7$ & $17$ & $0$\\
+本稿の分類 & $14$ & $6$ & $8$ & $8$ & $21$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+前者は同版末尾の集計表を引用した値ではなく、個別項目を三点型に限定して数えた値である。
+この範囲で同版のリストに含まれない重み系は、正確に次の六つである。
+\begin{equation}\label{eq:watanabe_six}
+\begin{aligned}
+ \delta=3:&\quad(4,10,13;30),\\
+ \delta=4:&\quad(5,6,9;24),\\
+ \delta=5:&\quad(6,8,19;38),\ (4,7,16;32),\ (4,7,12;28),\ (4,7,9;25).
+\end{aligned}
+\end{equation}
+第\ref{subsec:watanabe_examples}節では、各重み系に対して可逆な関係式と元の signature を与える。
+従ってこれは、上記の版・範囲に限定した\emph{列挙の六例の補完}である。
+渡辺の一般有限性定理を訂正するものではなく、また、これらの特異点そのものの新規性を主張するものでもない。
+この差分は旧稿\cite[Remark 1.5, Remark 6.3]{v04}でも記録したものである。
+
+\section{次数群、根、および有限自由基底}\label{sec:arithmetic}
+\begin{lemma}[繰り上がり正規形]\label{lem:nf}
+$L$ の各元は一意的に
+\[
+ b\cc+\sum_i e_i\xx_i,\qquad b\in\Z,\quad0\le e_i<p_i
+\]
+と書ける。$\lambda(\cc)=1$、$\lambda(\xx_i)=1/p_i$ による次数写像は像 $N^{-1}\Z$ を持ち、
+\begin{equation}\label{eq:Nv}
+ Nv=N\lambda(v)\cc
+\end{equation}
+を満たす。特に捩れ部分は $N$ 倍で消え、$\gcd(e,N)=1$ なら $e$ 倍写像は単射である。
+\end{lemma}
+\begin{proof}
+存在は整数の Euclid 除法から従う。二つの正規形の差が関係部分群に入れば、各 $\xx_i$ 係数差は $p_i$ の倍数である。
+剰余の範囲から全て零となり、$\cc$ 係数差も零となる。
+式\eqref{eq:Nv}は各生成元で確認すればよい。
+像については $N/p_i$ の最大公約数が一であることを用いる。
+最後の単射性は、$ev=0$ なら $\lambda(v)=0$、従って $Nv=0$ であることと Bézout の等式から従う。
+\end{proof}
+
+\begin{proposition}[根の算術]\label{prop:root}
+$\delta\ta=\om$ の解は、存在すれば一意であり、存在条件は
+\begin{equation}\label{eq:rootcriterion}
+ \delta\mid k,\qquad\gcd(\delta,N)=1
+\end{equation}
+である。具体的に
+\[
+ \sigma_i\equiv-\delta^{-1}\pmod{p_i},\quad0\le\sigma_i<p_i,
+ \qquad b_i=\frac{\delta\sigma_i+1}{p_i},\qquad
+ b=\frac{1-\sum_i b_i}{\delta}
+\]
+とすれば、$b\in\Z$ で、$\ta=b\cc+\sum_i\sigma_i\xx_i$ である。
+\end{proposition}
+\begin{proof}
+根の式を $L/\Z\cc=\bigoplus_i\Z/p_i\Z$ に移すと $\delta\sigma_i\equiv-1$ であり、互いに素性が必要である。
+次数を $N$ 倍すると $k=\delta N\lambda(\ta)$ となる。
+逆に\eqref{eq:rootcriterion}のもとで
+$N(1-\sum b_i)\equiv N-\sum N/p_i=k\equiv0\pmod\delta$ だから $b\in\Z$。
+$\delta\sigma_i=b_ip_i-1$ を代入すれば根の式を得る。一意性は補題\ref{lem:nf}による。
+\end{proof}
+以下
+\begin{equation}\label{eq:u}
+ \mu=\lambda(\ta)=\frac\nu\delta,\qquad u=N\mu=\frac k\delta\in\N_{>0}
+\end{equation}
+とおく。$N\ta=u\cc$ である。
+$m\in\Z$ に対し
+\begin{equation}\label{eq:ell}
+ e_i(m)=m\sigma_i\bmod p_i,\qquad
+ \ell(m)=mb+\sum_i\left\lfloor\frac{m\sigma_i}{p_i}\right\rfloor
+ =m\mu-\sum_i\frac{e_i(m)}{p_i}
+\end{equation}
+とする。$\ell(m)$ は整数で、$\ell(m+N)=\ell(m)+u$ である。
+
+\begin{lemma}[斉次成分の基底]\label{lem:pieces}
+$Y_i=X_i^{p_i}$ とおく。$T$ は
+$\C[Y_1,\dots,Y_n]/(\sum_iY_i)$ 上、$\prod_iX_i^{e_i}$、$0\le e_i<p_i$ を基底とする自由加群である。
+従って
+\begin{equation}\label{eq:hilbertpieces}
+ \dim_\C R_m=
+ \begin{cases}\displaystyle\binom{\ell(m)+n-2}{n-2},&\ell(m)\ge0,\\0,&\ell(m)<0.\end{cases}
+\end{equation}
+\end{lemma}
+\begin{proof}
+多項式環は $Y_i=X_i^{p_i}$ による部分環上、表示した単項式を基底とする自由加群である。
+$\sum_iY_i$ で割っても自由基底は保たれる。
+$L$ の正規形により剰余単項式が一つに決まり、残るのは $n-1$ 変数の通常次数 $\ell(m)$ の斉次多項式である。
+\end{proof}
+
+\begin{proposition}[有限自由表示と補元対合]\label{prop:free}
+$A=\C[Y_1^u,\dots,Y_{n-1}^u]\subset R$ は各変数の $R$ 次数が $N$ の多項式環である。
+$T$ の $A$ 基底
+\[
+ X_1^{e_1}\cdots X_n^{e_n}Y_1^{b_1}\cdots Y_{n-1}^{b_{n-1}},
+ \quad0\le e_i<p_i,\quad0\le b_j<u
+\]
+のうち、$L$ 次数が $\Z\ta$ に属するものの集合を $\mathcal B$ とすると、$\mathcal B$ は $R$ の $A$ 基底である。
+各基底次数は $0$ 以上 $D=\delta+(n-1)N$ 以下であり、
+\begin{equation}\label{eq:reciprocity}
+ H_R(t^{-1})=(-1)^{n-1}t^{-\delta}H_R(t).
+\end{equation}
+\end{proposition}
+\begin{proof}
+補題\ref{lem:pieces}の基底を、さらに各 $Y_j$ の指数を $u$ で割って得る。
+$A$ の元の次数は $\Z\ta$ にあるので、異なる剰余次数の成分は混じらず、該当基底の抽出が $R$ の基底を与える。
+\[
+ e_i\longmapsto p_i-1-e_i,\qquad b_j\longmapsto u-1-b_j
+\]
+という補元操作で二つの次数の和は
+\[
+ \sum_i(p_i-1)\xx_i+(u-1)(n-1)\cc
+ =\om+(n-1)u\cc=D\ta
+\]
+となる。従って $\mathcal B$ は補元で閉じる。
+$B(t)=\sum_{M\in\mathcal B}t^{\deg_R M}$ とおけば $B(t^{-1})=t^{-D}B(t)$、
+$H_R(t)=B(t)/(1-t^N)^{n-1}$ であり、\eqref{eq:reciprocity}を得る。
+\end{proof}
+
+\begin{corollary}[数値恒等式]\label{cor:numerical}
+最小超曲面表示\eqref{eq:hs}に対し
+\begin{equation}\label{eq:numerical}
+ h-\sum_iw_i=\delta,\qquad
+ \frac{h}{\prod_iw_i}=\mu^{n-2}.
+\end{equation}
+また重みは原始である。
+\end{corollary}
+\begin{proof}
+$H_R(t)=(1-t^h)/\prod_i(1-t^{w_i})$ に $t^{-1}$ を代入し、\eqref{eq:reciprocity}と比較する。
+次に\eqref{eq:ell}より $\ell(m)=\mu m+O(1)$ なので、\eqref{eq:hilbertpieces}の最高次項は
+$\mu^{n-2}m^{n-2}/(n-2)!$ である。周期 $N$ ごとの多項式の母関数を取れば、$t=1$ の最高位の極の係数は $\mu^{n-2}$ となる。
+超曲面の表示からは $h/\prod_iw_i$ を得る。
+最後に、十分大きい全ての $m$ で $\ell(m)\ge0$、従って $R_m\ne0$ である。
+生成次数の共通因子が一より大きければこれは不可能である。
+\end{proof}
+
+\section{基本的な環論と単項式生成元}\label{sec:algebra}
+\begin{lemma}\label{lem:normal}
+$T$ と $R$ は有限生成正規整域で、$\dim T=\dim R=n-1$ である。
+\end{lemma}
+\begin{proof}
+$A_0=\C[X_1,\dots,X_{n-1}]$、$G=\sum_{i<n}X_i^{p_i}$ とおく。
+$G$ は平方因子を持たない。実際、その重複既約因子は全ての $p_iX_i^{p_i-1}$ を割ることになり、$n-1\ge2$ に反する。
+任意の既約因子 $\pi$ に関して $X_n^{p_n}+G$ は Eisenstein 多項式なので $T$ は整域である。
+
+$T$ 上整な $\eta\in\Frac(T)$ を
+$\eta=\sum_{j=0}^{p_n-1}c_jX_n^j$、$c_j\in\Frac(A_0)$ と書く。
+$X_n\mapsto\zeta X_n$ の有限 Fourier 平均により各 $c_jX_n^j$ も $A_0$ 上整である。
+従って $c_j^{p_n}(-G)^j\in A_0$。
+$c_j$ を既約分数で書くと、その分母の $p_n$ 乗が $G^j$ を割る。
+$G$ が平方因子を持たず $j<p_n$ であることから分母は単元である。
+これで $T$ の正規性を得る。
+
+$\Gamma=L/\Z\ta$ とすると $R=T_{\Gamma,0}$ である。
+$\eta\in\Frac(R)$ が $R$ 上整なら $\eta\in T$。
+$0\ne s\in R$、$s\eta\in R$ を取り、$\Gamma$ 次数分解を比較すると $s\eta_\gamma=0$ $(\gamma\ne0)$ である。
+整域性により $\eta\in R$。有限生成性と次元は命題\ref{prop:free}から従う。
+\end{proof}
+
+\begin{lemma}[有限対角群]\label{lem:group}
+$G_{\ta}=\operatorname{Hom}(L/\Z\ta,\C^*)$ とすると $R=T^{G_{\ta}}$ であり、
+\begin{equation}\label{eq:group}
+ G_{\ta}=\{(\alpha_i):\alpha_i^{p_i}=\rho=\prod_i\alpha_i,\quad\rho^u=1\},
+ \qquad |G_{\ta}|=\mu\prod_i p_i.
+\end{equation}
+\end{lemma}
+\begin{proof}
+有限アーベル群の指標は零でない元を分離するので、固定成分は $\Gamma$ 次数零成分である。
+$\ta$ を消す指標は $\om$ と $N\ta=u\cc$ を消し、表示した式を満たす。
+逆にそれらの式から $\alpha(\ta)^\delta=\alpha(\ta)^N=1$、従って $\alpha(\ta)=1$。
+群の位数は $|\operatorname{tors}L|=\prod_i p_i/N$ と、$\lambda(\ta)$ の $N^{-1}\Z$ 内の指数 $u$ を掛ければよい。
+捩れ群の位数は、$L/\Z\cc\simeq\bigoplus_i\Z/p_i\Z$ と $\lambda(L)/\Z\simeq\Z/N\Z$ からも得られる。
+\end{proof}
+
+\begin{lemma}[最小生成元の単項式選択]\label{lem:generators}
+$\mf=\bigoplus_{m>0}R_m$ とおく。
+$\mf/\mf^2$ の斉次基底を単項式の像から選べ、その持ち上げは $R$ を生成する。
+特に孤立超曲面の場合には、$n$ 個の単項式を最小生成元に選べる。
+\end{lemma}
+\begin{proof}
+各斉次成分は単項式の像で張られるから、商空間でもそこから基底を抽出できる。
+持ち上げが生成することは正の次数に関する帰納法で従う。
+最小 $n$ 変数表示では核に線形項がないから $\dim\mf/\mf^2=n$ である。
+\end{proof}
+
+\begin{lemma}[斉次除法]\label{lem:division}
+$\Xi$ を上の単項式生成元の持ち上げとし、$\widetilde R$ を多項式環の $\Z\ta$ 次数部分とする。
+$Z\in\widetilde R_m$ に対し、同じ $L$ 次数の $Q\in\C[\Xi]$ と
+$P\in\C[Y_1,\dots,Y_n]_{\ell(m)-1}$ が存在して
+\begin{equation}\label{eq:division}
+ Z=M(m)PF_{\bp}+Q,\qquad M(m)=\prod_iX_i^{e_i(m)}
+\end{equation}
+となる。
+\end{lemma}
+\begin{proof}
+$T$ 内で $Z$ と同じ像を持つ $Q$ を生成性から選ぶ。
+$Z-Q$ は $F_{\bp}$ の倍数であり、その商の次数は $m\ta-\cc$。
+この元の正規形は剰余部分 $e_i(m)$ を変えず、整数部分を一だけ減らす。
+\end{proof}
+
+孤立な重み付き超曲面が整域・正規であること、次数付き同型の変数変換への持ち上げ、有限群商の完備局所環に関する一般補題は付録\ref{app:commutative}にまとめる。
+これらは研究固有の追加仮定ではなく、後の形式化で証明項を与える必要のある一般的な可換環論である。
+
+\section{Hilbert 級数の極から三つの整数を回復する}\label{sec:poles}
+この節は $n=3$ とする。複素解析の留数や極限は必要ない。
+有理関数 $H(t)$ が $\zeta\ne1$ で高々単純極を持つとき
+\begin{equation}\label{eq:resdef}
+ \Res_\zeta(H)=\left.\bigl((1-t/\zeta)H(t)\bigr)\right|_{t=\zeta}
+\end{equation}
+とおく。右辺は、分母の共通因子を消してから行う代数的な評価である。
+
+\begin{lemma}[根環の有限 Fourier 計算]\label{lem:rootpole}
+$\zeta\ne1$ を単位根とする。根環の Hilbert 級数は一以外で高々単純極を持ち、
+\begin{equation}\label{eq:rootpole}
+ \Res_\zeta(H_R)=
+ \frac{1}{1-\zeta^{-\delta}}
+ \sum_{\{i:\zeta^{p_i}=1\}}\frac1{p_i}
+\end{equation}
+となる。ただし和が空なら値は零とし、このとき分母を評価する必要はない。
+和が空でない場合、分母は零でない。
+\end{lemma}
+\begin{proof}
+十分大きい $m$ に対し\eqref{eq:hilbertpieces}は
+\[
+ \dim R_m=\mu m+1-\sum_{i=1}^3\left\{\frac{m\sigma_i}{p_i}\right\}
+\]
+となる。有限個の初項を変えても $H_R$ に加わるのは多項式だけなので、\eqref{eq:resdef}は変わらない。
+線形項の母関数の極は一だけである。
+
+周期 $p$ の列 $-\{m\sigma/p\}$ を有限 Fourier 展開する。
+$\zeta^p=1$、$\zeta\ne1$ の成分係数は
+\[
+ -\frac1{p^2}\sum_{m=0}^{p-1}(m\sigma\bmod p)\zeta^m
+ =-\frac1{p^2}\sum_{j=0}^{p-1}j\zeta^{\sigma^{-1}j}
+ =\frac1{p(1-\zeta^{\sigma^{-1}})}.
+\]
+最後の等式は $q^p=1$、$q\ne1$ に対する
+$\sum_{j=0}^{p-1}j q^j=-p/(1-q)$ である。
+$\sigma^{-1}\equiv-\delta\pmod p$ を使うと\eqref{eq:rootpole}を得る。
+$\gcd(\delta,p)=1$ なので分母は零でない。
+\end{proof}
+
+次に、任意の孤立斉次超曲面の同じ量を座標ごとに計算する。
+\begin{definition}\label{def:coordinateorders}
+$f$ が原始重み $W=(A,B,C;h)$ を持つ三変数孤立超曲面を定めるとする。
+$V(f)\setminus\{0\}$ に $\lambda\cdot(x,y,z)=(\lambda^Ax,\lambda^By,\lambda^Cz)$ を作用させる。
+安定化群の位数が一より大きい軌道について、その位数を重複を込めて並べた多重集合を $\mathcal S_f$ と書く。
+これは商スタックを作る定義ではなく、非零座標に対応する重みの最大公約数を数える定義である。
+\end{definition}
+密な三次元トーラス上の安定化群は自明である。
+従って対象となる軌道は座標頂点と開いた座標直線上だけにあり、有限個である。
+
+\begin{lemma}[座標極公式]\label{lem:coordinatepole}
+$\delta=h-A-B-C$ とおく。全ての $r\in\mathcal S_f$ について $\gcd(\delta,r)=1$ であり、
+\begin{equation}\label{eq:coordinatepole}
+ \Res_\zeta\!\left(\frac{1-t^h}{(1-t^A)(1-t^B)(1-t^C)}\right)
+ =\frac{1}{1-\zeta^{-\delta}}
+   \sum_{\{r\in\mathcal S_f:\zeta^r=1\}}\frac1r
+\end{equation}
+が成り立つ。空の和については補題\ref{lem:rootpole}と同じ約束を用いる。
+\end{lemma}
+\begin{proof}
+$f$ は既約である（付録\ref{app:commutative}）。従ってどの座標平面への制限も零多項式ではない。
+特に二つの重みの最大公約数は $h$ を割る。
+原始性より、一でない単位根が三つの重みの全てを同時に割ることはない。
+
+まず開いた $xy$ 直線上を考え、$d=\gcd(A,B)>1$ とする。
+この直線上の安定化群は $\mu_d$ である。
+$d\mid h$、$\gcd(d,C)=1$ より、$\delta\equiv-C\pmod d$ であり、$\gcd(\delta,d)=1$。
+$x$ 頂点が $V(f)$ に属し $A>1$ なら、孤立性から $x^a y$ または $x^a z$ が現れる。
+前者とすると $h\equiv B\pmod A$、従って $\delta\equiv-C\pmod A$。
+$e=\gcd(A,C)$ は $h$ を割り、よって $B$ も割るので $e=1$。
+この場合も $\gcd(\delta,A)=1$ である。
+
+$\zeta$ が $A$ だけを割る場合、$x$ 頂点が曲線上になければ $A\mid h$ で、左辺は零である。
+頂点が曲線上にあれば、例えば $h\equiv B\pmod A$ を用いて
+\[
+ \frac{1-\zeta^h}{A(1-\zeta^B)(1-\zeta^C)}
+ =\frac1{A(1-\zeta^C)}
+ =\frac1{A(1-\zeta^{-\delta})}
+\]
+となり、その頂点の寄与に一致する。
+
+$\zeta$ が $A,B$ を割り $C$ を割らない場合を考える。
+$xy$ 平面への制限は
+\[
+ x^u y^v P(x^{B/d},y^{A/d})
+\]
+と書ける。ここで $P$ は通常次数 $s$ の二変数斉次多項式で、両端の係数が零でない。
+$d>1$ のためこの平面上の $\partial_z f$ は零である。
+従って頂点での正則性は $u,v\in\{0,1\}$ を、開直線上の正則性は $P$ の $s$ 個の非零根が相異なることを強制する。
+関係式
+\[
+ h=uA+vB+s\frac{AB}{d}
+\]
+により、開直線上の $s$ 軌道と存在する頂点の重み付き個数は
+\[
+ \frac{s}{d}+\frac{v}{A}+\frac{u}{B}=\frac{h}{AB}.
+\]
+一方、有理関数の左辺を因子消去で計算すると
+$h/(AB(1-\zeta^C))$ である。
+ここでも $\zeta^{-\delta}=\zeta^C$ だから一致する。
+他の座標の組も同じであり、全ての場合が尽くされた。
+\end{proof}
+
+\begin{lemma}[多重集合の一意性]\label{lem:recovermultiset}
+一より大きい整数からなる二つの有限多重集合 $\mathcal S,\mathcal S'$ が
+\[
+ \sum_{r\in\mathcal S:\,e\mid r}\frac1r
+ =\sum_{r\in\mathcal S':\,e\mid r}\frac1r\qquad(e\ge2)
+\]
+を満たせば、両者は等しい。
+従って同じ原始重みと関係次数を持つ孤立超曲面は、同じ $\mathcal S_f$ を持つ。
+\end{lemma}
+\begin{proof}
+両集合に現れる最大の整数を $M$ とする。
+$e=M$ の等式は $M$ の重複度が等しいことをいう。それを取り除いて帰納法を適用する。
+後半では補題\ref{lem:coordinatepole}に原始 $e$ 乗根を代入する。
+現れる全ての $e$ は $\delta$ と互いに素なので、分母を払える。
+\end{proof}
+
+\begin{proposition}[整数的 signature との一致]\label{prop:arithsignature}
+$\mathcal S_f=\Sig(W)$ である。特に $\mathcal S_f$ は係数を用いず有限整数計算で求められる。
+\end{proposition}
+\begin{proof}
+同じ重みの次数 $h$ の全ての単項式に係数を付ける。
+孤立性を保ち、全係数を非零とし、各二変数制限の開直線上の根を相異ならせる係数を選べることを確認する。
+元の $f$ の Jacobian 商は有限次元であるため、十分高い有限個の連続した重み次数で
+\[
+ \bigoplus_i\C[x,y,z]_{m-h+w_i}\longrightarrow\C[x,y,z]_m,
+ \qquad(g_i)\longmapsto\sum_i g_i\partial_i f
+\]
+が全射である。非零の最大小行列式を選べば、それらが非零である限り全射性は保たれる。
+幅 $\max w_i$ の次数帯で全射なら、それ以後も単項式を一変数で割る帰納法で全射となる。
+各小行列式、各係数、各二変数制限の判別式は係数の零でない多項式である。
+有限個のそれらの積も零でない。各変数での次数の上界を $d$ とすれば、零でない多変数多項式は格子 $\{1,\dots,d+1\}^s$ の全点で零にはならない。これは一変数多項式の根の個数に関する補題を変数数で帰納して示せる。従って有限個の整数係数の候補から、求める係数を選べる。
+
+その方程式を $g$ とすると、頂点 $i$ が現れるのは $w_i\nmid h$ のときに限る。
+$ij$ 開直線では $m_{ij}$ 個の二変数単項式が等差数列をなし、その両端を残した一変数多項式の次数は $m_{ij}-1$。
+従って $\gcd(w_i,w_j)$ の軌道がその個数だけ現れる。
+これは\eqref{eq:arithmeticSig}そのものである。
+補題\ref{lem:recovermultiset}により、元の $f$ に戻しても多重集合は変わらない。
+\end{proof}
+
+\begin{corollary}[根環の signature の復元]\label{cor:recover}
+$R(\bp,\ta)\simeq\C[x,y,z]/(f)$ が孤立超曲面表示であれば
+\begin{equation}\label{eq:recover}
+ \Sig(W)=\mathcal S_f=\{p_1,p_2,p_3\},\qquad
+ \frac{\delta h}{ABC}-1+\sum_{r\in\mathcal S_f}\frac1r=0.
+\end{equation}
+従って同じ重みの任意の孤立方程式も、ちょうど三つの非自明な座標軌道の位数と、この数値等式を持つ。
+\end{corollary}
+\begin{proof}
+補題\ref{lem:rootpole}と\ref{lem:coordinatepole}を比較し、補題\ref{lem:recovermultiset}を適用する。
+数値等式は系\ref{cor:numerical}の $n=3$ の場合である。
+\end{proof}
+
+\section{三変数の支持と可逆式への帰着}\label{sec:support}
+以下、$W=(A,B,C;h)$、$\delta=h-A-B-C>0$ であり、同じ重みの孤立方程式が
+\begin{equation}\label{eq:threecondition}
+ |\mathcal S|=3,\qquad
+ D(W,\mathcal S):=\frac{\delta h}{ABC}-1+\sum_{r\in\mathcal S}\frac1r=0
+\end{equation}
+を満たすとする。$D$ は有理数の式として定義し、種数や随伴公式は用いない。
+
+\subsection{七つの支持を有限集合として列挙する}
+\begin{lemma}\label{lem:seven}
+孤立方程式 $F$ の各変数 $x_i$ について、$x_i^a$ または $x_i^a x_j$ $(a\ge2)$ を一つ選べる。
+三変数の場合、変数の置換を除く選択結果は次の七つである。
+\begin{center}
+\begin{tabular}{cl}
+\toprule
+番号 & 選んだ三項\\\midrule
+I & $x^a+y^b+z^c$\\
+II & $x^ay+y^b+z^c$\\
+III & $x^ay+xy^b+z^c$\\
+IV & $x^ay+y^bz+z^c$\\
+V & $x^ay+y^bz+z^cx$\\
+B$_1$ & $x^ay+z^cy+y^b$\\
+B$_2$ & $x^ay+y^bz+z^cy$\\\bottomrule
+\end{tabular}
+\end{center}
+I--V は可逆な孤立方程式を与える。
+最後の二つで他の選び方によって I--V に移れない場合、同じ重みの項 $x^m z^n$、$m,n>0$ が $F$ に現れる。
+\end{lemma}
+\begin{proof}
+$x_i$ 軸上で全ての偏微分が消えないためには、表示した形の項が必要である。
+混合二次項があると $h=w_i+w_j$、従って $\delta=-w_k<0$ となるので除外される。
+各頂点から他の頂点または自分に一つ矢印を出す写像 $\{1,2,3\}\to\{1,2,3\}$ は $27$ 個しかない。
+固定点の個数と長さ二・三の巡回の有無で分ければ上の七型を得る。
+I--V の臨界点を偏微分で解くと原点だけである。
+密なトーラス上では、指数行列が可逆なので、対数微分の連立方程式は全ての単項式値を零にし、矛盾する。
+座標が零の場合は鎖または巡回に沿って残る座標も零になる。
+
+B$_1$,B$_2$ で $F|_{y=0}=0$ なら $y\mid F$ であり、既約性に反する。
+従って $\C[x,z]$ の単項式がある。
+それが純冪なら I--V の別の選択ができ、そうでなければ $x^m z^n$ である。
+この列挙は既知の三変数支持分類\cite{Rarovskii}の最小部分だが、ここではその外部分類定理を仮定していない。
+\end{proof}
+
+\begin{lemma}[四項の比較方程式]\label{lem:fourterm}
+最後の二型と正の link $x^m z^n$ が同じ重みを持つとき、有限個の非零値を除く $\eps\in\C^*$ に対して
+\begin{align*}
+ g_1&=x^ay+z^cy+y^b+\eps x^m z^n,\\
+ g_2&=x^ay+y^bz+z^cy+\eps x^m z^n
+\end{align*}
+は孤立臨界点を持つ。
+\end{lemma}
+\begin{proof}
+座標軸上では最初の三項の偏微分が非零である。
+開いた $xz$ 直線では link 自体が非零なので Euler 恒等式により臨界点はない。
+他の開いた座標直線では、制限した二項式の根でその偏微分の一つが非零になる。
+例えば $g_2|_{x=0}=yz(y^{b-1}+z^{c-1})$ の非零根では
+$\partial_y g_2=(b-1)y^{b-1}z\ne0$。
+
+密なトーラス上では四つの単項式値を $U_1,U_2,U_3,U_4$ とする。
+三つの対数微分は階数三の $3\times4$ 行列による線形方程式なので、その核は一次元である。
+核の座標に零があれば非零単項式値は入れない。
+全て非零なら $U_i=c_i s$ という一定の比になる。
+指数ベクトル間の整数関係 $\sum_i\ell_i E_i=0$ では $\ell_4\ne0$ であり、重み付き斉次性から $\sum_i\ell_i=0$。
+従って単項式値の関係は
+$\eps^{\ell_4}=\prod_i c_i^{\ell_i}$ となる。
+これは有限個の $\eps$ しか許さない。
+\end{proof}
+
+\subsection{分岐する二型の排除}
+\begin{proposition}\label{prop:branched}
+B$_1$,B$_2$ に正の link $x^m z^n$ を付けた孤立方程式は、いずれも\eqref{eq:threecondition}を満たさない。
+従って\eqref{eq:threecondition}を満たす孤立方程式の重みは、I--V の可逆方程式の重みである。
+\end{proposition}
+\begin{proof}
+補題\ref{lem:fourterm}の比較方程式を使う。
+系\ref{cor:recover}と補題\ref{lem:recovermultiset}により、方程式を比較しても三点条件は変わらない。
+
+B$_1$ について $e=b-1$、$L_0=\lcm(a,e,c)$ とおくと
+\[
+ (A,B,C;h)=\left(\frac{L_0}{a},\frac{L_0}{e},\frac{L_0}{c};L_0+B\right).
+\]
+$r=\gcd(a,e)$、$s=\gcd(c,e)$、$U=\gcd(A,B)$、$V=\gcd(B,C)$ とする。
+二つの頂点は位数 $A,C$、二つの開直線はそれぞれ $r$ 個の位数 $U$ と $s$ 個の位数 $V$ を与える。
+$[P]$ を命題 $P$ の指示関数とすると、非自明な軌道数は
+\[
+ [A>1]+[C>1]+r[U>1]+s[V>1].
+\]
+$U,V$ が共に一より大きければ少なくとも四、共に一なら高々二である。
+従って $x,z$ を交換して、三点の場合は次の二つしかない。
+\[
+ \begin{array}{ll}
+ \text{(i)}& C=1,\quad U>1,\quad V=1,\quad r=2,\\
+ \text{(ii)}& A,C>1,\quad U>1,\quad V=1,\quad r=1.
+ \end{array}
+\]
+(ii) では $A=eU$、$B=aU$、$cC=eB$ および $\gcd(B,C)=1$ より $C\mid e$、従って $C\mid A$。
+ところが $h=(e+1)B$ は $C$ の倍数でない。
+これは link の次数式 $mA+nC=h$ に反する。
+(i) では $a=2a_0$、$e=2e_0$、$\gcd(a_0,e_0)=1$ と書け、
+\[
+ (A,B,C;h)=(e_0U,a_0U,1;a_0U(2e_0+1)),\qquad
+ \mathcal S=(e_0U,U,U).
+\]
+これを $D$ に代入すると
+\begin{equation}\label{eq:B1positive}
+ D=2\bigl((a_0-1)(2e_0+1)+e_0\bigr)>0.
+\end{equation}
+
+B$_2$ については $e=b-1$、$t=c-1$ とし、
+\[
+ G=\gcd(e(t+1),at,ae),\quad
+ (A,B,C;h)=\frac1G(e(t+1),at,ae;a(et+e+t)).
+\]
+$d=\gcd(e,t)$、$W_0=ad/G$ とおく。
+三つの頂点と $x=0$ の開直線から、個数は
+\[
+ [A>1]+[B>1]+[C>1]+d[W_0>1]
+\]
+である。
+$W_0=1$ なら三頂点が全て非自明でなければならない。
+$e=de_0$、$t=dt_0$ として $D$ を計算すると
+\begin{equation}\label{eq:B2positive1}
+ D=d(a-1)+\frac{a}{e_0}-1>0.
+\end{equation}
+$W_0>1$ なら $B,C>1$ なので、三点の場合には $A=1,d=1$。
+このとき
+\[
+ (A,B,C;h)=(1,W_0t,W_0e;W_0(et+e+t)),\quad
+ \mathcal S=(W_0t,W_0e,W_0)
+\]
+であり、
+\begin{equation}\label{eq:B2positive2}
+ D=et+e+t-1>0.
+\end{equation}
+全て三点条件の $D=0$ に反する。
+\end{proof}
+
+\section{原始な可逆表示への変換と単項式構成}\label{sec:primitive}
+\subsection{重みと座標軌道の全表}
+I--V の指数を $a,b,c\ge2$ とする。正の未約分重みと次数を $(A_0,B_0,C_0;h_0)$ と書き、
+$\kappa=\gcd(A_0,B_0,C_0)$ とおく。
+\begin{center}\small
+\begin{tabular}{cll}
+\toprule
+型 & 方程式 & $(A_0,B_0,C_0;h_0)$\\\midrule
+I & $x^a+y^b+z^c$ & $(bc,ac,ab;abc)$\\
+II & $x^ay+y^b+z^c$ & $(c(b-1),ac,ab;abc)$\\
+III & $x^ay+xy^b+z^c$ & $(c(b-1),c(a-1),ab-1;c(ab-1))$\\
+IV & $x^ay+y^bz+z^c$ & $(c(b-1)+1,a(c-1),ab;abc)$\\
+V & $x^ay+y^bz+z^cx$ & $(c(b-1)+1,a(c-1)+1,b(a-1)+1;abc+1)$\\\bottomrule
+\end{tabular}
+\end{center}
+ここで $h_0=|\det E|$ であり、原始重みは $(A,B,C;h)=(A_0,B_0,C_0;h_0)/\kappa$。
+従って $|\det E|=h$ は $\kappa=1$ と同値である。
+一般の指数行列で行の順序を変える場合は
+\[
+ v=\operatorname{sgn}(\det E)\adj(E)\one>0,\qquad
+ (\bw;h)=\frac1{\gcd(v_1,v_2,v_3)}(v;|\det E|)
+\]
+を使う。行列式の符号を落としたまま余因子ベクトルを重みとしない。
+
+$V_x(r)$ は $x$ 頂点の位数 $r$、$L_{ij}(s,r)$ は $ij$ 開直線上の $s$ 個の位数 $r$ を表す。
+位数一の項は取り除く。
+\begin{center}\small
+\begin{tabular}{cp{0.81\linewidth}}
+\toprule
+型 & 非自明な座標軌道の全リスト\\\midrule
+I & $L_{xy}(d_{ab},cd_{ab}/\kappa),\ L_{xz}(d_{ac},bd_{ac}/\kappa),\ L_{yz}(d_{bc},ad_{bc}/\kappa)$、$d_{ab}=\gcd(a,b)$、巡回的に定義。\\[4pt]
+II & $V_x(c(b-1)/\kappa),\ L_{xy}(r,cr/\kappa),\ L_{yz}(s,as/\kappa)$、$r=\gcd(a,b-1)$、$s=\gcd(b,c)$。\\[4pt]
+III & $V_x(c(b-1)/\kappa),\ V_y(c(a-1)/\kappa),\ L_{xy}(d,cd/\kappa)$、$d=\gcd(a-1,b-1)$。\\[4pt]
+IV & $V_x((c(b-1)+1)/\kappa),\ V_y(a(c-1)/\kappa),\ L_{yz}(d,ad/\kappa)$、$d=\gcd(b,c-1)$。\\[4pt]
+V & $V_x(A_0/\kappa),\ V_y(B_0/\kappa),\ V_z(C_0/\kappa)$。\\\bottomrule
+\end{tabular}
+\end{center}
+この表は、各座標直線への二項式の制限とその非零根の個数だけで確認できる。
+例えば II の $z=0$ への制限は $y(x^a+y^{b-1})$ であり、開直線には $\gcd(a,b-1)$ 個の軌道がある。
+表にない開直線への制限は非零単項式であり、追加の零点はない。
+
+\subsection{四つの例外表示とその除去}
+\begin{proposition}[原始化]\label{prop:mutation}
+I--V の可逆多項式が $\delta>0$ と\eqref{eq:threecondition}を満たすとする。
+$\kappa=1$ であるか、変数の置換を除いて次の四つのいずれかである。
+\begin{center}\small
+\begin{tabular}{lll}
+\toprule
+元の表示 & 算術条件 & 同じ重みの原始な表示\\\midrule
+$x^2+y^{2k}+z^\ell$ & $\gcd(2k,\ell)=1$, $\kappa=2$ & $X^2+Xy^k+z^\ell$\\
+$x^3+y^3+z^\ell$ & $\gcd(3,\ell)=1$, $\kappa=3$ & $X^2Y+XY^2+z^\ell$\\
+$x^2y+y^{2k+1}+z^\ell$ & $\gcd(2k+1,\ell)=1$, $\kappa=2$ & $X^2y+Xy^{k+1}+z^\ell$\\
+$x^ay+y^{2k}+z^2$ & $\gcd(a,2k-1)=1$, $\kappa=2$ & $x^ay+y^kZ+Z^2$\\\bottomrule
+\end{tabular}
+\end{center}
+右欄の係数は、変数の定数倍で全て一に正規化したものである。
+従って常に、同じ重みと次数のまま $|\det E_g|=h$ の可逆表示 $g$ に移れる。
+\end{proposition}
+\begin{proof}
+全ての非自明な座標軌道は前の表に含まれるので、三点の数え上げは尽くされている。
+
+I では $d_{ab}=\gcd(a,b)$、$D_{ab}=cd_{ab}/\kappa$ とし、巡回的に定義する。
+$D_{ij}>1$ の組を active と呼ぶ。
+三点条件と $D=0$ は
+\[
+ \sum_{D_{ij}>1}d_{ij}=3,\qquad
+ 0=\kappa\left(1-\frac1a-\frac1b-\frac1c+
+             \sum_{D_{ab}>1}\frac1c\right)-1
+\]
+となる。三組とも active なら $0=\kappa-1$。
+二組なら個数は $2+1$。$d_{ab}=2,d_{ac}=1,D_{bc}=1$ として
+$0=\kappa(1-1/a)-1$ から $a=\kappa=2$、さらに $b=2k$、$\gcd(b,c)=1$ を得る。
+一組だけなら $d_{ab}=3$ で、
+$\kappa(1-1/a-1/b)=1$。
+$\kappa$ は三の倍数、$a,b\ge3$ なので等号は $a=b=\kappa=3$ のときだけであり、$\gcd(3,c)=1$ を得る。
+
+II では $e=b-1$、$r=\gcd(a,e)$、$s=\gcd(b,c)$ とおき、
+\[
+ X=[ce/\kappa>1],\quad Y=[cr/\kappa>1],\quad Z=[as/\kappa>1]
+\]
+とする。条件は
+\[
+ X+rY+sZ=3,\qquad
+ 0=\kappa\left(1-\frac{1-Z}{a}-\frac{1-Y}{c}-\frac{1-X}{ce}\right)-1.
+\]
+$Y=1$ なら $X=1$ である。
+$Y=Z=1$ なら $X=r=s=1$ となり $\kappa=1$。
+$Y=1,Z=0$ なら $r=2$、$a=\kappa=2$、$e=2k$、$\gcd(b,c)=1$ となり第三行を得る。
+$Y=0,Z=1,X=1$ なら $s=2$、$c=\kappa=2$、$\gcd(a,b-1)=1$ となり第四行を得る。
+残るのは $X=Y=0,Z=1,s=3$ であるが、$\kappa=ce$ と $D=0$ は $e(c-1)=2$ を与える。
+$(e,c)=(1,3),(2,2)$ のどちらも $\gcd(e+1,c)=1$ であり、$s=3$ に反する。
+
+III では $d=\gcd(a-1,b-1)$、$D_0=cd/\kappa$ とする。
+$D_0=1$ では高々二点、$D_0>1$ では両頂点が現れるので三点なら $d=1$。
+その三つの位数を式 $D$ に入れると $D=\kappa-1$ であり $\kappa=1$。
+
+IV では $p=c(b-1)+1$、$d=\gcd(b,c-1)$、$D_0=ad/\kappa$ とする。
+開直線が active でなければ高々二点。
+active なら第二頂点が現れ、第一頂点もあれば $d=1$、$D=\kappa-1$。
+第一頂点がなければ $p/\kappa=1$、$d=2$ で、$D=\kappa-2$。
+しかしこのとき $\kappa=p\ge4$ なので零にはならない。
+V では三点は三頂点しかなく、代入すれば $D=\kappa-1$。
+これで $\kappa>1$ の場合が表の四つだけになった。
+
+最初、第三、第四行の変換は平方完成である。
+第二行では $x^3+y^3$ を相異なる三つの一次因子に分解し、そのうち二つを新しい座標に取る。
+残る因子の両係数は非零なので、再正規化して $XY(X+Y)$ にできる。
+右欄の未約分重みの共通因子は順に
+\[
+ \gcd(\ell,2k),\quad\gcd(\ell,3),\quad
+ \gcd(\ell,2k+1),\quad\gcd(a,2k-1)
+\]
+であり全て一である。
+第一・第四行で $k=1$ なら $\delta<0$ となるので、正の $\delta$ のもとで変換後の指数も全て二以上である。
+\end{proof}
+
+\section{単項式による実現と三変数分類の証明}\label{sec:cox}
+\subsection{構成表と群の次数}
+指数を $\alpha,\beta,\gamma\ge2$ と書き、前節の I--V において未約分重みが互いに素であるとする。
+その重みを $(w_1,w_2,w_3;h)$、$\delta=h-\sum_iw_i>0$ とする。
+次の表の signature と単項式を用いる。
+\begin{center}\small
+\begin{tabular}{clll}
+\toprule
+型 & $(p_1,p_2,p_3)$ & $(M_1,M_2,M_3)$ & $M_0$\\\midrule
+I & $(\alpha,\beta,\gamma)$ & $(X,Y,Z)$ & $1$\\
+II & $(\alpha,\gamma(\beta-1),\gamma)$ & $(X,Y^\gamma,YZ)$ & $Y^\gamma$\\
+III & $(\gamma(\alpha-1),\gamma(\beta-1),\gamma)$ & $(X^\gamma,Y^\gamma,XYZ)$ & $X^\gamma Y^\gamma$\\
+IV & $(\alpha,\gamma(\beta-1)+1,\alpha(\gamma-1))$ & $(XZ,Y^\gamma,YZ^\alpha)$ & $Y^\gamma Z^\alpha$\\
+V & $(\beta(\alpha-1)+1,\gamma(\beta-1)+1,\alpha(\gamma-1)+1)$ & $(X^\beta Z,XY^\gamma,YZ^\alpha)$ & $X^\beta Y^\gamma Z^\alpha$\\\bottomrule
+\end{tabular}
+\end{center}
+ここでは I--V は証明中の五つの座標形を指すだけであり、分類対象に追加のラベルを付けるものではない。
+
+\begin{lemma}[構成表の恒等式]\label{lem:coxidentities}
+$B\in M_3(\N)$ を $M_i$ の指数を行に並べた行列とし、$m_0$ を $M_0$ の指数行ベクトルとする。
+表の各行について
+\begin{align}
+ E B&=\operatorname{diag}(p_1,p_2,p_3)+\one m_0,
+ &g(M_1,M_2,M_3)&=M_0F_{\bp},\label{eq:coxidentity}\\
+ \delta\deg_L M_i&=w_i\om,
+ &\frac{\delta h}{w_1w_2w_3}&=1-\sum_{j=1}^3\frac1{p_j}>0,\label{eq:coxdegrees}\\
+ |\det B|&=\frac{h p_1p_2p_3}{w_1w_2w_3}
+ =\frac\nu\delta p_1p_2p_3.\label{eq:coxdet}
+\end{align}
+特に表の signature には一意な根 $\delta\ta=\om$ があり、$\deg_L M_i=w_i\ta$ である。
+\end{lemma}
+\begin{proof}
+第一式は行列の乗算である。例えば IV の三項の代入は
+\[
+ X^\alpha Y^\gamma Z^\alpha+Y^{\gamma\beta+1}Z^\alpha
+ +Y^\gamma Z^{\alpha\gamma}
+ =Y^\gamma Z^\alpha
+   (X^\alpha+Y^{\gamma(\beta-1)+1}+Z^{\alpha(\gamma-1)})
+\]
+である。他の行も同じ乗算であり、共通単項式が表の最右欄になる。
+群内の次数等式は、有理次数の等式だけを確認するのでは足りない。
+実際には各 $i,j$ について
+\begin{equation}\label{eq:integraldegreecheck}
+ p_j\mid\delta B_{ij}+w_i,
+ \qquad
+ \sum_{j=1}^3\frac{\delta B_{ij}+w_i}{p_j}=w_i
+\end{equation}
+を確認する。すると
+\[
+ \delta\deg_L M_i-w_i\om
+ =\sum_j(\delta B_{ij}+w_i)\xx_j-w_i\cc=0.
+\]
+式\eqref{eq:integraldegreecheck}は前節の重みの五行を代入した整数恒等式である。
+例えば I の $i=1$ の三つの商は
+$\beta\gamma-\beta-\gamma,\gamma,\beta$ であり、和は $w_1=\beta\gamma$。
+II の $i=1$ では $B_{1*}=(1,0,0)$ で、商は
+$\beta\gamma-\gamma-\beta,1,\beta-1$、和は $w_1=\gamma(\beta-1)$ となる。
+他の行も、$\delta=h-w_1-w_2-w_3$ を展開して $p_j$ をくくり出せば\eqref{eq:integraldegreecheck}を得る。全ての商を並べた整数行列を付録\ref{app:certificates}に掲げる。
+数値式\eqref{eq:coxdegrees}は分母を払った同じ多項式恒等式である。
+$|\det B|$ は I--V の順に
+\[
+ 1,\quad\gamma,\quad\gamma^2,\quad\alpha\gamma,\quad\alpha\beta\gamma+1
+\]
+となり、\eqref{eq:coxdet}を得る。
+
+$\gcd(w_1,w_2,w_3)=1$ なので $\sum_i v_iw_i=1$ となる整数 $v_i$ を取り、
+$\ta=\sum_i v_i\deg_L M_i$ とおく。すると $\delta\ta=\om$。
+根の存在から命題\ref{prop:root}により $\gcd(\delta,N)=1$ であり、$\delta$ 倍は単射である。
+$\delta(\deg_L M_i-w_i\ta)=0$ から所要の次数等式を得る。
+\end{proof}
+
+\begin{lemma}[局所化した単項式準同型]\label{lem:coxlocal}
+表のデータに対し
+\[
+ \Phi:S=\C[z_1,z_2,z_3]/(g)\longrightarrow R(\bp,\ta),
+ \qquad z_i\longmapsto M_i
+\]
+は単射であり、分数体の同型を誘導する。
+\end{lemma}
+\begin{proof}
+$A=\C[X^{\pm1},Y^{\pm1},Z^{\pm1}]$ とする。
+$B$ の行が生成する指数格子は有限指数 $|\det B|$ を持つ。
+従って単項式写像の核
+\[
+ H_B=\{(\lambda_1,\lambda_2,\lambda_3):M_i(\lambda)=1\ (1\le i\le3)\}
+\]
+は位数 $|\det B|$ の有限群であり、Smith 標準形から
+$A^{H_B}=\C[M_1^{\pm1},M_2^{\pm1},M_3^{\pm1}]$ である。
+次数等式より $G_{\ta}\subset H_B$。
+群の位数公式と\eqref{eq:coxdet}から両群の位数は等しいので $G_{\ta}=H_B$。
+
+$F_{\bp}$ はこの群の半不変式であり、$M_0F_{\bp}=g(M)$ は不変式である。
+$M_0$ は Laurent 環では単元なので
+\[
+ (F_{\bp})\cap A^{H_B}=M_0F_{\bp}A^{H_B}.
+\]
+実際、$F_{\bp}a$ が不変なら、$a/M_0$ が不変である。
+有限群平均の完全性から
+\begin{equation}\label{eq:laurentiso}
+ (A/(F_{\bp}))^{H_B}
+ \simeq\C[z_1^{\pm1},z_2^{\pm1},z_3^{\pm1}]/(g)
+\end{equation}
+を得る。
+左辺は $R$ の $M_1M_2M_3$ による局所化である。表の各行でこの積は $X,Y,Z$ の全てを正の指数で含むからである。
+$g$ は孤立臨界点を持つ三変数多項式なので $S$ は整域であり、$S$ からその Laurent 局所化への写像は単射である（付録\ref{app:commutative}）。
+式\eqref{eq:laurentiso}により $\Phi$ は単射で、分数体は一致する。
+\end{proof}
+
+\begin{proposition}[原始な可逆式からの実現]\label{prop:principalrealization}
+三変数可逆多項式 $g$ が原始重みについて $|\det E_g|=h$、$\delta=h-\sum_iw_i>0$ を満たすなら、上の $\Phi$ は同型である。
+従って $S$ は表の signature の根環である。
+\end{proposition}
+\begin{proof}
+三項で各座標軸の孤立性を確保するには、各変数に対し一つずつ純冪か有向辺の項を選ばなければならない。
+分岐した三項だけの式は $y$ を因子に持ち孤立ではない。
+従って $g$ は I--V のいずれかである。
+指数行列の行列式が原始次数に等しいことは、前節の表の未約分重みが原始であることと同値である。
+補題\ref{lem:coxlocal}により $S\subset R$ は分数体の同じ拡大である。
+
+$T/(M_1,M_2,M_3)$ は有限次元であることを示す。
+I は明らかである。II では $X=0,Y^\gamma=0$ と $F_{\bp}=0$ から $Z$ も冪零になる。
+III では $X^\gamma=Y^\gamma=0$ から $Z$ も冪零になる。
+IV では $Y$ は冪零、$XZ=0$ である。従って
+$X^\alpha+Z^{\alpha(\gamma-1)}$ は冪零であり、その二つの項の積は零であるから両項が冪零である。
+V では $U=X^{p_1},V=Y^{p_2},W=Z^{p_3}$ と書くと、$UV,VW,WU$ はいずれも $(M_1,M_2,M_3)$ に入る。
+$U+V+W=0$ より $U^2=V^2=W^2=0$、従って $X,Y,Z$ は冪零になる。
+いずれも単項式の指数を有限範囲に制限できる。
+
+正の次数に関する帰納法により $T$ は $S$ 上有限加群である（付録\ref{app:commutative}）。
+従って $R\subset T$ の各元は $S$ 上整である。
+$S$ は孤立超曲面の正規二次元環なので、$\Frac S=\Frac R$ のもとで $R=S$ となる。
+ここで用いる正規性の可換環論的入力は付録に明記する。
+\end{proof}
+
+\subsection{自動的可逆性}
+\begin{proof}[定理\ref{thm:main}の三変数部分の証明]
+$R$ の最小孤立超曲面表示を $\C[x,y,z]/(F)$ とし、その原始重みを $W=(A,B,C;h)$ とする。
+第\ref{sec:arithmetic}節の恒等式により $\delta=h-A-B-C>0$ である。
+第\ref{sec:poles}節の極の復元によって、$F$ の非自明な座標軌道の位数は元の $p_1,p_2,p_3$ と一致し、
+\[
+ D(W,\{p_1,p_2,p_3\})=0
+\]
+である。
+七つの支持の議論と分岐型の排除により、$F$ と同じ重み・次数の孤立可逆多項式 $g$ が存在する。
+$F$ と $g$ の Hilbert 級数は同じなので、再び極の復元からその三点データも同じである。
+命題\ref{prop:mutation}により、$g$ を同じ重みのまま $|\det E_{g'}|=h$ となる $g'$ に置き換える。
+
+$g'$ に構成表を適用して得る signature は、座標軌道の表から $\{p_1,p_2,p_3\}$ そのものである。
+同じ置換で元の $X_1,X_2,X_3$ を並べ、元の $T(\bp)$ 内の単項式 $M_i$ を構成する。
+根の一意性により、構成表の根は最初の $\ta$ と一致する。
+従って補題\ref{lem:coxlocal}の単射
+\[
+ \C[z_1,z_2,z_3]/(g')\longrightarrow R(\bp,\ta)
+\]
+が得られる。
+両辺は $W$ による同じ超曲面 Hilbert 級数を持つので、各次数の有限次元ベクトル空間上の単射は全射である。
+これで次数付き同型を得る。
+最小生成元の対応は付録の重み順三角変換の補題により多項式環の次数付き自己同型に持ち上がるので、これは関係式の表示変更としても実現される。
+逆方向は命題\ref{prop:principalrealization}による。
+signature の一意性は極の復元、根の一意性は命題\ref{prop:root}による。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:intrinsic}の証明]
+(1) から (2) は Hilbert 級数の極の復元と数値恒等式である。
+(2) のもとでは $\delta>0$ なので混合二次項はなく、三項の孤立可逆多項式 $f$ は I--V のいずれかである。
+整数 signature と座標軌道の位数は等しいので、命題\ref{prop:mutation}が (3) を与える。
+(3) から (1) は命題\ref{prop:principalrealization}と表示の同型による。
+\end{proof}
+
+\begin{corollary}[三変数根環の完全不変量]\label{cor:weightkey}
+三変数根環の孤立超曲面表示の整列した原始重み $(w_1,w_2,w_3;h)$ は、次数付き同型類の完全不変量である。
+\end{corollary}
+\begin{proof}
+同じ重みなら同じ Hilbert 級数を持ち、$\delta=h-\sum_iw_i$ も同じである。
+極の復元により signature が一致し、根の一意性により二つの環は同じ定義\eqref{eq:R}から得られる。
+逆に次数付き同型は $\mf/\mf^2$ の次数の多重集合を保つので最小生成元の重みを保つ。
+その重みと Hilbert 級数から関係式の次数 $h$ も決まる。
+この証明は、一般の超曲面の重みが完全不変量になると主張するものではない。
+\end{proof}
+
+\section{四変数以上の孤立超曲面}\label{sec:higher}
+本節では $n\ge4$ とする。
+全ての超曲面根環に対する剛性定理を経由せず、\emph{孤立性を最初に使って}議論を短縮する。
+
+\subsection{二座標の共通因子は孤立性を妨げる}
+\begin{proposition}\label{prop:pairwise}
+$n\ge4$ とし、根環 $R(\bp,\ta)$ が原点以外で正則であるとする。
+超曲面性を仮定しなくても、$p_1,\dots,p_n$ は二つずつ互いに素である。
+\end{proposition}
+\begin{proof}
+$s=\gcd(p_i,p_j)>1$ と仮定する。
+$\Spec T$ 内の
+\[
+ Z_{ij}=\{X_i=X_j=0,\ X_\ell\ne0\ (\ell\ne i,j),\ F_{\bp}=0\}
+\]
+を考える。残る変数は $n-2\ge2$ 個あるので、非零の値を持つ冪の和を零にすることができる。
+従って $Z_{ij}$ は非空で、全ての点で残る変数方向の偏微分が非零であり、次元は $n-3\ge1$ である。
+
+$z\in Z_{ij}$ を固定する $G_{\ta}$ の元について、$\alpha_\ell=1$ $(\ell\ne i,j)$。
+非零座標が存在することから群の式で $\rho=1$ となる。
+従って固定部分群は\emph{ちょうど}
+\[
+ H_z=\{(X_i,X_j)\longmapsto(\zeta X_i,\zeta^{-1}X_j):\zeta^s=1\}
+\]
+である。これは $u$ の値に依存しない。
+残る座標の一つを形式的陰関数として消去し、有限商の局所完備化を固定部分群で計算すると
+\begin{equation}\label{eq:localquotient}
+ \widehat{R}_{\bar z}\simeq
+ \frac{\C[[t_1,\dots,t_{n-3},U,V,W]]}{(UV-W^s)}.
+\end{equation}
+ここでは $U=x_i^s,V=x_j^s,W=x_ix_j$ であり、不変単項式の指数条件 $a-b\equiv0\pmod s$ から直接この表示を得る。
+完備化と有限商を交換する理由、および形式的消去の詳細は付録\ref{app:local}に記す。
+
+右辺の次元は $n-1$、接空間次元は $n$ なので正則でない。
+有限写像 $\Spec T\to\Spec R$ は正次元の $Z_{ij}$ を零次元に縮めない。
+従って $R$ は原点以外にも特異点を持ち、仮定に反する。
+\end{proof}
+
+\subsection{互いに素な場合の単項式生成元}
+以後 $p_i$ は二つずつ互いに素とする。
+$N=\prod_i p_i$ であり、次数写像 $N\lambda:L\to\Z$ は同型である。
+実際、正規形の次数が零なら、$N$ 倍した式を $p_i$ で見て各剰余 $e_i=0$ を得る。
+$\varpi\in L$ を $N\lambda(\varpi)=1$ の元とすると
+\[
+ \xx_i=(N/p_i)\varpi,\qquad \om=k\varpi,
+ \qquad\ta=u\varpi,\quad u=k/\delta.
+\]
+また
+\begin{equation}\label{eq:coprimek}
+ k=N-\sum_iN/p_i\equiv-N/p_i\pmod{p_i}
+\end{equation}
+より $\gcd(k,N)=1$、従って $\gcd(u,N)=1$ である。
+特に純冪 $X_i^m$ が $R$ に属する条件は $u\mid m$ である。
+
+\begin{lemma}[支持の数え上げ]\label{lem:highergenerators}
+$R$ が $n$ 個の最小単項式生成元 $\Xi$ を持つなら、$X_i^u$ は全て $\Xi$ に属する。
+\end{lemma}
+\begin{proof}
+純冪の最小性から、$\Xi$ に属し得る $X_i$ だけの単項式は $X_i^u$ だけである。
+$I=\{i:X_i^u\in\Xi\}$ とし、$i\notin I$ を考える。
+$j\ne i$ に対し、支持がちょうど $\{i,j\}$ の混合生成元がないと仮定する。
+$X_i^u$ に斉次除法を適用し、他の変数を零にすると
+\[
+ X_i^u=X_i^{\,u\bmod p_i}P(Y_i,Y_j)(Y_i+Y_j)+Q
+\]
+を得る。$Q$ には $X_j$ の純冪生成元だけが残る。
+$Q=0$ なら二項式 $Y_i+Y_j$ が単項式を割ることになり不可能である。
+$u\bmod p_i>0$ なら $X_i=0$ を代入して $Q=0$ となり、やはり矛盾する。
+従って $p_i\mid u$ であるが、$p_i\ge2$ と $\gcd(u,p_i)=1$ に反する。
+
+したがって少なくとも一方が欠けた添字である全ての無順序対に対し、支持がちょうどその対である生成元が必要である。
+欠けた添字の個数を $s=n-|I|\ge1$ とすれば、純冪と合わせて
+\[
+ |\Xi|\ge(n-s)+s(n-s)+\binom s2
+ =n+\frac{s(2n-s-3)}2>n
+\]
+となる。最後の不等式は $1\le s\le n$ と $n\ge4$ による。
+矛盾するので $s=0$ である。
+\end{proof}
+
+\begin{lemma}[全てが純冪なら $u=1$]\label{lem:pureone}
+$R$ が $X_1^u,\dots,X_n^u$ で生成されるなら $u=1$ である。
+\end{lemma}
+\begin{proof}
+$u>1$ と仮定する。
+十分大きな $m\equiv-\delta\pmod N$ を取れば、根の剰余式から $e_i(m)=1$ が全ての $i$ で成り立ち、$\ell(m)\ge1$ となる。
+異なる $i,j$ を選び、
+\[
+ Z=(X_1\cdots X_n)Y_j^{\ell(m)}\in R_m
+\]
+に斉次除法を用いて
+\[
+ Z=(X_1\cdots X_n)P(Y)F_{\bp}
+     +Q(X_1^u,\dots,X_n^u)
+\]
+と書く。
+$X_i$ の指数が一の係数を比較する。$u>1$ なので $Q$ のこの係数は零である。
+共通因子 $\prod_{\ell\ne i}X_\ell$ を消すと
+\[
+ Y_j^{\ell(m)}=P(0,Y_1,\dots,\widehat{Y_i},\dots,Y_n)
+                    \sum_{\ell\ne i}Y_\ell
+\]
+となる。独立な少なくとも二つの変数の和は単項式を割れないので矛盾する。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:main}の高次元部分の証明]
+孤立性から命題\ref{prop:pairwise}により $p_i$ は二つずつ互いに素である。
+超曲面性から埋込み次元は $n$ であり、最小単項式生成元を $n$ 個選べる。
+補題\ref{lem:highergenerators}と補題\ref{lem:pureone}から $u=1$、従って $\ta=\varpi$、$R=T$ である。
+$\delta=k=N\nu$ なので\eqref{eq:highclassification}を得る。
+また $L\simeq\Z\varpi$、$\om=k\varpi$ より最大の根指数は $k=\delta$ である。
+
+逆に\eqref{eq:highclassification}を仮定する。
+式\eqref{eq:coprimek}から根の存在条件が成り立ち、根は $\varpi$ である。
+全ての $X_i$ の次数が $\varpi$ の正整数倍なので $R=T$。
+$F_{\bp}$ の偏微分は $p_iX_i^{p_i-1}$ であり、共通零点は原点だけである。
+その原始重みは $w_i=N/p_i$、$h=N=\prod_i p_i=|\det E_{F_{\bp}}|$ である。
+\end{proof}
+
+\begin{remark}[孤立性だけでは最大根を強制しない]
+互いに素な $p_i$ について、一般の根環は $T$ の $u$ 次 Veronese 部分環である。
+$\gcd(u,N/p_i)=1$ なので、その $\mu_u$ 作用は原点以外で自由であり、商は原点以外で正則である。
+従って前の証明で $u=1$ を得るには超曲面性が本当に必要である。
+例えば $(2,3,7,67)$ では $k=25$ であり、$\delta=5$、$u=5$ の根環は原点以外で正則だが超曲面ではない。
+本稿はこのような非超曲面根環を分類対象に含めない。
+\end{remark}
+
+\section{有限列挙とその完全性}\label{sec:enumeration}
+本節のアルゴリズムは、入力した有限範囲を調べるだけの実験ではない。
+探索範囲の上界と、探索条件の必要十分性とを別々に証明する。
+
+\subsection{三変数の指数上界}
+\begin{lemma}\label{lem:exponentbound}
+原始表示 $|\det E|=h$、$h-w_1-w_2-w_3=\delta>0$ の I--V の指数は、全て $\delta+6$ 以下である。
+\end{lemma}
+\begin{proof}
+I では指数を $\alpha\le\beta\le\gamma$ と並べる。
+$\alpha=2$ なら
+\[
+ (\beta-2)(\gamma-2)=\delta+4.
+\]
+左辺の因子は正整数であるから $\gamma\le\delta+6$。
+$\alpha,\beta\ge3$ なら
+\[
+ \gamma=\frac{\alpha\beta+\delta}{\alpha\beta-\alpha-\beta}
+ \le3+\frac\delta3\le\delta+3.
+\]
+ここで分母は三以上であり、$\alpha\beta/(\alpha\beta-\alpha-\beta)\le3$ を使った。
+
+他の四つでは $A=\alpha-1$、$B=\beta-1$、$t=\gamma-1$ とおく。
+次数の式はそれぞれ
+\begin{align*}
+ \mathrm{II}:&\quad tAB=A+B+\delta+1,&
+ \mathrm{III}:&\quad tAB=A+B+\delta,\\
+ \mathrm{IV}:&\quad B(tA-1)=\delta+1,&
+ \mathrm{V}:&\quad tAB=\delta+1.
+\end{align*}
+II、III について一般に $tAB=A+B+c$、$c\ge1$ を考える。
+$A=1$ なら $(t-1)B=c+1$ であり、$B\le c+1$、$t\le c+2$。$B=1$ も同様である。
+$A,B\ge2$ なら $(A-1)(B-1)\le c+1$ より $A,B\le c+2$、また
+$t=(A+B+c)/(AB)\le1+c/4$ である。
+従って元の指数は $c+3$ 以下、すなわち II では $\delta+4$、III では $\delta+3$ 以下である。
+IV では $B\le\delta+1$、$tA\le\delta+2$、従って指数は $\delta+3$ 以下。
+V では各因子が $\delta+1$ 以下であり、指数は $\delta+2$ 以下である。
+\end{proof}
+
+\begin{proposition}[三変数の列挙]\label{prop:algorithm3}
+次の手続きは、根指数 $\delta$ の孤立三変数根環の全ての次数付き同型類を重複なく出力する。
+\begin{enumerate}
+\item I--V の各式について $2\le\alpha,\beta,\gamma\le\delta+6$ を走査する。
+\item 未約分重みを計算し、その三つの最大公約数が一で、$h-\sum_iw_i=\delta$ である行だけを残す。
+\item 構成表から signature、三つの単項式 $M_i$ および関係式を出力する。
+\item $(\operatorname{sort}(w_1,w_2,w_3);h)$ をキーとして重複を除く。
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+停止性は明らかである。
+各出力が根環を与えることは命題\ref{prop:principalrealization}、全ての対象が出力されることは定理\ref{thm:main}の三変数部分と補題\ref{lem:exponentbound}による。
+重複除去の正確性は系\ref{cor:weightkey}による。
+従って指数の行・列置換だけでは検出できない表示間の一致も失われない。
+\end{proof}
+三重ループは約数分解で高速化できる。
+例えば II と III は $(tA-1)(tB-1)=tc+1$、IV と V は表示した積の式を使えばよい。
+ただし形式化の最初の版では、停止性と完全性が直接読める上の有限ループで十分である。
+
+\subsection{四変数以上の再帰}
+$2\le p_1\le\cdots\le p_n$ と並べ、$p_1,\dots,p_{r-1}$ が既に選ばれたとする。
+\[
+ c_r=1-\sum_{i<r}\frac1{p_i}
+\]
+とおく。分類の等式を満たすなら $c_r>0$ であり、
+\[
+ c_r=\sum_{i=r}^n\frac1{p_i}+\frac\delta{\prod_i p_i}
+ \le\frac{n-r+1+\delta}{p_r}.
+\]
+従って
+\begin{equation}\label{eq:recursivebound}
+ p_r\le\left\lfloor\frac{n-r+1+\delta}{c_r}\right\rfloor.
+\end{equation}
+最初は $p_1\le n+\delta$ である。
+各段階で、既に選んだ数と互いに素でない候補を除き、$c_{r+1}\le0$ となる枝も除く。
+最後の座標は走査する必要がない。
+\[
+ P=\prod_{i<n}p_i,\qquad A=P-\sum_{i<n}P/p_i>0
+\]
+とおけば、分類の等式は $Ap_n-P=\delta$、従って
+\begin{equation}\label{eq:lastcoordinate}
+ p_n=\frac{\delta+P}{A}
+\end{equation}
+である。整数性、順序条件、互いに素性を検査する。
+
+\begin{proof}[定理\ref{thm:finite}の証明]
+三変数の場合は命題\ref{prop:algorithm3}による。
+四変数以上では各段階の\eqref{eq:recursivebound}が有限範囲を与え、深さは $n$ で固定される。
+\eqref{eq:highclassification}を満たす解は各上界の証明によって取りこぼされず、出力された列は最後にその等式を検査するので全て解である。
+環の表示は $T$ そのものである。
+二つの出力が次数付き同型なら最小生成次数と関係次数が一致し、$p_i=h/w_i$ から signature も一致する。
+従って整列した signature はここでも重複のない分類を与える。
+\end{proof}
+\begin{remark}
+有限性では $n$ と $\delta$ の両方を固定する。
+$\delta$ だけを固定して次元も動かすと一般には有限でない。
+例えば $s_1=2$、$s_{r+1}=s_1\cdots s_r+1$ という Sylvester 型の列は二つずつ互いに素で、
+$\sum_{i=1}^n1/s_i+1/(s_1\cdots s_n)=1$ を帰納的に満たす。
+従って $\delta=1$ の例は任意の変数数で存在する。
+\end{remark}
+
+\subsection{参照実装による照合}
+同梱の \texttt{verify\_classification.py} は、定理の整数部分を Python 標準ライブラリだけで実装する。
+その出力は数学的証明や Lean の証明項の代わりではない。
+今回実行した検査は、指数が二から十八までの I--V における正指数の重み系 $24{,}396$ 件について、整数 signature と座標軌道の表が一致すること、
+数値条件\eqref{eq:numericcriterion}が原始表示または四つの例外表示と一致することを確認した。
+この範囲で三点の条件を満たした表示は $13{,}007$ 件であった。
+原始表示では、行列積\eqref{eq:coxidentity}、整数次数\eqref{eq:integraldegreecheck}、群の位数\eqref{eq:coxdet}も別々に照合した。
+
+三変数の同型類数は $\delta=1,\dots,6$ で
+\[
+ 14,\quad6,\quad8,\quad8,\quad21,\quad0
+\]
+となる。$2\le\delta\le30$ の合計は $506$ で、旧稿\cite{v04}の表と一致する。
+この範囲は、一つの共通の指数箱 $2\le\text{指数}\le36$ による走査とも照合した。
+高次元の例として、$n=4$、$\delta=1,5,25$ ではそれぞれ
+\[
+ (2,3,7,43),\qquad(2,3,7,47),\qquad(2,3,7,67)
+\]
+が出力される。
+$n=5,\delta=1$ の出力は
+\[
+ (2,3,7,43,1807),\quad(2,3,7,47,395),\quad(2,3,11,23,31)
+\]
+である。これらの記録と全 $520$ 件の三変数同型類データ（$\delta=1$ を含む）は JSON ファイルに保存してある。
+
+
+\subsection{比較に現れる六例の具体的実現}\label{subsec:watanabe_examples}
+式\eqref{eq:watanabe_six}の六つの重み系を、次のように実現する。
+各行で $(x,y,z)$ の重みは左欄の $(w_1,w_2,w_3)$ の順とし、最後の欄は順序を除いた元の signature である。
+\begin{center}
+\begingroup\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{cclc}
+\toprule
+$\delta$ & $(w_1,w_2,w_3;h)$ & 可逆な関係式 $f$ & $(p_1,p_2,p_3)$\\
+\midrule
+$3$ & $(4,10,13;30)$ & $xz^2+y^3+x^5y$ & $(2,4,13)$\\
+$4$ & $(5,6,9;24)$ & $x^3z+yz^2+y^4$ & $(3,5,9)$\\
+$5$ & $(6,8,19;38)$ & $z^2+xy^4+x^5y$ & $(2,6,8)$\\
+$5$ & $(4,7,16;32)$ & $z^2+xy^4+x^4z$ & $(4,4,7)$\\
+$5$ & $(4,7,12;28)$ & $xz^2+y^4+x^4z$ & $(4,4,12)$\\
+$5$ & $(4,7,9;25)$ & $yz^2+x^4z+xy^3$ & $(4,7,9)$\\
+\bottomrule
+\end{tabular}
+\endgroup
+\end{center}
+各式は変数と項の置換により第\ref{sec:primitive}節の III、IV、V のいずれかになるので、原点に孤立臨界点を持つ。
+指数行列の行列式の絶対値は表の順に $30,24,38,32,28,25$ であり、いずれも $h$ に等しい。
+また $\gcd(w_1,w_2,w_3)=1$ および $h-w_1-w_2-w_3=\delta>0$ が直接確認できる。
+従って命題\ref{prop:principalrealization}が適用され、これらは全て実際の三変数根環である。
+最後の欄は構成表、または定義\ref{def:sigW}の整数計算によって得られる。
+各行の重みキーは異なるので、六つの次数付き同型類も相異なる。
+
+比較の再現のため、同梱の \texttt{watanabe\_v1\_three\_point\_keys.csv} に同版の項目番号とページを付した重みキーを収録した。
+比較する項目は、$\delta=1$ では (1-C-1)--(1-C-14)、$\delta=2$ では (2-C-4)--(2-C-9)、
+$\delta=3$ では (3-C-14)--(3-C-20)、$\delta=4$ では (4-C-6)--(4-C-12)、
+$\delta=5$ では (5-C-26)--(5-C-31) と (5-C-34)--(5-C-44) であり、$\delta=6$ には該当項目がない。
+\texttt{verify\_watanabe\_comparison.py} は、これらの転記データと本稿の整数列挙との集合差が六例に一致すること、および上表の次数・行列式・signature を検査する。
+文献の転記と算術的検査とは区別し、このコードが原資料の読み取り自体や数学的証明を代替するものとはしない。
+
+\section{Lean 形式化のための設計}\label{sec:lean}
+\subsection{数学的な定理と実行可能判定を分ける}
+本稿には Lean ソースの検証済み実装は付属しない。
+以下は\emph{必要な証明項をどの順に作るか}という設計であり、未証明の命題を型クラスのフィールドや追加公理に入れて定理を見かけ上完成させるものではない。
+研究固有の橋渡し、例えば「数値条件なら根環と同型」「根環なら極公式が成立する」「局所商が非正則である」は、全て証明対象である。
+
+最終的な仕様は二層に分ける。
+算術層は $(n,\delta)$ から有限リストを返す関数であり、環論層はそのリストの要素と実際の次数付き環の同型類との対応である。
+算術層の停止性だけを証明しても分類定理にはならない。
+同様に、有限箱で候補が一致したことを、全ての入力に対する完全性の証明としない。
+
+\subsection{証明モジュールの依存関係}
+次の名前は実装予定の区分であって、既存の mathlib の定理名ではない。
+\begin{center}\small
+\begin{longtable}{p{0.19\linewidth}p{0.44\linewidth}p{0.27\linewidth}}
+\toprule
+区分 & 主な定義・定理 & 必要な道具\\\midrule\endhead
+次数の算術 & 繰り上がり正規形、根の判定、一意性、$N\ta=u\cc$ & 整数除法、合同、gcd、lcm、Bézout\\
+斉次基底 & $T$ の剰余単項式基底、$R_m$、有限自由基底 & 多項式環、モニック除法、有限直和\\
+Hilbert 恒等式 & 補元対合、相反式、数値恒等式 & 有限多項式、形式級数、有理関数\\
+極と signature & 有限 Fourier 和、座標極公式、多重集合の復元 & 単位根、有限和、有理関数の評価\\
+三変数の支持 & 七型の有限列挙、二つの分岐型の排除 & 三元有限型、偏微分、整数不等式\\
+原始化 & 五つの形の重み、四つの変換 & 行列式、gcd、明示的多項式自己同型\\
+単項式の実現 & $EB$ の恒等式、根の次数、局所化、全射性 & 整数格子、有限群平均、正規性\\
+高次元の孤立性 & 二座標固定群、$UV-W^s$、支持数え上げ & 局所環、完備化、接空間次元\\
+完全列挙 & 指数上界、有限再帰、正当性・完全性 & 有限集合、順序付きリスト、帰納法\\\bottomrule
+\end{longtable}
+\end{center}
+基本データは $p_i,\delta,E,B\in\N$、群の繰り上がり係数は $\Z$、分数は $\Q$ に置く。
+$\ell(m)$、$h-\sum_iw_i$、$\delta B_{ij}+w_i-p_jq_{ij}$ のような式を自然数の切り捨て減算で扱わない。
+整数で等式を証明してから、必要な非負性を別の補題で確認する。
+
+式\eqref{eq:resdef}は解析的な極限を使わないので、複素解析を形式化する必要はない。
+単位根を代数的に扱う方法のほか、位数 $e$ ごとに円分多項式で割った体で評価する実装も考えられる。
+いずれの場合も $1-\zeta^{-\delta}$ の非零性を、$\gcd(\delta,e)=1$ から先に証明する。
+空の和の場合に零で割る定義を採用し、その性質に依存して証明することは避ける。
+
+\subsection{既存ライブラリと追加で証明すべき一般補題}
+mathlib には多変数多項式、根の添加、行列の余因子行列などの基礎的な構成がある\cite{mathlibMv,mathlibRoot,mathlibAdj}。
+しかし、このことから本稿の全ての一般可換環論が既にそのままの形で用意されているとは結論しない。
+特に次は、実装時に既存定理を確認し、適切な形がなければ証明を追加する必要がある。
+\begin{enumerate}
+\item 孤立超曲面の整域性・正規性と、正の次数付き環の最小生成元。
+\item 有限対角群の指標分解、Laurent 単項式不変環、有限商の完備局所環。
+\item 孤立性を持つ同じ重みの式を、係数が全て非零になるように選ぶ有限行列の階数補題。
+\end{enumerate}
+これらを一般補題として分離するのは、それを公理として仮定するためではなく、証明の再利用と検証範囲を明らかにするためである。
+
+\subsection{公理監査と計算の信頼境界}
+Lean の通常の基盤に含まれる命題外延性、商、古典選択と、研究上の命題を新しい公理として追加することとは区別する\cite{LeanAxioms}。
+最終定理について \texttt{\#print axioms} を実行し、\texttt{sorryAx} および本プロジェクト固有の未証明公理が含まれないことを確認する。
+証明済み補題を不透明にすること自体と、その証明を省略することは同じでない。
+
+有限の照合には、カーネルが検査する計算的証明または証明書を使う。
+外部 Python の実行結果をそのまま真理値の証明として渡さない。
+外部列挙を高速化に用いる場合も、得られた各行の証明書の正しさと、候補を尽くす上界・再帰の完全性を Lean 内で証明する。
+実装の公開時には Lean の版、mathlib の commit、ビルドコマンド、公理監査結果を固定して記録する。
+現段階ではそのようなビルドを実施しておらず、存在しない版情報や検証ログは付さない。
+
+\appendix
+\section{一般可換環論の入力}\label{app:commutative}
+この付録は、本論から取り除いた一般的な環論を明示する。
+次数群・極の計算・支持の分類は本文で証明したが、全ての可換環論を基礎公理から展開することまでは本稿の目的としない。
+一意分解整域の Gauss 補題、Noether 正規化または超越次数の次元公式、Krull の高さ定理、Hilbert の零点定理、超曲面の Cohen--Macaulay 性、Serre の正規性判定、Jacobian 判定を標準的な一般定理として使う。
+これらは Lean では既存の証明項を再利用するか、別に証明項を構成すべき入力である。
+局所完全交差の Cohen--Macaulay 性と正規性判定の記述については\cite{StacksCI,StacksNormal}を参照できる。
+
+\subsection{孤立超曲面の既約性と正規性}
+\begin{lemma}\label{lem:isolatednormal}
+$n\ge3$、$f\in\C[z_1,\dots,z_n]$ は正の重みを持つ非零斉次式で、線形項を持たず、その臨界点は原点だけであるとする。
+このとき $f$ は既約で、$S=\C[z]/(f)$ は正規整域である。
+\end{lemma}
+\begin{proof}
+正の次数付き整域で斉次式を因数分解すると、因子も斉次に選べる。
+最低次数と最高次数を比較すればこの事実が分かる。
+$f=gh$ が非自明な分解なら、$g,h$ はともに正次数を持つ。
+高さ定理により $V(g,h)$ は次元 $n-2\ge1$ 以上を持つ。
+$g=h=0$ では $df=h\,dg+g\,dh=0$ だから、原点以外に臨界点が存在して矛盾する。
+従って $S$ は整域である。
+
+多項式環は正則環であり、非零元 $f$ で割った環は Cohen--Macaulay である。
+従って $S$ は Serre の $S_2$ 条件を満たす。
+Jacobian 判定により非正則点は原点だけで、その余次元は $n-1\ge2$ であるから $R_1$ 条件も満たす。
+Serre の $R_1+S_2$ 判定により $S$ は正規である。
+ここで正規性判定を「この特定の可逆式についての新しい仮定」として用いてはいない。
+一般定理を適用するための全ての仮定を今確認した。
+\end{proof}
+
+\subsection{有限生成性、整性および Laurent 格子}
+\begin{lemma}\label{lem:finitehomogeneous}
+$C$ は有限生成正次数付き代数、$M_1,\dots,M_r$ は正次数斉次元とする。
+$C/(M_1,\dots,M_r)$ が基礎体上有限次元なら、$C$ は $k[M_1,\dots,M_r]$ 上有限加群である。
+\end{lemma}
+\begin{proof}
+商空間の斉次基底の有限個の持ち上げを選ぶ。
+任意の斉次元をその持ち上げの線形結合と $\sum_iM_i c_i$ の和で書けば、$c_i$ の次数は元より小さい。
+次数帰納法によりその有限個の持ち上げが加群を生成する。
+\end{proof}
+この補題の有限加群性から整性を得るには、有限生成加群上の乗法作用に対する行列式の議論を用いる。
+分数体が一致する正規整域の整拡大が自明であることは、正規性の定義そのものである。
+
+$B\in M_n(\Z)$ が $\det B\ne0$ を満たすなら、行格子 $\Lambda\subset\Z^n$ の指数は $|\det B|$ である。
+Smith 標準形により $\Z^n/\Lambda$ は有限巡回群の直和であり、その全指標の共通核は零である。
+従って有限群 $\operatorname{Hom}(\Z^n/\Lambda,\C^*)$ による Laurent 多項式不変環は、指数が $\Lambda$ に属する単項式の線形包である。
+この説明は代数トーラスの理論を構成せずに、単項式の指数と有限アーベル群だけで形式化できる。
+有限群平均は、群の位数が可逆な体上で、全射な群同変線形写像の不変部分への制限が全射であることを与える。
+
+\subsection{次数付き環同型の変数変換への持ち上げ}
+\begin{lemma}\label{lem:gradedlift}
+同じ正の重みを持つ最小超曲面表示 $S_f=k[z]/(f)$、$S_g=k[z]/(g)$ の次数付き同型は、多項式環の次数付き自己同型に持ち上がる。
+従って $f$ と $g$ はその変数変換および非零定数倍で移り合う。
+\end{lemma}
+\begin{proof}
+同型による各 $z_i$ の像を同じ重みの斉次多項式に持ち上げる。
+重み $d$ ごとに、それらの多項式は重み $d$ の変数の線形結合と、より小さい重みの変数の多項式の和になる。
+最小性と $\mf/\mf^2$ 上の同型により各線形ブロックは可逆である。
+重みの小さい順に解き直せば、この多項式写像の逆を逐次構成できる。
+よって自己同型となり、商での同型から主イデアル $(f)$ と $(g)$ を移し合う。
+多項式環の単元は非零定数なので最後の主張を得る。
+\end{proof}
+この補題は一般の多項式写像の可逆性を Jacobian 行列式だけから主張するものではない。
+正の次数と可逆な線形ブロックを持つ重み順の三角構造が本質である。
+
+\section{有限商の局所計算}\label{app:local}
+\subsection{軌道と完備化}
+$A$ を有限群 $G$ が作用する有限型 $\C$ 代数とし、$B=A^G$ とする。
+各 $a\in A$ は $\prod_{g\in G}(T-g(a))$ を満たすので $A$ は $B$ 上整であり、有限型性から有限である。
+閉点 $y\in\Spec B$ の上の閉点は一つの $G$ 軌道をなす。
+実際、異なる軌道があれば Chinese remainder theorem で二つの有限集合を分離する関数を作り、有限群平均で不変関数にして $y$ が同じであることに矛盾させられる。
+
+$y$ の上の点を $x_1,\dots,x_s$ とする。
+有限加群の完備化と局所的な Chinese remainder theorem により
+\[
+ A\otimes_B\widehat B_y\simeq\prod_{i=1}^s\widehat A_{x_i}.
+\]
+平均作用素は $B$ 加群の直和因子への射影なので、完備化後も不変部分は $\widehat B_y$ である。
+右辺の因子は $G$ が推移的に置換するから、一つの因子とその固定部分群 $G_{x_1}$ を使って
+\begin{equation}\label{eq:completioninvariants}
+ \widehat B_y\simeq(\widehat A_{x_1})^{G_{x_1}}
+\end{equation}
+を得る。
+これは群全体を一つの局所環にそのまま作用させる公式ではない。固定部分群に取り替える必要がある。
+
+\subsection{形式的消去と二変数不変単項式}
+多項式関係 $F$ のある変数 $z$ に関する偏微分が点で非零なら、局所座標で $z$ の一次係数は単元である。
+形式級数の全次数の順に係数を決めることで、$F=0$ を $z$ について一意に解ける。
+これにより超曲面の完備局所環は残りの変数の形式級数環に同型となる。
+固定部分群が $z$ と定数値を保ち、$F$ を保つ場合、一意性によってこの消去は群作用と可換である。
+
+$\mu_s$ が $(x,y)$ に $(\zeta x,\zeta^{-1}y)$ と作用するとする。
+不変級数に現れる単項式は $x^a y^b$、$a-b\equiv0\pmod s$ だけである。
+$a\ge b$ なら $x^a y^b=(xy)^b(x^s)^{(a-b)/s}$、$b\ge a$ も同様である。
+従って
+\[
+ \C[[x,y]]^{\mu_s}\simeq\C[[U,V,W]]/(UV-W^s),
+ \quad U=x^s,\ V=y^s,\ W=xy.
+\]
+単射性は、$UV$ を $W^s$ に取り替え、$U$ と $V$ を同時に含まない単項式だけに正規化すると、それらの像の指数対 $(a,b)$ が全て異なることから従う。
+形式級数の正規化でも、ある次数以下の係数に影響する項は有限個だけなので、同じ議論が成立する。
+固定される $t_1,\dots,t_{n-3}$ を加えれば\eqref{eq:localquotient}を得る。
+
+$s\ge2$ では関係式 $UV-W^s$ は極大イデアルの二乗に入る。
+従って接空間の次元は変数の個数 $n$ のままであり、環の次元 $n-1$ より大きい。
+Noether 局所環は正則であることとその完備化が正則であることが同値なので、元の商の点も非正則である。
+
+\section{証明と計算の監査記録}\label{app:audit}
+本稿の証明依存関係は次の三本に分かれる。
+\begin{align*}
+ &\text{根の算術}\ \longrightarrow\ \text{有限自由基底}\
+   \longrightarrow\ \text{Hilbert の相反式・極},\\
+ &\text{三変数の極}\ \longrightarrow\ \text{signature の復元}\
+   \longrightarrow\ \text{支持の排除・原始化}\
+   \longrightarrow\ \text{元の環への単項式同型},\\
+ &\text{有限対角群}\ \longrightarrow\ \text{二座標の局所商}\
+   \longrightarrow\ \text{互いに素性}\
+   \longrightarrow\ \text{生成元の支持数え上げ}\
+   \longrightarrow\ R=T.
+\end{align*}
+三変数の新しい経路で、旧稿のスタックの復元、種数の変形不変性、三点付き曲線の変形剛性は使わない。
+一方、正規超曲面に関する一般可換環論や局所完備化まで既に Lean で実装した、とは主張しない。
+
+誤って強めやすい四点を記録する。
+第一に $|\det E_f|=h$ は元の式への必要条件ではなく、適切な表示の存在条件である。
+第二に指数行列を行・列置換で割った集合は環の同型類の集合ではない。
+第三に同じ Hilbert 級数だけから一般の環の同型を結論せず、本稿では単項式準同型の単射性を独立に証明する。
+第四に孤立性だけから根指数の最大性を結論せず、高次元の支持数え上げに超曲面性を使う。
+
+同梱コードは全ての検査失敗で明示的な例外を送出し、\texttt{python -O} でも検査が消えないようにしてある。
+整数演算と有理数演算だけを用い、浮動小数による等号判定を行わない。
+ただし有限検査は、分岐排除や原始化の全指数での証明を置き換えない。
+
+\newpage
+\subsection{整数次数恒等式の明示的証明書}\label{app:certificates}
+構成表の指数を $a,b,c$ と書き、
+\[
+ P_0=bc-b-c,\qquad Q_0=ac-a-c,\qquad R_0=ab-a-b
+\]
+とおく。次の五つの整数行列を定める。
+\begin{align*}
+ C_{\mathrm I}&=\begin{pmatrix}P_0&c&b\\c&Q_0&a\\b&a&R_0\end{pmatrix},&
+ C_{\mathrm {II}}&=\begin{pmatrix}P_0&1&b-1\\c&Q_0&a\\b&a-1&R_0+1\end{pmatrix},\\[5pt]
+ C_{\mathrm {III}}&=\begin{pmatrix}P_0&1&b-1\\1&Q_0&a-1\\b-1&a-1&R_0+1\end{pmatrix},&
+ C_{\mathrm {IV}}&=\begin{pmatrix}P_0+1&1&b-1\\c-1&Q_0&1\\b&a-1&R_0+1\end{pmatrix},\\[5pt]
+ C_{\mathrm V}&=\begin{pmatrix}P_0+1&1&b-1\\c-1&Q_0+1&1\\1&a-1&R_0+1\end{pmatrix}.&&
+\end{align*}
+それぞれの型の表の $p_j,w_i,B_{ij},\delta$ に対し、展開すれば
+\[
+ p_jC_{ij}=\delta B_{ij}+w_i,\qquad \sum_jC_{ij}=w_i
+\]
+となる。従って群の次数を有理化せずに式\eqref{eq:integraldegreecheck}が成立する。
+各式は $\Z[a,b,c]$ の多項式恒等式であり、逆元や除算を用いずに確認できる。
+同梱の \texttt{verify\_polynomial\_identities.py} は、この証明書と行列積、重み、行列式、数値恒等式を含む計 $135$ 個の恒等式について、整数係数を展開し差が零であることを確認する。
+これはパラメータを有限範囲に代入する検査とは異なるが、なお Lean カーネルで検証した証明項ではない。
+
+\section*{執筆支援について}
+本統合草稿の構成、証明の再編成、数式の照合、および参照コードの作成には生成 AI を用いた。
+本稿は著者による数学的確認と投稿判断のための草稿であり、AI の出力やコードの成功を証明の正しさの保証とはみなさない。
+今回の成果物には Lean によるコンパイル済みの形式証明は含まれない。
+
+\begin{thebibliography}{99}
+\bibitem{HLU}
+K.~Hashimoto, H.~Lee and K.~Ueda,
+\emph{On a certain generalization of triangle singularities},
+Manuscripta Math. \textbf{153} (2017), 35--51;
+\href{https://arxiv.org/abs/1501.07086}{arXiv:1501.07086}.
+\bibitem{v04}
+K.~Hashimoto, H.~Lee and K.~Ueda,
+\emph{Fractional triangle hypersurfaces: automatic Cox models and divisor classification},
+Version 04, 15 August 2026, 内部原稿 \texttt{fractional\_triangles\_v04.pdf}.
+\bibitem{higher}
+K.~Hashimoto, H.~Lee and K.~Ueda,
+\emph{Canonical root rings in higher dimensions: rigidity, gcd forests, and isolated asymptotics},
+Version 03, 15 August 2026, 内部原稿 \texttt{higher\_canonical\_roots\_v03.pdf}.
+\bibitem{v05}
+K.~Hashimoto, H.~Lee and K.~Ueda,
+三変数根環の初等的有限判定に関する日本語改稿,
+内部原稿 \texttt{fractional\_triangles\_elementary\_ja\_v05.tex}, 2026.
+\bibitem{Takahashi}
+A.~Takahashi,
+\emph{Weighted projective lines associated to regular systems of weights of dual type},
+in New Developments in Algebraic Geometry, Integrable Systems and Mirror Symmetry,
+Adv. Stud. Pure Math. \textbf{59}, Math. Soc. Japan, 2010, 371--388;
+\href{https://arxiv.org/abs/0711.3907}{arXiv:0711.3907}.
+\bibitem{ET}
+W.~Ebeling and A.~Takahashi,
+\emph{Strange duality of weighted homogeneous polynomials},
+Compos. Math. \textbf{147} (2011), 1413--1433;
+\href{https://arxiv.org/abs/1003.1590}{arXiv:1003.1590}.
+\bibitem{Rarovskii}
+A.~Rarovskii,
+\emph{Non-invertible quasihomogeneous singularities and their Landau--Ginzburg orbifolds},
+J. Singul. \textbf{28} (2025), 217--233.
+\href{https://www.journalofsing.org/volume28/rarovskii.pdf}{公開本文}.
+\bibitem{WatanabeV1}
+K.-i.~Watanabe,
+\emph{Classification of 2-dimensional graded normal hypersurfaces with $a(R)\le6$},
+\href{https://arxiv.org/abs/1401.0789v1}{arXiv:1401.0789v1 [math.AC]}, 4 January 2014.
+本稿のリスト比較はこの第1版を対象とする。
+\bibitem{WatanabeJournal}
+K.-i.~Watanabe,
+\emph{Classification of 2-dimensional graded normal hypersurfaces with $a(R)\le6$},
+Bull. Braz. Math. Soc. (N.S.) \textbf{45} (2014), 887--920.
+\bibitem{StacksCI}
+The Stacks Project Authors,
+\emph{Local complete intersections}, Tag 00S8, とくに Lemma 10.135.3.
+\url{https://stacks.math.columbia.edu/tag/00S8}.
+\bibitem{StacksNormal}
+The Stacks Project Authors,
+\emph{Serre's criterion for normality}, Tag 031O.
+\url{https://stacks.math.columbia.edu/tag/031O}.
+\bibitem{LeanAxioms}
+Lean Community,
+\emph{Theorem Proving in Lean 4}, ``Axioms and Computation.''
+\url{https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/}.
+\bibitem{mathlibMv}
+mathlib documentation,
+\emph{Mathlib.Algebra.MvPolynomial.Basic}.
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/MvPolynomial/Basic.html}.
+\bibitem{mathlibRoot}
+mathlib documentation,
+\emph{Mathlib.RingTheory.AdjoinRoot}.
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/RingTheory/AdjoinRoot.html}.
+\bibitem{mathlibAdj}
+mathlib documentation,
+\emph{Mathlib.LinearAlgebra.Matrix.Adjugate}.
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/LinearAlgebra/Matrix/Adjugate.html}.
+\end{thebibliography}
+\end{document}

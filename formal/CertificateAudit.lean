@@ -1,0 +1,11 @@
+import Certificates
+#print axioms CanonicalRoots.Certificates.ternary_1_entire_list
+#print axioms CanonicalRoots.Certificates.ternary_2_entire_list
+#print axioms CanonicalRoots.Certificates.ternary_3_entire_list
+#print axioms CanonicalRoots.Certificates.ternary_4_entire_list
+#print axioms CanonicalRoots.Certificates.ternary_5_entire_list
+#print axioms CanonicalRoots.Certificates.ternary_6_entire_list
+#print axioms CanonicalRoots.Certificates.higher_4_1_entire_list
+#print axioms CanonicalRoots.Certificates.higher_4_5_entire_list
+#print axioms CanonicalRoots.Certificates.higher_4_25_entire_list
+#print axioms CanonicalRoots.Certificates.higher_5_1_entire_list
