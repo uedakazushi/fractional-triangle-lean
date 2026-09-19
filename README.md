@@ -10,7 +10,7 @@ The domain is a specific family of root algebras, not all isolated hypersurfaces
 The final four theorem declarations are in
 [`formal/CanonicalRoots/Final.lean`](formal/CanonicalRoots/Final.lean).
 The [semantic contract](SPEC_CONTRACT.md) explains their quantifiers and boundaries.
-The Invertibility and Rigidity Theorem is formalized as `CanonicalRoots.theorem_1_4` in
+The Invertibility Theorem is formalized as `CanonicalRoots.theorem_1_4` in
 [`formal/CanonicalRoots/TheoremOneFour.lean`](formal/CanonicalRoots/TheoremOneFour.lean).
 See the [clause-by-clause correspondence](docs/THEOREM_1_4.md).
 The historical clean build and axiom audit are preserved as evidence; an independent

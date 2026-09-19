@@ -41,6 +41,7 @@ jobs:
           python3 -m pip install -r blueprint/requirements.txt
       - name: Build and check HTML and PDF
         run: |
+          python3 scripts/blueprint_tables.py --check
           python3 scripts/build_blueprint.py --pdf
           python3 scripts/check_site.py
       - name: Upload reviewable site

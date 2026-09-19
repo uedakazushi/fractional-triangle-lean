@@ -1,4 +1,4 @@
-# The Invertibility and Rigidity Theorem
+# The Invertibility Theorem
 
 The formal declaration is `CanonicalRoots.theorem_1_4` in
 [`TheoremOneFour.lean`](../formal/CanonicalRoots/TheoremOneFour.lean).
@@ -11,7 +11,7 @@ preserved [v02 manuscript](../research/current/canonical_root_isolated_ja_v02.te
 No research file was edited.
 
 Lean's `n` counts variables/minimal generators, so the ring dimension is `n-1`.
-Lean's positive parameter `a` is the manuscript's `δ`. The higher-dimensional
+The positive Gorenstein parameter is denoted by `a` throughout this project. The higher-dimensional
 clauses use `Fin (n+1)` and `3 ≤ n`, hence at least four variables.
 
 | Manuscript clause | Lean conclusion |

@@ -3,14 +3,14 @@ import CanonicalRoots.TernaryInvertibleRealization
 import CanonicalRoots.TernaryRootSignatureInvariant
 
 /-!
-# Manuscript Theorem 1.4
+# The Invertibility Theorem
 
 This module formalizes all clauses of Theorem 1.4 (page 4) of
 `canonical_root_isolated_ja_v01.pdf`: principal invertible presentations,
 the converse for arbitrary ternary invertible polynomials, signature and root
 uniqueness, and the higher-dimensional criterion and rigidity.
 
-Here `n` counts generators, `a` is the manuscript's positive `δ`, and `h`
+Here `n` counts generators, `a` is the positive Gorenstein parameter, and `h`
 is the relation degree. All equivalences are actual graded complex-algebra
 equivalences. The original equation is not required to have determinant `h`.
 -/

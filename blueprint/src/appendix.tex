@@ -1,0 +1,89 @@
+\clearpage
+\appendix
+\section{Small classifications}
+\label{app:tables}
+
+Here $n$ is the number of variables, $\dim R=n-1$, and $a=h-\sum_iw_i$. Tables are generated from the compiled Lean classifier for every $3\leq n\leq5$ and $1\leq a\leq6$. The listed counts are numbers of graded complex-algebra isomorphism classes. A zero denotes an empty classification.
+
+\subsection{Counts and comparison with Watanabe's list}
+\begin{table}[htbp]
+\centering
+\input{tables/counts}
+\caption{Complete class counts for small $n$ and $a$.}
+\label{tab:counts}
+\end{table}
+
+In Table~\ref{tab:comparison}, $N_{\mathrm W}$ counts the individual genus-zero three-point entries in Watanabe's arXiv first version \cite{Watanabe}; $N_{\mathrm{Lean}}$ is the classifier's count for $n=3$. These are not the totals for the broader class of surfaces considered in that paper. The source entries are (1-C-1)--(1-C-14), (2-C-4)--(2-C-9), (3-C-14)--(3-C-20), (4-C-6)--(4-C-12), and (5-C-26)--(5-C-31), (5-C-34)--(5-C-44). There are no entries in this subclass at $a=6$. The punctuation in (3-C-19), printed as $(4,10.17;34)$, is read as $(4,10,17;34)$ and is not counted as an omission.
+
+\begin{table}[htbp]
+\centering
+\input{tables/comparison}
+\caption{Comparison with the specified three-point entries in \texttt{arXiv:1401.0789v1}.}
+\label{tab:comparison}
+\end{table}
+
+Every one of those 51 transcribed entries occurs among the 57 classes returned by the classifier. The six additional keys and their presentations are given in Table~\ref{tab:missing}. Variables $(x,y,z)$ have the weights shown, in that order; signatures are sorted independently. Each equation has three monomials, primitive weights, and exponent determinant of absolute value $h$.
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/missing}
+\caption{The six weight systems absent from the compared list.}
+\label{tab:missing}
+\end{table}
+
+\clearpage
+\subsection{Complete ternary lists for small parameters}
+Tables~\ref{tab:ternary1}--\ref{tab:ternary5} give every class for $a=1,\ldots,5$. There are no classes for $a=6$. An asterisk marks a key in Table~\ref{tab:missing}; all other keys occur in the compared list. The $a=1$ table recovers the fourteen exceptional unimodal hypersurface triangle singularities.
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/ternary_a1}
+\caption{$n=3$, $a=1$: fourteen classes.}
+\label{tab:ternary1}
+\end{table}
+\begin{table}[htbp]
+\centering\small
+\input{tables/ternary_a2}
+\caption{$n=3$, $a=2$: six classes.}
+\label{tab:ternary2}
+\end{table}
+\begin{table}[htbp]
+\centering\small
+\input{tables/ternary_a3}
+\caption{$n=3$, $a=3$: eight classes.}
+\label{tab:ternary3}
+\end{table}
+\begin{table}[htbp]
+\centering\small
+\input{tables/ternary_a4}
+\caption{$n=3$, $a=4$: eight classes.}
+\label{tab:ternary4}
+\end{table}
+\begin{table}[htbp]
+\centering\small
+\input{tables/ternary_a5}
+\caption{$n=3$, $a=5$: twenty-one classes.}
+\label{tab:ternary5}
+\end{table}
+
+\clearpage
+\subsection{Complete higher-dimensional lists for small parameters}
+For $n\geq4$, each row has the Fermat presentation $f=\sum_i z_i^{h/w_i}$. The signature is sorted increasingly, while the weights are sorted independently. Thus the variable exponents follow the order of the weights, not the displayed order of the signature. In this range $a=1,5$ are the only parameters with nonempty lists for $n=4,5$.
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/higher_n4}
+\caption{$n=4$ (dimension three): all classes for $1\leq a\leq6$.}
+\label{tab:higher4}
+\end{table}
+\begin{table}[htbp]
+\centering\small
+\input{tables/higher_n5}
+\caption{$n=5$ (dimension four): all classes for $1\leq a\leq6$.}
+\label{tab:higher5}
+\end{table}
+
+\subsection{Reproducing the tables}
+Run \texttt{lake build canonical\_roots} in \texttt{formal/}, then run \texttt{python3 scripts/blueprint\_tables.py --check} from the repository root. The script reruns all eighteen inputs and compares the results with the committed JSON and TeX tables. To regenerate them after an intentional change, omit \texttt{--check}. The data are in \texttt{blueprint/data/small\_classifications.json}; the source entry numbers and pages are preserved in \texttt{research/current/watanabe\_v1\_three\_point\_keys.csv}.
+
+The universal soundness and completeness statements are linked in Theorems~\ref{thm:sound} and~\ref{thm:complete}. In addition, \texttt{OutputCertificates.lean} contains kernel-checked whole-list equalities for $n=3$, $1\leq a\leq6$, and for $(n,a)=(4,1),(4,5),(5,1)$ among other inputs. The generated tables are checked renderings of executable output; the reading and transcription of the historical paper remain an external bibliographic check.

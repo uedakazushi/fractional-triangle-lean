@@ -1,5 +1,26 @@
 # Publication validation
 
+## Introduction and classification tables (2026-09-20)
+
+The Blueprint now opens with a historical Introduction and states the two goals:
+AI-assisted development of verified enumeration for fixed dimension and Gorenstein
+parameter, and proof of The Invertibility Theorem. Current exposition uses `a`.
+The appendix includes all 64 classes for `3 ≤ n ≤ 5`, `1 ≤ a ≤ 6`, and compares
+the 57 ternary classes with 51 transcribed three-point entries of Watanabe's
+`arXiv:1401.0789v1`. Six additional weight systems are exhibited explicitly.
+
+- `bash scripts/verify.sh` passed again, including all 1,633 axiom reports,
+  the Lean builds and existing tests, CLI regressions, and source preservation.
+- `python3 scripts/blueprint_tables.py --check` reruns all 18 table inputs and
+  checks the JSON and TeX fragments, polynomial degrees, primitive weights,
+  principal determinants, Fermat equations, and the six-key literature difference.
+- HTML/PDF generation and link checking passed: 42 HTML files, 3,330 local links,
+  and 112 Lean links. The updated English PDF has 12 pages; the Introduction and
+  all tables were visually inspected. Final TeX output has no unresolved references.
+- The only Lean-source edit is a documentation comment in `TheoremOneFour.lean`;
+  its reviewed manifest hash was updated. No proof term or research file changed.
+- CI now checks that the committed appendix tables reproduce the classifier output.
+
 ## Theorem 1.4 extension (2026-09-20)
 
 The repository now includes `CanonicalRoots.theorem_1_4`, covering every clause

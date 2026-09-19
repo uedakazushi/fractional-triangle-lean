@@ -305,7 +305,7 @@
   "formal/CanonicalRoots/TernaryRealization.lean": "67b4da7b7bd4ec9e14ba3d0089bec8c0fb57c73bc9031102e2c0b48c3f8dd70f",
   "formal/CanonicalRoots/TernaryRootSignatureInvariant.lean": "1f1f0865e7455ba8a0d831cda06cce5a449a32180ed4fd090357fde7d5404b8d",
   "formal/CanonicalRoots/TernaryWeightKey.lean": "5ff9d4d0898dd1ef09da250c076d3eebbdd85d5c3394bc098869601e7751132b",
-  "formal/CanonicalRoots/TheoremOneFour.lean": "c3d53a18441356e4dddb0413311f2a2a0951e0ccdbeb3fcbf72ea1eb07d3be33",
+  "formal/CanonicalRoots/TheoremOneFour.lean": "057615af31f7529a320e0ab9c5290a597cd13671437dbcb00eed5076b0c24bfb",
   "formal/CanonicalRoots/ThreeAxisPatterns.lean": "378466bc2cbb618ded7fa83e61cd7cd9ff8dce24ec39c04a3e27a3be55ab3f1d",
   "formal/CanonicalRoots/ThreePairOrientation.lean": "d872fb709520bc3e8bcb14e721f6c75622122df186d69fb2cfd22a0e2c69220d",
   "formal/CanonicalRoots/TwoCoordinatePoints.lean": "cae72c6dd0001f28b59c2c0810e915bb6d4e1560f6d2650aa7293f5923d31bc0",

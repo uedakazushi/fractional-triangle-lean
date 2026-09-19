@@ -14,5 +14,10 @@ it does not claim that `leanblueprint checkdecls` is configured at repository ro
 Use the repository build commands in the README rather than `leanblueprint new`.
 
 The 34-node map is a curated overview with proof sketches, not exhaustive theorem
-coverage or automated validation of the natural-language statements. Both editions
-share the exact same declaration and edge manifest.
+coverage or automated validation of the natural-language statements.
+
+The Introduction gives historical context and the project's two goals. The appendix
+contains complete tables for `3 ≤ n ≤ 5`, `1 ≤ a ≤ 6`, including the comparison
+with the three-point entries of Watanabe's arXiv first version. After building the
+executable, run `python3 scripts/blueprint_tables.py --check` to regenerate and
+compare all data and TeX fragments. Omit `--check` to update them deliberately.

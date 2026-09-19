@@ -1,0 +1,20 @@
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Triangle singularities connect the geometry of hyperbolic triangles, automorphic forms, and weighted homogeneous surface singularities. A hyperbolic triangle with angles $\pi/p$, $\pi/q$, and $\pi/r$ determines a cocompact von Dyck group $\Gamma$ acting on the upper half-plane $\mathbb H$. The quotient orbifold $\mathcal X=[\mathbb H/\Gamma]$ is a projective line with three orbifold points, and the spectrum of its canonical ring is a triangle singularity. Dolgachev's work on automorphic forms and quasihomogeneous singularities, together with Milnor's and Wagreich's contributions, established this connection. The hypersurface cases recover Arnold's fourteen exceptional unimodal singularities; see \cite{Dolgachev,Milnor,Wagreich,HLU}.
+
+The fractional version replaces integral powers of the canonical bundle by powers of a root. Milnor studied automorphic differentials of fractional degree, including the extra lifting data needed to make fractional powers well defined \cite[Sections 5--6]{Milnor}. In the orbifold description, an actual line bundle $\mathcal L$ with $\mathcal L^{\otimes a}\cong\omega_{\mathcal X}$ gives
+\[
+ R=\bigoplus_{m\geq0}H^0(\mathcal X,\mathcal L^{\otimes m}).
+\]
+Its degree-$m$ elements correspond to automorphic forms of differential weight $m/a$, with the compatible automorphy data supplied by $\mathcal L$. Algebraically, the root is encoded by $a\tau=\omega$ in the integral grading group, including its torsion. Merely dividing by $a$ after tensoring that group with $\mathbb Q$ would lose part of the problem. For higher dimensions we use the analogous graded root-algebra construction; the case $a=1$ extends the generalized triangle singularities of Hashimoto, Lee, and Ueda \cite{HLU}.
+
+\emph{This project has two goals: with AI assistance, to write formally verified code enumerating isolated hypersurface fractional triangle singularities for each fixed dimension and Gorenstein parameter, and to prove The Invertibility Theorem.} Throughout, $n$ is the minimum number of algebra generators, so the hypersurface has dimension $n-1$, and the positive Gorenstein parameter is denoted by
+\[
+ a=h-\sum_{i=1}^{n}w_i\geq1.
+\]
+The classifier takes $(n,a)$ and enumerates graded complex-algebra isomorphism classes in this root-algebra family. The Invertibility Theorem (Theorem~\ref{thm:one-four}) asserts that every such isolated hypersurface has a principal invertible presentation, with primitive weights and $|\det E|=h$, and establishes the ternary converse and the associated uniqueness and higher-dimensional conclusions. The code and proofs are developed in Lean using mathlib. AI assists their construction; Lean checks the resulting proof terms.
+
+The small-parameter tables in Appendix~\ref{app:tables} make the enumeration concrete. They also reveal six omissions in the three-point part of Kei-ichi Watanabe's list of two-dimensional graded normal hypersurfaces, specifically Section~3 of \texttt{arXiv:1401.0789v1}, dated 4 January 2014 \cite{Watanabe}. Tables~\ref{tab:comparison} and~\ref{tab:missing} give the counts and the six additional weight systems, with explicit equations and signatures: one at $a=3$, one at $a=4$, and four at $a=5$. This comparison concerns that version's individual entries in the genus-zero three-point subclass, rather than its general finiteness theorem or every hypersurface in its wider scope. It makes no claim about corrections in subsequent versions or about the novelty of these singularities. The literature transcription is documented separately from the Lean proof of the classification.
+
+The sections below explain the algebraic objects, the two dimension branches, the verified enumeration, and The Invertibility Theorem. Each Lean link leads to the corresponding declaration. The graph records explanatory dependencies; its green nodes do not replace a mathematical reading of the stated hypotheses and conclusions.

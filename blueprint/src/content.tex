@@ -1,9 +1,4 @@
-\section*{Scope and reading guide}
-This blueprint is a curated mathematical map to the existing Lean declarations, not a complete transcription of every supporting lemma. The graph records explanatory dependencies; it is not an automatically extracted proof-term dependency graph. The repository is the canonical formal source.
-
-Read the independent domain first, then the two dimension branches and the four final theorems. Each Lean button resolves to an exact source declaration. These pages are a source browser, not doc-gen API documentation. A green node records a declaration present in the checked build and an editorial correspondence to the prose. It does not certify the accuracy of that prose. Independent human mathematical sign-off has not been recorded.
-
-The domain consists only of isolated hypersurface canonical-root algebras over the complex numbers, not all isolated hypersurfaces. The variable count is the minimum algebra-generator count; the ring dimension is one less. Compiled execution, the JSON text parser/printer, OS output and external hashes remain outside the pure Lean payload theorem.
+\input{introduction}
 
 \section{Objects and common algebra}
 
@@ -318,7 +313,7 @@ The equation-list checker returns true exactly when the supplied list equals the
 Unfold the Boolean equality check and use decidable equality of the full equation-data lists. Concrete whole-list certificates are supplied in the separate OutputCertificates module.
 \end{proof}
 
-\section{The Invertibility and Rigidity Theorem}
+\section{The Invertibility Theorem}
 
 \begin{definition}[Invertible polynomials and principal presentations]
 \label{def:invertible}
@@ -360,19 +355,19 @@ Isolatedness supplies three distinct axis monomials with main exponents at least
 \label{thm:principal-presentation}
 \lean{CanonicalRoots.canonical_root_invertible_presentation, CanonicalRoots.Target.higher_root_index_maximal}
 \leanok
-Every isolated hypersurface root admits an actual graded-isomorphic invertible presentation with primitive weights, $|\det E|=h$, and $h-\sum_i w_i=\delta$. In at least four variables every other positive root index divides $\delta$, hence is at most $\delta$.
+Every isolated hypersurface root admits an actual graded-isomorphic invertible presentation with primitive weights, $|\det E|=h$, and $h-\sum_i w_i=a$. In at least four variables every other positive root index divides $a$, hence is at most $a$.
 \end{theorem}
 \begin{proof}
 \leanok
 \uses{thm:ternary-model,thm:higher-criterion,def:invertible}
-Use the realized Cox candidate for three variables and the Fermat presentation for higher dimensions. Primitivity and the defect identity come from the root's Hilbert series. In higher dimensions the signature index equals $\delta$, so the general root arithmetic proves divisibility and maximality.
+Use the realized Cox candidate for three variables and the Fermat presentation for higher dimensions. Primitivity and the defect identity come from the root's Hilbert series. In higher dimensions the signature index equals $a$, so the general root arithmetic proves divisibility and maximality.
 \end{proof}
 
 \begin{theorem}[Converse for the given ternary polynomial]
 \label{thm:invertible-converse}
 \lean{CanonicalRoots.principal_ternary_invertible_realization}
 \leanok
-Every ternary invertible polynomial with primitive weights, $|\det E|=h$, and $h-\sum_iw_i=\delta>0$ is the defining polynomial of an actual canonical-root presentation with those exact weights and degree. Nonzero coefficients are arbitrary.
+Every ternary invertible polynomial with primitive weights, $|\det E|=h$, and $h-\sum_iw_i=a>0$ is the defining polynomial of an actual canonical-root presentation with those exact weights and degree. Nonzero coefficients are arbitrary.
 \end{theorem}
 \begin{proof}
 \leanok
@@ -392,17 +387,20 @@ Graded-isomorphic ternary roots with the same positive index have the same signa
 Recover the ternary signature from its Hilbert function. Apply the higher-dimensional coprimality and product-defect criterion to obtain the actual full ambient subalgebra and Fermat graded presentation.
 \end{proof}
 
-\begin{theorem}[The Invertibility and Rigidity Theorem]
+\begin{theorem}[The Invertibility Theorem]
 \label{thm:one-four}
 \lean{CanonicalRoots.theorem_1_4}
 \leanok
-The six conjuncts of \texttt{theorem\_1\_4} formalize the central invertibility and rigidity result: principal invertible presentations in every dimension, the converse for all ternary invertible polynomials, uniqueness of the ternary signature up to permutation, uniqueness of the root, the higher-dimensional arithmetic criterion, and its rigidity conclusions. The parameter \texttt{a} in Lean denotes $\delta$.
+The six conjuncts of \texttt{theorem\_1\_4} formalize The Invertibility Theorem: principal invertible presentations in every dimension, the converse for all ternary invertible polynomials, uniqueness of the ternary signature up to permutation, uniqueness of the root, the higher-dimensional arithmetic criterion, and its conclusions for the root algebra and its presentation. The Gorenstein parameter is $a$ throughout.
 \end{theorem}
 \begin{proof}
 \leanok
 \uses{thm:principal-presentation,thm:invertible-converse,thm:manuscript-rigidity,thm:root-arithmetic}
-Combine the preceding presentation, converse, and rigidity results with root uniqueness. The higher-dimensional existence criterion is pairwise coprimality and $\prod_i p_i-\sum_i\prod_{j\ne i}p_j=\delta$. The theorem does not impose the principal determinant condition on every possible equation for the same ring.
+Combine the preceding presentation, converse, and rigidity results with root uniqueness. The higher-dimensional existence criterion is pairwise coprimality and $\prod_i p_i-\sum_i\prod_{j\ne i}p_j=a$. The theorem does not impose the principal determinant condition on every possible equation for the same ring.
 \end{proof}
 
 \section*{Verification and sources}
 Run the repository verification script and inspect the final theorem signatures as described in docs/VERIFICATION.md. The preserved research manuscript and historical self-audit are in the English repository; they are proof candidates and provenance, not axioms. The build uses Patrick Massot's \href{https://github.com/PatrickMassot/leanblueprint}{Lean Blueprint} package with plasTeX and Graphviz.
+
+\input{appendix}
+\input{references}
