@@ -1,21 +1,11 @@
 # Isolated hypersurface fractional triangle singularities
 
-**Canonical English source edition.** A Lean implementation of the classification
-of isolated hypersurface canonical-root algebras over ℂ, up to graded ℂ-algebra
-isomorphism, for minimum generator count `n ≥ 3` and positive parameter `a ≥ 1`.
-The domain is a specific family of root algebras, not all isolated hypersurfaces.
-
 **Authors:** Kenji Hashimoto (橋本健治), Hwayoung Lee, Kazushi Ueda (植田一石).
 
-The final four theorem declarations are in
-[`formal/CanonicalRoots/Final.lean`](formal/CanonicalRoots/Final.lean).
-The [semantic contract](SPEC_CONTRACT.md) explains their quantifiers and boundaries.
-The Invertibility Theorem is formalized as `CanonicalRoots.theorem_1_4` in
-[`formal/CanonicalRoots/TheoremOneFour.lean`](formal/CanonicalRoots/TheoremOneFour.lean).
-See the [clause-by-clause correspondence](docs/THEOREM_1_4.md).
-The historical clean build and axiom audit are preserved as evidence; an independent
-human mathematical sign-off has not been recorded. New publication checks are
-reported separately in [PUBLICATION_VALIDATION.md](PUBLICATION_VALIDATION.md).
+A Lean implementation of the classification
+of isolated hypersurface canonical-root algebras over ℂ, up to graded ℂ-algebra
+isomorphism, for minimum generator count `n ≥ 3` and positive parameter `a ≥ 1`.
+The blueprint is available [here](https://uedakazushi.github.io/fractional-triangle-lean/blueprint/index.html).
 
 ## Build and run
 
@@ -75,15 +65,3 @@ Open `http://localhost:8000/`. The site includes the Blueprint, dependency graph
 PDF and exact source links. A green node is not a substitute for reading its Lean
 type or for human review. See [Blueprint details](blueprint/README.md).
 
-## Publication
-
-Repository URLs are kept in `publication.json`; [publication setup](docs/PUBLISHING.md)
-explains configuration. No remote repository or public deployment is created by a
-local build.
-
-`research/` and `reference/` are preserved byte for byte. Theorem 1.4 extends the
-formal sources; the original snapshot and the current reviewed manifest are
-recorded separately. Old Japanese self-audits are under `docs/archive/`, with
-their historical status made explicit.
-Code is [Apache-2.0](LICENSE); exposition is [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
-Use [CITATION.cff](CITATION.cff) and include the exact canonical commit when citing.

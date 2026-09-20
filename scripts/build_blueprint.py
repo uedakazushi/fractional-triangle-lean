@@ -43,8 +43,8 @@ def main():
     language='ja' if ja else 'en'
     title='Isolated hypersurface fractional triangle singularities' + (' — 日本語解説' if ja else '')
     body='<h1>'+title+'</h1><p>Kenji Hashimoto · Hwayoung Lee · Kazushi Ueda</p>'
-    body+='<p>'+('英語版の固定コミットに対応する日本語解説。' if ja else 'The canonical source edition and its curated mathematical blueprint.')+'</p>'
-    body+='<ul><li><a href="blueprint/index.html">Lean Blueprint</a></li><li><a href="blueprint/dep_graph_document.html">Dependency graph / 依存グラフ</a></li><li><a href="lean/find/index.html">Lean source declarations / 宣言一覧</a></li>'
+    # body+='<p>'+('英語版の固定コミットに対応する日本語解説。' if ja else 'The canonical source edition and its curated mathematical blueprint.')+'</p>'
+    body+='<ul><li><a href="blueprint/index.html">Lean Blueprint</a></li><li><a href="blueprint/dep_graph_document.html">Dependency graph</a></li><li><a href="lean/find/index.html">Lean source declarations</a></li>'
     if args.pdf:
         env=os.environ.copy();cache=ROOT/'.cache/tex';cache.mkdir(parents=True,exist_ok=True)
         env['TEXMFVAR']=str(cache);env['TEXMFCACHE']=str(cache)
@@ -52,7 +52,7 @@ def main():
         run(['latexmk','-lualatex','-interaction=nonstopmode','-halt-on-error','-outdir=../print','print.tex'],ROOT/'blueprint/src',logs/'blueprint-pdf.log',env)
         shutil.copy2(pdf_dir/'print.pdf',site/'blueprint.pdf')
         body+='<li><a href="blueprint.pdf">PDF</a></li>'
-    body+='</ul><p>'+('Lean のビルド・公理監査と、数学的な意味の人手レビューは別々に確認してください。' if ja else 'Lean compilation and axiom audits are distinct from human review of the mathematical meaning.')+'</p>'
+    # body+='</ul><p>'+('Lean のビルド・公理監査と、数学的な意味の人手レビューは別々に確認してください。' if ja else 'Lean compilation and axiom audits are distinct from human review of the mathematical meaning.')+'</p>'
     meta=json.loads((ROOT/'publication.json').read_text())
     for label in (('repository_url','companion_url') if ja else ('repository_url',)):
         if meta.get(label):body+='<p><a href="'+html.escape(meta[label],quote=True)+'">'+label.replace('_',' ')+'</a></p>'
